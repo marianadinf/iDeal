@@ -1,0 +1,40 @@
+﻿@using System.Collections;
+@model IEnumerable
+           
+@{
+    Layout = null;
+    Type viewModelTypeInEnumeration = ViewData.ModelMetadata.ModelType.GetGenericArguments()[0];
+    var tableId = string.Format("{0}Table", viewModelTypeInEnumeration.Name);
+    var properties = viewModelTypeInEnumeration.GetProperties(); //
+
+    ViewData.ModelMetadata.
+    
+}
+
+
+<table id="@tableId">
+    <thead>
+        <tr>
+            @foreach (var metaData in ViewData.ModelMetadata.Properties.Where(x => x.ShowForDisplay))
+            {
+                @Html.DisplayForModel("DisplayTemplates/TableHeaderCell", metaData);
+            }
+        </tr>
+    </thead>
+    
+    <tbody>
+        @foreach(var item in Model)
+        {
+            
+            <tr>
+                @Html.DisplayForModel("DisplayTemplates/TableBodyCell", item);
+                @* <td data-property-name="@propertyInfo.Name">
+                        @Html.Encode(propertyInfo.GetValue(item, null));
+                    </td>*@
+               
+            </tr>
+        }
+        
+    </tbody>
+    
+</table>

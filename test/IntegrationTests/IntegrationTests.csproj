@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1468D786-340A-46B7-BC43-D00E55ADF4D4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>UIT.iDeal.IntegrationTests</RootNamespace>
+    <AssemblyName>UIT.iDeal.IntegrationTests</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper">
+      <HintPath>..\..\packages\AutoMapper.2.1.267\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Core, Version=3.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Castle.Core.3.0.0.4001\lib\net40-client\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Windsor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Castle.Windsor.3.0.0.4001\lib\net40\Castle.Windsor.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\..\packages\EntityFramework.4.3.1\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="FizzWare.NBuilder, Version=3.0.1.0, Culture=neutral, PublicKeyToken=5651b03e12e42c12, processorArchitecture=MSIL" />
+    <Reference Include="FluentSecurity">
+      <HintPath>..\..\packages\FluentSecurity.1.4.0\lib\FluentSecurity.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentValidation, Version=3.3.1.0, Culture=neutral, PublicKeyToken=a82054b837897c66, processorArchitecture=MSIL" />
+    <Reference Include="Machine.Fakes">
+      <HintPath>..\..\packages\Machine.Fakes.0.3.5\lib\Machine.Fakes.dll</HintPath>
+    </Reference>
+    <Reference Include="Machine.Fakes.Adapters.Moq">
+      <HintPath>..\..\packages\Machine.Fakes.Moq.0.3.5\lib\Machine.Fakes.Adapters.Moq.dll</HintPath>
+    </Reference>
+    <Reference Include="Machine.Specifications">
+      <HintPath>..\..\packages\Machine.Specifications.0.5.6.0\lib\net40\Machine.Specifications.dll</HintPath>
+    </Reference>
+    <Reference Include="Machine.Specifications.Clr4">
+      <HintPath>..\..\packages\Machine.Specifications.0.5.6.0\lib\net40\Machine.Specifications.Clr4.dll</HintPath>
+    </Reference>
+    <Reference Include="Moq">
+      <HintPath>..\..\packages\Moq.4.0.10827\lib\NET40\Moq.dll</HintPath>
+    </Reference>
+    <Reference Include="MvcContrib.TestHelper">
+      <HintPath>..\..\packages\MvcContrib.Mvc3.TestHelper-ci.3.0.100.0\lib\MvcContrib.TestHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="Rhino.Mocks">
+      <HintPath>..\..\packages\RhinoMocks.3.6.1\lib\net\Rhino.Mocks.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Data.EntityFrameworkProvider\Context\when_creating_set_for_existing_Tasks_property_in_DataContext.cs" />
+    <Compile Include="Data.EntityFrameworkProvider\Context\when_creating_set_for_non_existing_entity_set_property.cs" />
+    <Compile Include="Data.EntityFrameworkProvider\Context\when_getting_context.cs" />
+    <Compile Include="Data.EntityFrameworkProvider\Context\when_rollbacking_an_existing_transaction.cs" />
+    <Compile Include="Data.EntityFrameworkProvider\DatabaseSpec.cs" />
+    <Compile Include="Data.EntityFrameworkProvider\Database\when_initialising_delegates_reference_data_creation.cs" />
+    <Compile Include="Data.EntityFrameworkProvider\Database\when_populating_data_context_with_reference_datas.cs" />
+    <Compile Include="Data.EntityFrameworkProvider\Repositories\when_retrieving_all_an_existing_task.cs" />
+    <Compile Include="Data.EntityFrameworkProvider\Repositories\when_saving_an_updated_Task.cs" />
+    <Compile Include="Data.EntityFrameworkProvider\Repositories\when_saving_new_task.cs" />
+    <Compile Include="Infrastructure\Bootstrapper\Configuration\EnvironmentConfigurationBuilderSpecs.cs" />
+    <Compile Include="Infrastructure\Bootstrapper\Installers\when_registering_query_handlers_with_container.cs" />
+    <Compile Include="Infrastructure\Bootstrapper\Installers\when_the_container_installs_command_handlers.cs" />
+    <Compile Include="Infrastructure\Bootstrapper\Installers\when_the_container_installs_controllers.cs" />
+    <Compile Include="Infrastructure\Bootstrapper\Installers\when_mapping_around_model_types .cs" />
+    <Compile Include="Infrastructure\Bootstrapper\Installers\when_resolving_command_validator.cs" />
+    <Compile Include="Infrastructure\Bootstrapper\Installers\when_registering_form_processor_with_container.cs" />
+    <Compile Include="Infrastructure\Bootstrapper\StartupTasks\when_initialising_database.cs" />
+    <Compile Include="Infrastructure\Web\ActionResults\FormActionResultSpecs\FormActionResult_specification.cs" />
+    <Compile Include="Infrastructure\Web\ActionResults\FormActionResultSpecs\when_processing_an_invalid_form.cs" />
+    <Compile Include="Infrastructure\Web\ActionResults\FormActionResultSpecs\when_processing_a_valid_form.cs" />
+    <Compile Include="Infrastructure\Web\ActionResults\FormActionResultSpecs\when_setting_action_results_with_extension_methods.cs" />
+    <Compile Include="Infrastructure\Web\ActionResults\FormActionResultSpecs\when_setting_failure_action_result_with_callback.cs" />
+    <Compile Include="Infrastructure\Web\ActionResults\when_returning_an_auto_mapped_view_result.cs" />
+    <Compile Include="Infrastructure\Web\Forms\FormProcessorSpecs\form_processor_specification.cs" />
+    <Compile Include="Infrastructure\Web\Forms\FormProcessorSpecs\when_processing_a_form_that_does_not_have_a_validator.cs" />
+    <Compile Include="Infrastructure\Web\Forms\FormProcessorSpecs\when_processing_a_null_form.cs" />
+    <Compile Include="Infrastructure\Web\Forms\FormProcessorSpecs\when_processing_a_valid_form.cs" />
+    <Compile Include="Infrastructure\Web\ModelMetaData\datetime_display_format_specs.cs" />
+    <Compile Include="Infrastructure\Web\ModelMetaData\displayname_format_specs.cs" />
+    <Compile Include="Infrastructure\Web\ModelMetaData\timespan_display_format_specs.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\main\Commands\Commands.csproj">
+      <Project>{5C35C93C-C556-4597-A484-1E786E04C8CE}</Project>
+      <Name>Commands</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\main\Common\Common.csproj">
+      <Project>{864C7B94-3083-4C9A-B702-72F436DE0EE4}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\main\Data.EntityFrameworkProvider\Data.EntityFrameworkProvider.csproj">
+      <Project>{2121C985-B08C-4862-A497-29264EFF8BDA}</Project>
+      <Name>Data.EntityFrameworkProvider</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\main\Domain\Domain.csproj">
+      <Project>{0E91C80C-4D42-42C6-BF7D-222B4CAAD4AC}</Project>
+      <Name>Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\main\Infrastructure\Infrastructure.csproj">
+      <Project>{C88719BA-7049-4E54-8C99-4CBF81D88DE8}</Project>
+      <Name>Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\main\ViewModel\ViewModel.csproj">
+      <Project>{B3077798-C983-414B-A838-D1D0C10DB317}</Project>
+      <Name>ViewModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\main\Web\Web.csproj">
+      <Project>{CE21560D-E3D3-4E38-851C-05C225C6D50B}</Project>
+      <Name>Web</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TestLibrary\TestLibrary.csproj">
+      <Project>{1E1A8D05-FB58-462B-9B39-D03F9FE1681C}</Project>
+      <Name>TestLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

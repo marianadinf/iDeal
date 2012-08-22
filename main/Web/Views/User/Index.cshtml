@@ -1,0 +1,57 @@
+﻿@using Microsoft.Web.Mvc
+@using UIT.iDeal.Web.Controllers
+@using UIT.iDeal.Common.Web
+@model IEnumerable<UIT.iDeal.ViewModel.Users.UserViewModel>
+
+@{
+    ViewBag.Title = LocalSiteMap.PageText.PageTitles.Users.Index;
+}
+
+<h2>Index</h2>
+@section PageIdentifier
+{
+    @Html.SetUpPageIdWith(LocalSiteMap.Navigation.PageIds.Users.Index)
+}
+<div>
+    @(Html.ActionLink<UserController>(x => x.Create(), "Add a new User",new{ @id = LocalSiteMap.Locators.ActionElementIds.AddUser.AddUserButton}))
+</div>
+<table id="@LocalSiteMap.Locators.Grids.Users ">
+    <tr>
+        <th  data-property-name="@Html.NameFor(x => x.First().Firstname)">
+            Firstname
+        </th>
+        <th  data-property-name="@Html.NameFor(x => x.First().Lastname)">
+            Lastname
+        </th>
+        <th  data-property-name="@Html.NameFor(x => x.First().Username)">
+            Username
+        </th>
+        <th  data-property-name="@Html.NameFor(x => x.First().Email)">
+            Email
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model) {
+        <tr id="@item.Sid">
+            <td  data-property-name="@Html.NameFor(x => x.First().Firstname)">
+                @Html.DisplayFor(modelItem => item.Firstname)
+            </td>
+            <td  data-property-name="@Html.NameFor(x => x.First().Lastname)">
+                @Html.DisplayFor(modelItem => item.Lastname)
+            </td>
+            <td data-property-name="@Html.NameFor(x => x.First().Username)">
+                @Html.DisplayFor(modelItem => item.Username)
+            </td>
+            <td data-property-name="@Html.NameFor(x => x.First().Email)">
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+    }
+
+</table>

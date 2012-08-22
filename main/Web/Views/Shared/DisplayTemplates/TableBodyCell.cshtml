@@ -1,0 +1,9 @@
+﻿@{
+    Layout = "Table.cshtml";
+}
+@foreach (var propertyMetadata in ViewData.ModelMetadata.Properties)
+{
+    <td data-property-name="@propertyMetadata.PropertyName">
+        @Html.Display(propertyMetadata.DisplayName)        
+    </td>
+}

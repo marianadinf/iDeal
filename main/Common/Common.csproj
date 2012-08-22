@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{864C7B94-3083-4C9A-B702-72F436DE0EE4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>UIT.iDeal.Common</RootNamespace>
+    <AssemblyName>UIT.iDeal.Common</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper">
+      <HintPath>..\..\packages\AutoMapper.2.1.267\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Windsor">
+      <HintPath>..\..\packages\Castle.Windsor.3.0.0.4001\lib\net40\Castle.Windsor.dll</HintPath>
+    </Reference>
+    <Reference Include="FizzWare.NBuilder">
+      <HintPath>..\..\test\ExecutableSpecifications\bin\Debug\FizzWare.NBuilder.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentValidation">
+      <HintPath>..\..\packages\FluentValidation.3.3.1.0\lib\Net40\FluentValidation.dll</HintPath>
+    </Reference>
+    <Reference Include="Seterlund.CodeGuard">
+      <HintPath>..\..\packages\Seterlund.CodeGuard.2.1\lib\net40\Seterlund.CodeGuard.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Builders\DataSources\Base\DatasourceBase.cs" />
+    <Compile Include="Builders\DataSources\Base\RandomListGenerator.cs" />
+    <Compile Include="Builders\DataSources\Base\RepeatableSequentialGenerator.cs" />
+    <Compile Include="Builders\DataSources\Base\SequentialListGenerator.cs" />
+    <Compile Include="Builders\DataSources\ReferenceData\ApplicationRoleReferenceDataSource.cs" />
+    <Compile Include="Builders\DataSources\ReferenceData\BusinessUnitReferenceDataSource.cs" />
+    <Compile Include="Builders\DataSources\ReferenceData\ReferenceDataSource.cs" />
+    <Compile Include="Builders\DataSources\ReferenceData\StageReferenceDataSource.cs" />
+    <Compile Include="Builders\Entities\ReferenceDataBuilderFor.cs" />
+    <Compile Include="Builders\Entities\Framework\EntityBuilder.cs" />
+    <Compile Include="Builders\Entities\Framework\ObjectBuilder.cs" />
+    <Compile Include="Builders\Entities\Framework\PersistableEntityPropertyNamer.cs" />
+    <Compile Include="Builders\Entities\TaskBuilder.cs" />
+    <Compile Include="Builders\Entities\UserBuilder.cs" />
+    <Compile Include="Builders\Entities\ValueObjectBuilder.cs" />
+    <Compile Include="Builders\IObjectBuilder.cs" />
+    <Compile Include="Builders\ObjectBuilder.cs" />
+    <Compile Include="Configuration\ConfigSettings.cs" />
+    <Compile Include="Data\GuidComb.cs" />
+    <Compile Include="Data\PagedResult.cs" />
+    <Compile Include="Errors\BusinessRuleException.cs" />
+    <Compile Include="Errors\ExecutionResult.cs" />
+    <Compile Include="Errors\MessageCategory.cs" />
+    <Compile Include="Errors\MessageGroup.cs" />
+    <Compile Include="Errors\PropertyNotFoundException.cs" />
+    <Compile Include="Extensions\Web\HtmlHelpers.cs" />
+    <Compile Include="Extensions\NetToString.cs" />
+    <Compile Include="Extensions\PropertyExtensions.cs" />
+    <Compile Include="Extensions\AssemblyScanner.cs" />
+    <Compile Include="Extensions\ReflectionHelpers.cs" />
+    <Compile Include="Extensions\ModelStateExtensions.cs" />
+    <Compile Include="Extensions\ExecutionResultExtension.cs" />
+    <Compile Include="Extensions\EnumerableExtensions.cs" />
+    <Compile Include="Extensions\EnumExtensions.cs" />
+    <Compile Include="Extensions\MapperExtensions.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
+    <Compile Include="Extensions\TypeExtensions.cs" />
+    <Compile Include="Helpers\FileHelpers.cs" />
+    <Compile Include="Helpers\WindsorHelpers.cs" />
+    <Compile Include="Interfaces\Commands\ICommand.cs" />
+    <Compile Include="Interfaces\Commands\ICommandHandler.cs" />
+    <Compile Include="Interfaces\Commands\ICommandHandlerFactory.cs" />
+    <Compile Include="Interfaces\Commands\ICommandInvoker.cs" />
+    <Compile Include="Interfaces\Data\IDatabaseStrategyInitialiser.cs" />
+    <Compile Include="Interfaces\Data\IReferenceDataInititaliser.cs" />
+    <Compile Include="Interfaces\Data\IUnitOfWork.cs" />
+    <Compile Include="Interfaces\Data\IPagedQueryObject.cs" />
+    <Compile Include="Interfaces\Data\IQuery.cs" />
+    <Compile Include="Interfaces\Data\IRepository.cs" />
+    <Compile Include="Interfaces\Data\ITasksQuery.cs" />
+    <Compile Include="Interfaces\Data\ITasksRepository.cs" />
+    <Compile Include="Interfaces\Data\IUserQuery.cs" />
+    <Compile Include="Interfaces\Data\IUserRepository.cs" />
+    <Compile Include="Interfaces\Errors\IValidationDictionary.cs" />
+    <Compile Include="Interfaces\Forms\IFormProcessor.cs" />
+    <Compile Include="Interfaces\ObjectMapping\AutoMapperExtensions.cs" />
+    <Compile Include="Interfaces\ObjectMapping\IHaveCustomMappings.cs" />
+    <Compile Include="Interfaces\ObjectMapping\IMapFromDomain.cs" />
+    <Compile Include="Interfaces\ObjectMapping\IMapToCommand.cs" />
+    <Compile Include="Interfaces\Queries\IQueryHandler.cs" />
+    <Compile Include="Interfaces\Queries\IQueryHandlerFactory.cs" />
+    <Compile Include="Interfaces\Security\ISecurityHelper.cs" />
+    <Compile Include="Interfaces\UserRole.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Types\Disposable.cs" />
+    <Compile Include="Types\Enumeration.cs" />
+    <Compile Include="Web\LocalSiteMap.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Builders\Builders.cd" />
+    <None Include="Interfaces\Data\DataInterfaces.cd" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Domain\Domain.csproj">
+      <Project>{0E91C80C-4D42-42C6-BF7D-222B4CAAD4AC}</Project>
+      <Name>Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Security\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

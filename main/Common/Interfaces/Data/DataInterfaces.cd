@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Interface Name="UIT.iDeal.Common.Interfaces.Data.IDatabaseStrategyInitialiser">
+    <Position X="7.25" Y="0.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\Data\IDatabaseStrategyInitialiser.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="UIT.iDeal.Common.Interfaces.Data.IUnitOfWork">
+    <Position X="9.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAIAA=</HashCode>
+      <FileName>Interfaces\Data\IUnitOfWork.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="UIT.iDeal.Common.Interfaces.Data.IQuery&lt;T&gt;">
+    <Position X="6.5" Y="3.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\Data\IQuery.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="UIT.iDeal.Common.Interfaces.Data.IPaginatedQuery&lt;T&gt;" Collapsed="true">
+    <Position X="3.25" Y="5.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\Data\IQuery.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="UIT.iDeal.Common.Interfaces.Data.IPaginatedQueryWithTypedId&lt;T, TId&gt;">
+    <Position X="3.25" Y="3.25" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\Data\IQuery.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="UIT.iDeal.Common.Interfaces.Data.IQueryWithTypedId&lt;T, TId&gt;">
+    <Position X="2.75" Y="0.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAgAAAAAgAAA=</HashCode>
+      <FileName>Interfaces\Data\IQuery.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="UIT.iDeal.Common.Interfaces.Data.IRepository&lt;T&gt;" Collapsed="true">
+    <Position X="0.5" Y="5.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\Data\IRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="UIT.iDeal.Common.Interfaces.Data.IRepositoryWithTypedId&lt;T, TId&gt;">
+    <Position X="0.5" Y="3.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\Data\IRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="UIT.iDeal.Common.Interfaces.Data.ITasksQuery" Collapsed="true">
+    <Position X="6.75" Y="5.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\Data\ITasksQuery.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="UIT.iDeal.Common.Interfaces.Data.ITasksRepository" Collapsed="true">
+    <Position X="0.5" Y="7" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\Data\ITasksRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

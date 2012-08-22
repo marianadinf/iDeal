@@ -1,0 +1,8 @@
+﻿@{
+    Layout = "Table.cshtml";
+}
+
+@model
+<th data-property-name="@ViewData.ModelMetadata.PropertyName">
+    @Html.Encode(ViewData.ModelMetadata.PropertyName)
+</th>

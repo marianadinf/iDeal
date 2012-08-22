@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="UIT.iDeal.Data.EntityFrameworkProvider.Context.DataContext">
+    <Position X="7" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAEAAAABAAAAAAAAAAAEAAAAAAAAAAIAAAAAAA=</HashCode>
+      <FileName>Context\DataContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UIT.iDeal.Data.EntityFrameworkProvider.Context.DataContextFactory" BaseTypeListCollapsed="true">
+    <Position X="8.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAMAAAAAAAgAAAAAAAAAAAQAIAAEAAAEAQACCAAAA=</HashCode>
+      <FileName>Context\DataContextFactory.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.221" Collapsed="true" />
+  </Class>
+  <Class Name="UIT.iDeal.Data.EntityFrameworkProvider.Context.UnitOfWork" BaseTypeListCollapsed="true">
+    <Position X="8.75" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAABIAAABAQAIAAAAAAAAAAAgAAAAAAAAAAAIQA=</HashCode>
+      <FileName>Context\UnitOfWork.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="UIT.iDeal.Data.EntityFrameworkProvider.Database.AlwaysDropAndRecreateDatabaseStrategyInitialiser" BaseTypeListCollapsed="true">
+    <Position X="5.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Database\AlwaysDropAndRecreateDatabaseStrategyInitialiser.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="UIT.iDeal.Data.EntityFrameworkProvider.Database.DropAndRecreateWhenModelChangesDatabaseStrategyInitialiser" BaseTypeListCollapsed="true">
+    <Position X="5.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Database\DropAndRecreateWhenModelChangesDatabaseStrategyInitialiser.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="UIT.iDeal.Data.EntityFrameworkProvider.Database.NullDatabaseStrategyInitialiser" BaseTypeListCollapsed="true">
+    <Position X="5.25" Y="3.5" Width="1.5" />
+    <NestedTypes>
+      <Class Name="UIT.iDeal.Data.EntityFrameworkProvider.Database.NullDatabaseStrategyInitialiser.EFNullDatabaseInitializer&lt;TContext&gt;" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Database\NullDatabaseStrategyInitialiser.cs</NewMemberFileName>
+        </TypeIdentifier>
+        <Lollipop Position="0.2" />
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Database\NullDatabaseStrategyInitialiser.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="UIT.iDeal.Data.EntityFrameworkProvider.Database.UpdateModelChangesAndMigrateDatabaseStrategyInitialiser" BaseTypeListCollapsed="true">
+    <Position X="5.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Database\UpdateModelChangesAndMigrateDatabaseStrategyInitialiser.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="UIT.iDeal.Data.EntityFrameworkProvider.Repositories.Query&lt;T&gt;">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Repositories\Query.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="UIT.iDeal.Data.EntityFrameworkProvider.Repositories.QueryWithTypedId&lt;T, TId&gt;">
+    <Position X="1.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAABAAAAAAAAAAAAAAAAAAgAAAAAgAAE=</HashCode>
+      <FileName>Repositories\Query.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="UIT.iDeal.Data.EntityFrameworkProvider.Repositories.Repository&lt;T&gt;">
+    <Position X="2.75" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAAAAAAAQAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Repositories\Repository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="UIT.iDeal.Data.EntityFrameworkProvider.Repositories.RepositoryWithTypedId&lt;T, TId&gt;">
+    <Position X="2.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAAAAAAAAAQAEAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Repositories\Repository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="UIT.iDeal.Data.EntityFrameworkProvider.Repositories.TasksQuery">
+    <Position X="0.5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Repositories\TasksQuery.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="UIT.iDeal.Data.EntityFrameworkProvider.Repositories.TasksRepository" Collapsed="true">
+    <Position X="2.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Repositories\TasksRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="UIT.iDeal.Data.EntityFrameworkProvider.Context.IDataContextFactory">
+    <Position X="10.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Context\IDbContextFactory.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

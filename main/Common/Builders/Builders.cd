@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="UIT.iDeal.TestLibrary.Builders.Entities.Framework.EntityBuilder&lt;T&gt;">
+    <Position X="0.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Builders\Entities\Framework\EntityBuilder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UIT.iDeal.TestLibrary.Builders.Entities.Framework.PersistableEntityPropertyNamer">
+    <Position X="3" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAAAAAAAAAAAAAAAAAAQAAQAAAAAAAA=</HashCode>
+      <FileName>Builders\Entities\Framework\PersistableEntityPropertyNamer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UIT.iDeal.TestLibrary.Builders.Entities.Framework.ObjectBuilder&lt;T&gt;">
+    <Position X="0.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEBAAAAAEAAAIAAAAAAAAAAAgAAAAAAAoAABACA=</HashCode>
+      <FileName>Builders\Entities\Framework\ObjectBuilder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UIT.iDeal.TestLibrary.Builders.Entities.TaskBuilder" Collapsed="true">
+    <Position X="0.75" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Builders\Entities\TaskBuilder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -1,0 +1,357 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="UIT.iDeal.IntegrationTests.Data.EntityFrameworkProvider.Context.when_creating_set_for_existing_Tasks_property_in_DataContext" Collapsed="true">
+    <Position X="1" Y="1.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAAAAAAAAEAAAAAAAAQAAAAAAAAAAAA=</HashCode>
+      <FileName>Data.EntityFrameworkProvider\Context\when_creating_set_for_existing_Tasks_property_in_DataContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UIT.iDeal.IntegrationTests.Data.EntityFrameworkProvider.Context.when_creating_set_for_non_existing_entity_set_property" Collapsed="true">
+    <Position X="3.25" Y="1.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAACAAAAAAAACAAAAAAAAAAAAAAAAAAAIAAA=</HashCode>
+      <FileName>Data.EntityFrameworkProvider\Context\when_creating_set_for_non_existing_entity_set_property.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UIT.iDeal.IntegrationTests.Data.EntityFrameworkProvider.Context.when_getting_context" Collapsed="true">
+    <Position X="5.5" Y="1.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAAACAAAAAAAAAAIAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data.EntityFrameworkProvider\Context\when_getting_context.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UIT.iDeal.IntegrationTests.Data.EntityFrameworkProvider.Context.when_rollbacking_an_existing_transaction" Collapsed="true">
+    <Position X="7.75" Y="1.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AABCAAAAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data.EntityFrameworkProvider\Context\when_rollbacking_an_existing_transaction.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UIT.iDeal.IntegrationTests.Data.EntityFrameworkProvider.DatabaseSpec" Collapsed="true">
+    <Position X="7.75" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AACCAAAAAgAAACAAAAAAAAAAAAAAgIAIAAAAAAAAAAQ=</HashCode>
+      <FileName>Data.EntityFrameworkProvider\DatabaseSpec.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UIT.iDeal.IntegrationTests.Data.EntityFrameworkProvider.Repositories.when_retrieving_all_existing_tasks" Collapsed="true">
+    <Position X="10" Y="1.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAACAAEAAQDAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAA=</HashCode>
+      <FileName>Data.EntityFrameworkProvider\Repositories\when_retrieving_all_an_existing_task.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UIT.iDeal.IntegrationTests.Data.EntityFrameworkProvider.Repositories.when_saving_an_updated_Task" Collapsed="true">
+    <Position X="12.25" Y="1.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAADEAAAAAAAAAAAAAAAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>Data.EntityFrameworkProvider\Repositories\when_saving_an_updated_Task.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UIT.iDeal.IntegrationTests.Data.EntityFrameworkProvider.Repositories.when_saving_a_new_task" Collapsed="true">
+    <Position X="14.5" Y="1.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAADIAAAAQAAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data.EntityFrameworkProvider\Repositories\when_saving_new_task.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UIT.iDeal.IntegrationTests.Infrastructure.Bootstrapper.Configuration.When_the_environment_configuration_builder_builds_an_environment_configuration" Collapsed="true">
+    <Position X="22.25" Y="2.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>QAACAAAAAACAAAAAAAAAAIAAgAAEAAAAAgAIAAAAAAA=</HashCode>
+      <FileName>Infrastructure\Bootstrapper\Configuration\EnvironmentConfigurationBuilderSpecs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UIT.iDeal.IntegrationTests.Infrastructure.Bootstrapper.Configuration.When_a_project_specific_configuration_for_certain_project_properties_is_added" Collapsed="true">
+    <Position X="17" Y="1.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAIAACAAAAAAAAAAAAAgAQAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Infrastructure\Bootstrapper\Configuration\EnvironmentConfigurationBuilderSpecs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UIT.iDeal.IntegrationTests.Infrastructure.Bootstrapper.Configuration.When_the_application_project_specific_configuration_for_certain_project_properties_is_added" Collapsed="true">
+    <Position X="18.75" Y="2.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAIAACAAAAAAAAAAAAAgAQAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Infrastructure\Bootstrapper\Configuration\EnvironmentConfigurationBuilderSpecs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UIT.iDeal.IntegrationTests.Infrastructure.Bootstrapper.Installers.when_registering_AutoMapper_with_container" Collapsed="true">
+    <Position X="8.75" Y="7.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Infrastructure\Bootstrapper\Installers\when_mapping_around_model_types .cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UIT.iDeal.IntegrationTests.Infrastructure.Bootstrapper.Installers.when_mapping_from_domain_to_view_model" Collapsed="true">
+    <Position X="11" Y="9.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Infrastructure\Bootstrapper\Installers\when_mapping_around_model_types .cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UIT.iDeal.IntegrationTests.Infrastructure.Bootstrapper.Installers.when_mapping_from_Form_Model_to_Command" Collapsed="true">
+    <Position X="13.25" Y="9.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Infrastructure\Bootstrapper\Installers\when_mapping_around_model_types .cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UIT.iDeal.IntegrationTests.Infrastructure.Bootstrapper.Installers.when_mapping_using_custom_mappings" Collapsed="true">
+    <Position X="18.75" Y="1.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAACAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Infrastructure\Bootstrapper\Installers\when_mapping_around_model_types .cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UIT.iDeal.IntegrationTests.Infrastructure.Bootstrapper.Installers.AutoMapper_mapping_specification&lt;TSource, TDestination&gt;" Collapsed="true">
+    <Position X="12" Y="7.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAECAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Infrastructure\Bootstrapper\Installers\when_mapping_around_model_types .cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UIT.iDeal.IntegrationTests.Infrastructure.Bootstrapper.Installers.AutoMapper_specification" Collapsed="true">
+    <Position X="11" Y="6.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Infrastructure\Bootstrapper\Installers\when_mapping_around_model_types .cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UIT.iDeal.IntegrationTests.Infrastructure.Bootstrapper.Installers.when_registering_form_processor_with_container" Collapsed="true">
+    <Position X="20.5" Y="1.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAQCAAAAAAAAAAAAAAABAAAAAAAABAAAAAAA=</HashCode>
+      <FileName>Infrastructure\Bootstrapper\Installers\when_registering_form_processor_with_container.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UIT.iDeal.IntegrationTests.Infrastructure.Bootstrapper.Installers.when_resolving_command_validator" Collapsed="true">
+    <Position X="22.25" Y="1.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>BAACAAAAAACAAAAAAAAAAAAAAABAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>Infrastructure\Bootstrapper\Installers\when_resolving_command_validator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UIT.iDeal.IntegrationTests.Infrastructure.Bootstrapper.Installers.when_requesting_a_handler_for_a_command_with_a_handler" Collapsed="true">
+    <Position X="5.5" Y="13.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAQA=</HashCode>
+      <FileName>Infrastructure\Bootstrapper\Installers\when_the_container_installs_command_handlers.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UIT.iDeal.IntegrationTests.Infrastructure.Bootstrapper.Installers.when_requesting_a_handler_for_a_command_without_a_handler" Collapsed="true">
+    <Position X="7.75" Y="13.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAAAAAAAAAAAAAAAAEAAAAAAAAAABAA=</HashCode>
+      <FileName>Infrastructure\Bootstrapper\Installers\when_the_container_installs_command_handlers.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UIT.iDeal.IntegrationTests.Infrastructure.Bootstrapper.Installers.command_handler_specification" Collapsed="true">
+    <Position X="6.75" Y="12.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>BAACAAAAAAAAAAAABAAAAAAAAABAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Infrastructure\Bootstrapper\Installers\when_the_container_installs_command_handlers.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UIT.iDeal.IntegrationTests.Infrastructure.Bootstrapper.Installers.CommandWithHandlerHandler" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="18.75" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAABAAAAAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Infrastructure\Bootstrapper\Installers\when_the_container_installs_command_handlers.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="UIT.iDeal.IntegrationTests.Infrastructure.Bootstrapper.Installers.CommandWithHandler" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="17" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Infrastructure\Bootstrapper\Installers\when_the_container_installs_command_handlers.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="UIT.iDeal.IntegrationTests.Infrastructure.Bootstrapper.Installers.CommandWithoutHandler" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="20.5" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Infrastructure\Bootstrapper\Installers\when_the_container_installs_command_handlers.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="UIT.iDeal.IntegrationTests.Infrastructure.Bootstrapper.Installers.when_the_container_installs_controllers" Collapsed="true">
+    <Position X="20.5" Y="2.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAAAAAAAECAAAAEAAEAAAAAAIBAAAAA=</HashCode>
+      <FileName>Infrastructure\Bootstrapper\Installers\when_the_container_installs_controllers.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UIT.iDeal.IntegrationTests.Infrastructure.Bootstrapper.StartupTasks.when_always_dropping_and_recreating_the_database" Collapsed="true">
+    <Position X="0.5" Y="13.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Infrastructure\Bootstrapper\StartupTasks\when_initialising_database.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UIT.iDeal.IntegrationTests.Infrastructure.Bootstrapper.StartupTasks.when_initialising_database_with_no_model_changes" Collapsed="true">
+    <Position X="2.75" Y="13.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Infrastructure\Bootstrapper\StartupTasks\when_initialising_database.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UIT.iDeal.IntegrationTests.Infrastructure.Bootstrapper.StartupTasks.build_database_with&lt;TDatabaseInitialiser&gt;" Collapsed="true">
+    <Position X="1.75" Y="12.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAACAAIAAECAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Infrastructure\Bootstrapper\StartupTasks\when_initialising_database.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UIT.iDeal.IntegrationTests.Infrastructure.Bootstrapper.WindsorHelpers" Collapsed="true">
+    <Position X="17" Y="3.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAQAAAAAAAAEAAAAIAAAAAAAAAgAA=</HashCode>
+      <FileName>Infrastructure\Bootstrapper\WindsorHelpers.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UIT.iDeal.IntegrationTests.Infrastructure.Web.ActionResults.FormActionResultSpecs.FormActionResult_specification" Collapsed="true">
+    <Position X="4" Y="3.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAQAAAAAAAIAAAAQAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Infrastructure\Web\ActionResults\FormActionResultSpecs\FormActionResult_specification.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UIT.iDeal.IntegrationTests.Infrastructure.Web.ActionResults.FormActionResultSpecs.when_processing_a_valid_form" Collapsed="true">
+    <Position X="7.5" Y="5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Infrastructure\Web\ActionResults\FormActionResultSpecs\when_processing_a_valid_form.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UIT.iDeal.IntegrationTests.Infrastructure.Web.ActionResults.FormActionResultSpecs.when_processing_an_invalid_form" Collapsed="true">
+    <Position X="0.75" Y="5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>IAACEAAAAgKAAAAAAAAAAAAAAAAAAAAAAEAIAAIABAA=</HashCode>
+      <FileName>Infrastructure\Web\ActionResults\FormActionResultSpecs\when_processing_an_invalid_form.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UIT.iDeal.IntegrationTests.Infrastructure.Web.ActionResults.FormActionResultSpecs.when_setting_action_results_with_extension_methods" Collapsed="true">
+    <Position X="3" Y="5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACgAAAAAAAgAAAAAAAAAAAAIAAQAAAAAAA=</HashCode>
+      <FileName>Infrastructure\Web\ActionResults\FormActionResultSpecs\when_setting_action_results_with_extension_methods.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UIT.iDeal.IntegrationTests.Infrastructure.Web.ActionResults.FormActionResultSpecs.when_setting_failure_action_result_with_callback" Collapsed="true">
+    <Position X="5.25" Y="5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAAAAAAgAAAAAAAAEAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Infrastructure\Web\ActionResults\FormActionResultSpecs\when_setting_failure_action_result_with_callback.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UIT.iDeal.IntegrationTests.Infrastructure.Web.ActionResults.when_returning_an_auto_mapped_view_result" Collapsed="true">
+    <Position X="17" Y="2.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAgCAAAAAACAAAAAAIAAAAQAAgABAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Infrastructure\Web\ActionResults\when_returning_an_auto_mapped_view_result.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UIT.iDeal.IntegrationTests.Infrastructure.Web.Forms.FormProcessorSpecs.form_processor_specification" Collapsed="true">
+    <Position X="3" Y="6.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAACABAAAAAAAAAAAAAABAQAAAAAAAAIAAAAAAEAAAA=</HashCode>
+      <FileName>Infrastructure\Web\Forms\FormProcessorSpecs\form_processor_specification.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UIT.iDeal.IntegrationTests.Infrastructure.Web.Forms.FormProcessorSpecs.when_processing_a_form_that_does_not_have_a_validator" Collapsed="true">
+    <Position X="0.75" Y="8" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAACAAAAAAAAAAAAAAAAAAAAAAABAiAAAAAA=</HashCode>
+      <FileName>Infrastructure\Web\Forms\FormProcessorSpecs\when_processing_a_form_that_does_not_have_a_validator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UIT.iDeal.IntegrationTests.Infrastructure.Web.Forms.FormProcessorSpecs.when_processing_a_null_form" Collapsed="true">
+    <Position X="3" Y="8" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAACAAAAAAAAAAAAAAAAAAQAAAABAAAAAAAA=</HashCode>
+      <FileName>Infrastructure\Web\Forms\FormProcessorSpecs\when_processing_a_null_form.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UIT.iDeal.IntegrationTests.Infrastructure.Web.Forms.FormProcessorSpecs.when_processing_a_valid_form" Collapsed="true">
+    <Position X="5.25" Y="8" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACABAAAAAAAQAAAAAAAAAAAAAAAiAAEAAA=</HashCode>
+      <FileName>Infrastructure\Web\Forms\FormProcessorSpecs\when_processing_a_valid_form.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UIT.iDeal.IntegrationTests.Infrastructure.Web.ModelMetaData.datetime_display_format_specs" Collapsed="true">
+    <Position X="11.75" Y="10.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAgCAAAAAAAABAAAAAAAAAAQAABAEAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Infrastructure\Web\ModelMetaData\datetime_display_format_specs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UIT.iDeal.IntegrationTests.Infrastructure.Web.ModelMetaData.when_displaying_a_datetime_without_display_format_attribute" Collapsed="true">
+    <Position X="10.5" Y="11.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAACAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAA=</HashCode>
+      <FileName>Infrastructure\Web\ModelMetaData\datetime_display_format_specs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UIT.iDeal.IntegrationTests.Infrastructure.Web.ModelMetaData.when_displaying_a_datetime_with_display_format_attribute" Collapsed="true">
+    <Position X="12.75" Y="11.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAACAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Infrastructure\Web\ModelMetaData\datetime_display_format_specs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UIT.iDeal.IntegrationTests.Infrastructure.Web.ModelMetaData.DummyClassForHoldingPropertyDisplayNameAttribute" Collapsed="true">
+    <Position X="22.25" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Infrastructure\Web\ModelMetaData\displayname_format_specs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UIT.iDeal.IntegrationTests.Infrastructure.Web.ModelMetaData.displayname_format_specs" Collapsed="true">
+    <Position X="6.75" Y="9.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAACACAAAAAAAAAAAAAAAAAQAABAEAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Infrastructure\Web\ModelMetaData\displayname_format_specs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UIT.iDeal.IntegrationTests.Infrastructure.Web.ModelMetaData.when_displaying_a_name_without_display_name_attribute" Collapsed="true">
+    <Position X="5.5" Y="10.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAACAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAA=</HashCode>
+      <FileName>Infrastructure\Web\ModelMetaData\displayname_format_specs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UIT.iDeal.IntegrationTests.Infrastructure.Web.ModelMetaData.when_displaying_a_name_with_display_name_attribute" Collapsed="true">
+    <Position X="7.75" Y="10.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAACAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Infrastructure\Web\ModelMetaData\displayname_format_specs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UIT.iDeal.IntegrationTests.Infrastructure.Web.ModelMetaData.timespan_display_format_specs" Collapsed="true">
+    <Position X="1.75" Y="9.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAQAABAEAAAgAAAAAQAAAA=</HashCode>
+      <FileName>Infrastructure\Web\ModelMetaData\timespan_display_format_specs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UIT.iDeal.IntegrationTests.Infrastructure.Web.ModelMetaData.when_displaying_a_timespan_without_display_format_attribute" Collapsed="true">
+    <Position X="0.5" Y="10.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAACAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAA=</HashCode>
+      <FileName>Infrastructure\Web\ModelMetaData\timespan_display_format_specs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UIT.iDeal.IntegrationTests.Infrastructure.Web.ModelMetaData.when_displaying_a_timepsan_with_display_format_attribute" Collapsed="true">
+    <Position X="2.75" Y="10.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAACAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Infrastructure\Web\ModelMetaData\timespan_display_format_specs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

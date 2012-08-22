@@ -1,0 +1,52 @@
+﻿@model IEnumerable<TaskItemViewModel>
+@using UIT.iDeal.ViewModel.Tasks;
+@using UIT.iDeal.Common.Web
+@using UIT.iDeal.Web.Controllers
+@using Microsoft.Web.Mvc
+
+@{
+    ViewBag.Title = LocalSiteMap.PageText.PageTitles.Tasks.Index;
+}
+
+@section PageIdentifier
+{
+    @Html.SetUpPageIdWith(LocalSiteMap.Navigation.PageIds.Tasks.Index);
+}
+
+<h2>Index</h2>
+<div>
+    @(Html.ActionLink<TasksController>(x => x.Create(), "Add a new Task",new{ @id = LocalSiteMap.Locators.ActionElementIds.Tasks.AddTaskButton}));
+</div>
+
+
+<table id="@LocalSiteMap.Locators.Grids.Tasks">
+    <thead>
+        <tr>
+            <th data-property-name="@Html.NameFor(x => x.First().Description)">
+                Description
+            </th>
+            <th data-property-name="@Html.NameFor(x => x.First().IsDone)">
+               Is Completed
+            </th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+
+    @foreach (var item in Model)
+    {
+        <tr id="@item.Id">
+            <td data-property-name="@Html.NameFor(x => item.Description)">
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td data-property-name="@Html.NameFor(x => item.IsDone)">
+                @Html.DisplayFor(modelItem => item.IsDone)
+            </td>
+            <td>
+                @(Html.ActionLink<TasksController>(x => x.Edit(item.Id), "Edit"))
+                @(Html.ActionLink<TasksController>(x => x.Delete(item.Id), "Delete"))
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

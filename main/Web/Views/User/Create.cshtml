@@ -1,0 +1,32 @@
+﻿@using Microsoft.Web.Mvc
+@using UIT.iDeal.Common.Web
+@using UIT.iDeal.Web.Controllers
+@model UIT.iDeal.ViewModel.Users.AddUserForm
+
+@{
+    ViewBag.Title = LocalSiteMap.PageText.PageTitles.Users.Create;
+}
+
+<h2>Create a new User</h2>
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+@section PageIdentifier
+{
+   @Html.SetUpPageIdWith(LocalSiteMap.Navigation.PageIds.Users.Create)
+}
+@using (Html.BeginForm()){
+    
+   @Html.ValidationSummary(true)
+    <fieldset>
+        @Html.EditorForModel()
+        <p>
+            <input type="submit" id="@LocalSiteMap.Locators.ActionElementIds.AddUser.AddUserButton" value="Create" />
+        </p>
+    </fieldset>
+}
+
+
+<div>
+   @(Html.ActionLink<UserController>(x => x.Index(), "Back to Users list"))
+</div>

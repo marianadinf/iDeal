@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="UIT.iDeal.TestLibrary.Browsers.PageObjects.Framework.FormComponent&lt;TForm&gt;">
+    <Position X="0.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQBAAAAAAABAAAAAAAIAAAAIAAAQAACEAQAAAAAAAA=</HashCode>
+      <FileName>Browsers\PageObjects\Framework\FormComponent.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UIT.iDeal.TestLibrary.Browsers.PageObjects.Framework.Page&lt;TViewModel&gt;">
+    <Position X="6" Y="8.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACAAAAAAAAAAAAAgAAAAAEAAAEAAAA=</HashCode>
+      <FileName>Browsers\PageObjects\Framework\GenericPage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UIT.iDeal.TestLibrary.Browsers.PageObjects.Framework.GridComponent&lt;TViewModel&gt;">
+    <Position X="2.75" Y="5.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>QIAAAABAAIAAAFKADAAAAAAAQIAAAACEAAECAAAIEAA=</HashCode>
+      <FileName>Browsers\PageObjects\Framework\GridComponent.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="UIT.iDeal.TestLibrary.Browsers.PageObjects.Framework.Page">
+    <Position X="5.5" Y="5.25" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAABAAAAAAAQAAAAAAAAAAAAAIAAA=</HashCode>
+      <FileName>Browsers\PageObjects\Framework\Page.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UIT.iDeal.TestLibrary.Browsers.PageObjects.Framework.PanelComponent&lt;TViewModel&gt;">
+    <Position X="9.5" Y="5.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAIAQAAABAAAAAAAAAAA=</HashCode>
+      <FileName>Browsers\PageObjects\Framework\PanelComponent.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UIT.iDeal.TestLibrary.Browsers.PageObjects.Framework.UiComponent">
+    <Position X="5" Y="0.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAABAAQAAACABACAAAAAAAEQAAAQCAAkAEA=</HashCode>
+      <FileName>Browsers\PageObjects\Framework\UiComponent.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UIT.iDeal.TestLibrary.Browsers.PageObjects.Task.AddTaskPage">
+    <Position X="4.25" Y="11.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAJAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>Browsers\PageObjects\Task\AddTaskPage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UIT.iDeal.TestLibrary.Browsers.PageObjects.Task.TaskListPage">
+    <Position X="7.75" Y="11.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAACAgAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAE=</HashCode>
+      <FileName>Browsers\PageObjects\Task\TaskListPage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
