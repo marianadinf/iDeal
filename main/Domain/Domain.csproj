@@ -56,6 +56,7 @@
     <Compile Include="Model\Base\DomainSignatureAttribute.cs" />
     <Compile Include="Model\Base\Entity.cs" />
     <Compile Include="Model\Base\IEntityWithTypedId.cs" />
+    <Compile Include="Model\Base\UniqueCollectionExtensions.cs" />
     <Compile Include="Model\ReferenceData\ApplicationRole.cs" />
     <Compile Include="Model\ReferenceData\BusinessUnit.cs" />
     <Compile Include="Model\ReferenceData\ReferenceData.cs" />

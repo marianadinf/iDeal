@@ -64,6 +64,7 @@
     <Compile Include="Builders\DataSources\Base\RandomListGenerator.cs" />
     <Compile Include="Builders\DataSources\Base\RepeatableSequentialGenerator.cs" />
     <Compile Include="Builders\DataSources\Base\SequentialListGenerator.cs" />
+    <Compile Include="Builders\DataSources\Domain\UserDataSource.cs" />
     <Compile Include="Builders\DataSources\ReferenceData\ApplicationRoleReferenceDataSource.cs" />
     <Compile Include="Builders\DataSources\ReferenceData\BusinessUnitReferenceDataSource.cs" />
     <Compile Include="Builders\DataSources\ReferenceData\ReferenceDataSource.cs" />

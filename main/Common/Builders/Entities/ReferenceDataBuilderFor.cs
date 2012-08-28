@@ -19,6 +19,7 @@ namespace UIT.iDeal.Common.Builders.Entities
         public ReferenceDataBuilderFor(): base(_numberOfReferenceData)
         { }
 
+        
         protected override List<TReferenceData> BuildList()
         {
             VerifyThatReferenceDataSourceHasBeenSet();

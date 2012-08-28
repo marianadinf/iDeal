@@ -37,6 +37,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FizzWare.NBuilder, Version=3.0.1.0, Culture=neutral, PublicKeyToken=5651b03e12e42c12, processorArchitecture=MSIL" />
     <Reference Include="FluentValidation">
       <HintPath>..\..\packages\FluentValidation.3.3.1.0\lib\Net40\FluentValidation.dll</HintPath>
     </Reference>
@@ -54,6 +55,7 @@
     <Compile Include="DeleteTask\DeleteTaskCommandHandler.cs" />
     <Compile Include="EditTask\EditTaskCommand.cs" />
     <Compile Include="EditTask\EditTaskCommandHanlder.cs" />
+    <Compile Include="Factories\UserFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -1,8 +1,13 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+
 namespace UIT.iDeal.Common.Builders.DataSources.Base
 {
-    public abstract class DatasourceBase<T>
+    public abstract class DatasourceBase<T> : IEnumerable<T>
     {
-        public abstract T Next();
+        private readonly Lazy<List<T>> _lazyList;
+
         public IDataGenerator<int> Generator { get; set; }
         public int Increment
         {
@@ -13,9 +18,26 @@ namespace UIT.iDeal.Common.Builders.DataSources.Base
         public DatasourceBase()
         {
             Generator = new SequentialListGenerator();
-            //Generator.Direction = GeneratorDirection.Ascending;
+            _lazyList = new Lazy<List<T>>(InitialiseList);
             Increment = 1;
             Generator.StartingWith(0);
+        }
+
+        public virtual T Next()
+        {
+            return _lazyList.Value[Generator.Generate()];
+        }
+
+        protected abstract List<T> InitialiseList();
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            return _lazyList.Value.GetEnumerator();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
         }
     }
 
