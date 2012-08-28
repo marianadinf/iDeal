@@ -1,4 +1,8 @@
 ﻿@using UIT.iDeal.Web.Notification
+@using Microsoft.Web.Mvc
+@using UIT.iDeal.Common.Web
+@using UIT.iDeal.Web.Controllers
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -67,7 +71,11 @@
             <nav>
                 <ul id="menu">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    <ul id="Admin"> 
+                        <li> @(Html.ActionLink<UserController>(x => x.Create(), "User Setup"))</li>
+                    
+                    </ul>
+                   
                 </ul>
             </nav>
         </header>
@@ -87,3 +95,4 @@
     </div>
 </body>
 </html>
+

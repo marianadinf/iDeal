@@ -36,6 +36,8 @@ namespace UIT.iDeal.Infrastructure.Bootstrapper
 
             EntityFrameworkDataProviderFacility.ConnectionStringProvider =
                 () => config.ConnectionString(possiblyInjectedProjectFlavour);
+
+            EntityFrameworkDataProviderFacility.WithDatabaseInitialiser<AlwaysDropAndRecreateDatabaseStrategyInitialiser>();
             
             _container.AddFacility<EntityFrameworkDataProviderFacility>();
 
