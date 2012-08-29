@@ -1,12 +1,17 @@
+using System.Linq;
 using System.Collections.Generic;
+
 using FizzWare.NBuilder;
-using UIT.iDeal.Common.Builders.Entities.Framework;
+
 using UIT.iDeal.Domain.Model;
 using UIT.iDeal.Domain.Model.ReferenceData;
+using UIT.iDeal.Common.Builders.DataSources.Base;
+using UIT.iDeal.Common.Builders.DataSources.Domain;
+using UIT.iDeal.Common.Builders.Entities.Framework;
 
 namespace UIT.iDeal.Common.Builders.Entities
 {
-    
+
     public class UserBuilder : EntityBuilder<User>
     {
         public UserBuilder(int listSize)
@@ -30,6 +35,17 @@ namespace UIT.iDeal.Common.Builders.Entities
             return item.Build();
         }
 
+        protected override List<User> BuildList()
+        {
+            return _userDataSource.Take(_listSize).ToList();
+        }
+
+        protected DatasourceBase<User> _userDataSource = new UserDataSource();
+        public UserBuilder WithDataSource(DatasourceBase<User> userDataSource)
+        {
+            _userDataSource = userDataSource;
+            return this;
+        }
 
         protected string _firstName = "Mckinney";
         public UserBuilder WithFirstName(string firstName)

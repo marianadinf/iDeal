@@ -12,26 +12,24 @@ using UIT.iDeal.Domain.Model.ReferenceData;
 
 namespace UIT.iDeal.Common.Builders.Entities
 {
-    
-    public class ReferenceDataBuilderFor<TReferenceData> : EntityBuilder<TReferenceData> 
+
+    public class ReferenceDataBuilderFor<TReferenceData> : EntityBuilder<TReferenceData>
         where TReferenceData : ReferenceData, new()
     {
-        public ReferenceDataBuilderFor(): base(_numberOfReferenceData)
+        public ReferenceDataBuilderFor()
+            : this(_numberOfReferenceData)
         { }
 
-        
+
+        public ReferenceDataBuilderFor(int listSize)
+            : base(listSize)
+        { }
+
         protected override List<TReferenceData> BuildList()
         {
             VerifyThatReferenceDataSourceHasBeenSet();
 
-            var result =
-                _listTemplate
-                    .All()
-                    .Do(referenceData => CopyValues(from: _referenceDataSource.Next(), to: referenceData))
-                    .Build()
-                    .ToList();
-
-            return result;
+            return _referenceDataSource.Take(_numberOfReferenceData).ToList();
         }
 
         private ReferenceDataSource<TReferenceData> _referenceDataSource = GetInstanceOfReferenceDataSource();
@@ -50,18 +48,6 @@ namespace UIT.iDeal.Common.Builders.Entities
             }
         }
 
-        private void CopyValues(TReferenceData from, TReferenceData to)
-        {
-
-            var referenceDataType = typeof(TReferenceData);
-
-            referenceDataType
-                .GetProperties()
-                .Where(p => p.Name != "Id")
-                .Each(p => p.SetValue(to, referenceDataType.GetProperty(p.Name).GetValue(from, null), null));
-
-        }
-
         private static int _numberOfReferenceData = 3;
         private static ReferenceDataSource<TReferenceData> GetInstanceOfReferenceDataSource()
         {
@@ -76,8 +62,8 @@ namespace UIT.iDeal.Common.Builders.Entities
 
             if (referenceDataSourceType != null)
             {
-                result =  (ReferenceDataSource<TReferenceData>)Activator.CreateInstance(referenceDataSourceType);
-         
+                result = (ReferenceDataSource<TReferenceData>)Activator.CreateInstance(referenceDataSourceType);
+
                 _numberOfReferenceData = result.Count();
             }
 
