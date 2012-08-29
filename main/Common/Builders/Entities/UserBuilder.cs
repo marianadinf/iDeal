@@ -40,17 +40,9 @@ namespace UIT.iDeal.Common.Builders.Entities
             return
                 _listTemplate
                     .All()
-                    .Do(destinationUser =>
-                            {
-                                var fromUserDataSource = _userDataSource.Next();
-                                CopyValues(fromUserDataSource, destinationUser);
-                                destinationUser.AddApplicationRoles(fromUserDataSource.ApplicationRoles);
-                                destinationUser.AddBusinessUnits(fromUserDataSource.BusinessUnits);
-                            })
+                    .Do(PopulateUserFromDataSource)
                     .Build()
                     .ToList();
-
-
         }
 
         protected DatasourceBase<User> _userDataSource = new UserDataSource();
@@ -100,6 +92,14 @@ namespace UIT.iDeal.Common.Builders.Entities
         {
             _businessUnits = businessUnits;
             return this;
+        }
+
+        private void PopulateUserFromDataSource(User destinationUser)
+        {
+            var fromUserDataSource = _userDataSource.Next();
+            CopyValues(fromUserDataSource, destinationUser);
+            destinationUser.AddApplicationRoles(fromUserDataSource.ApplicationRoles);
+            destinationUser.AddBusinessUnits(fromUserDataSource.BusinessUnits);
         }
     }
 }
