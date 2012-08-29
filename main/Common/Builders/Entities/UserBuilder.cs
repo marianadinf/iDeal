@@ -37,7 +37,20 @@ namespace UIT.iDeal.Common.Builders.Entities
 
         protected override List<User> BuildList()
         {
-            return _userDataSource.Take(_listSize).ToList();
+            return
+                _listTemplate
+                    .All()
+                    .Do(destinationUser =>
+                            {
+                                var fromUserDataSource = _userDataSource.Next();
+                                CopyValues(fromUserDataSource, destinationUser);
+                                destinationUser.AddApplicationRoles(fromUserDataSource.ApplicationRoles);
+                                destinationUser.AddBusinessUnits(fromUserDataSource.BusinessUnits);
+                            })
+                    .Build()
+                    .ToList();
+
+
         }
 
         protected DatasourceBase<User> _userDataSource = new UserDataSource();

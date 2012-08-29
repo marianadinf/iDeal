@@ -40,7 +40,7 @@ namespace UIT.iDeal.Domain.Model
 
         #endregion
 
-        public static User Create(string firstname,
+        internal static User Create(string firstname,
                                   string lastname,
                                   string username,
                                   string email)
