@@ -17,13 +17,9 @@ namespace UIT.iDeal.Acceptance.ExecutableSpecifications.UserStories.US002
         private IEnumerable<User> _allSavedUsers;
         public override void When_I_create_a_user()
         {
-            SUT.Form = new AddUserForm();
-            SUT.Form.Firstname = _firstname;
-            SUT.Form.Lastname = _lastname;
-            SUT.Form.Username = _username;
-            SUT.Form.Email = _email;
+            SUT.Form = new AddUserForm {Firstname = _firstname, Lastname = _lastname, Username = _username, Email = _email};
             //change here
-            SUT.ExecuteAction(x=>x.Create(SUT.Form));
+            SUT.ExecuteAction(x => x.Create(SUT.Form));
         }
 
         public override void Then_I_should_see_a_quick_message()

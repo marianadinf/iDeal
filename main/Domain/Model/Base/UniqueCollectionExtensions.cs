@@ -16,6 +16,7 @@ namespace UIT.iDeal.Domain.Model.Base
         public static Boolean AddRange<T>(this ICollection<T> collection, IEnumerable<T> additionalItems)
             where T : class
         {
+            if (additionalItems == null) return false;
             return additionalItems.All(collection.AddUnique);
 
         }
