@@ -89,16 +89,16 @@ header, #header {
     padding: 0;
 }
 
-header h1, #header h1 {
-    font-weight: bold;
-    padding: 5px 0;
+/*header h1, #header h1 {
+    font-weight: normal;
+    padding: 8px 0;
     margin: 0;
-    color: #fff;
+    color: #5c87b2;
     border: none;
     line-height: 2em;
-    font-size: 32px !important;
-    text-shadow: 1px 1px 2px #111;
-}
+    font-size: 20px !important;
+    text-shadow: 1px 1px 1px #111;
+}*/
 
 #main {
     padding: 30px 30px 15px 30px;
@@ -211,25 +211,6 @@ input[type="submit"] {
     padding: 5px;
 }
 
-/* TABLE
-----------------------------------------------------------*/
-
-table {
-    border: solid 1px #e8eef4;
-    border-collapse: collapse;
-}
-
-table td {
-    padding: 5px;
-    border: solid 1px #e8eef4;
-}
-
-table th {
-    padding: 6px 5px;
-    text-align: left;
-    background-color: #e8eef4;
-    border: solid 1px #e8eef4;
-}
 
 /* MISC  
 ----------------------------------------------------------*/
@@ -257,21 +238,21 @@ div#title {
     display: block;
     text-align: right;
     margin: 10px;
-    color: White;
+    color: #000;
 }
 
 #logindisplay a:link {
-    color: white;
+    color: #000;
     text-decoration: underline;
 }
 
 #logindisplay a:visited {
-    color: white;
+    color: #000;
     text-decoration: underline;
 }
 
 #logindisplay a:hover {
-    color: white;
+    color: #000;
     text-decoration: none;
 }
 

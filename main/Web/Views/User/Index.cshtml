@@ -15,7 +15,7 @@
 <div>
     @(Html.ActionLink<UserController>(x => x.Create(), "Add a new User",new{ @id = LocalSiteMap.Locators.ActionElementIds.AddUser.AddUserButton}))
 </div>
-<table id="@LocalSiteMap.Locators.Grids.Users ">
+<table id="@LocalSiteMap.Locators.Grids.Users " class="table">
     <tr>
         <th  data-property-name="@Html.NameFor(x => x.First().Firstname)">
             Firstname
