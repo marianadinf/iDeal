@@ -1,10 +1,13 @@
 ﻿using System;
+using System.Web.Mvc;
 using System.Collections.Generic;
-using System.Linq;
+
 using AutoMapper;
+
 using UIT.iDeal.Commands.AddUser;
 using UIT.iDeal.Common.Interfaces.ObjectMapping;
 using UIT.iDeal.Domain.Model;
+using UIT.iDeal.ViewModel.Converters.User;
 
 namespace UIT.iDeal.ViewModel.Users
 {
@@ -16,14 +19,15 @@ namespace UIT.iDeal.ViewModel.Users
         public string Email { get; set; }
         public List<Guid> ApplicationRoleIds { get; set; }
         public List<Guid> BusinessUnitIds { get; set; }
+
+        public SelectList ApplicationRoles { get; set; }
+        public SelectList BusinessUnits { get; set; }
         
         public void CreateMappings(IConfiguration configuration)
         {
             configuration
                 .CreateMap<User, AddUserForm>()
-                .ForMember(d => d.ApplicationRoleIds, o => o.MapFrom(s => s.ApplicationRoles.Select(x => x.Id)))
-                .ForMember(d => d.BusinessUnitIds, o => o.MapFrom(s => s.BusinessUnits.Select(x => x.Id)));
-
+                .ConvertUsing(new AddUserFormConverter());
         }
     }
 }

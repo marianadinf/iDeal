@@ -1,16 +1,9 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 using System.Web.Mvc;
 using UIT.iDeal.Common.Interfaces.Data;
-using UIT.iDeal.Domain.Model;
-using UIT.iDeal.Domain.Model.ReferenceData;
 using UIT.iDeal.Infrastructure.Web.ActionResults;
 using UIT.iDeal.ViewModel.Users;
 using MvcContrib;
-using UIT.iDeal.Web.Notification;
 
 namespace UIT.iDeal.Web.Controllers
 {

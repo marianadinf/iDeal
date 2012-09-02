@@ -96,6 +96,7 @@
     <Compile Include="Extensions\EnumerableExtensions.cs" />
     <Compile Include="Extensions\MapperExtensions.cs" />
     <Compile Include="Extensions\TypeExtensions.cs" />
+    <Compile Include="Extensions\Web\SelectListExtensions.cs" />
     <Compile Include="Helpers\FileHelpers.cs" />
     <Compile Include="Helpers\WindsorHelpers.cs" />
     <Compile Include="Interfaces\Data\IDatabaseStrategyInitialiser.cs" />
