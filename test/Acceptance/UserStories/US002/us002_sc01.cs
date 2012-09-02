@@ -27,7 +27,7 @@ namespace UIT.iDeal.Acceptance.UserStories.US002
         }
 
         public abstract void When_I_create_a_user();
-        public abstract void Then_I_should_see_a_quick_message();
+        public abstract void Then_I_should_successfully_create_the_new_user();
         public abstract void And_I_should_be_redirected_to_the_Users_List();
         public abstract void And_there_should_be_3_users_in_the_list();
 

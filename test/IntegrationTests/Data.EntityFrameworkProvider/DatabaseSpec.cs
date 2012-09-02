@@ -5,7 +5,7 @@ using System.Data.Entity.Infrastructure;
 using FizzWare.NBuilder;
 using FizzWare.NBuilder.Implementation;
 using Machine.Specifications;
-using UIT.iDeal.Common.Builders.Entities.Framework;
+using UIT.iDeal.Common.Builders.Base;
 using UIT.iDeal.Data.EntityFrameworkProvider.Context;
 using UIT.iDeal.Infrastructure.Configuration;
 using UIT.iDeal.Infrastructure.Configuration.Flavours;

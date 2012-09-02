@@ -1,4 +1,5 @@
 ﻿using UIT.iDeal.Common.Errors;
+using UIT.iDeal.Common.Interfaces.Errors;
 
 namespace UIT.iDeal.Common.Interfaces.Forms
 {

@@ -1,9 +1,6 @@
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using UIT.iDeal.Common.Data;
-using UIT.iDeal.Domain;
 using UIT.iDeal.Domain.Model.Base;
 
 namespace UIT.iDeal.Common.Interfaces.Data
@@ -22,10 +19,10 @@ namespace UIT.iDeal.Common.Interfaces.Data
     public interface IPaginatedQueryWithTypedId<T,TId> : IQueryWithTypedId<T,TId>
         where T : EntityWithTypedId<TId>
     {
-        PagedResult<T> PagedList(IQueryable<T> query, int pageNumber, int pageSize, string sort);
-        PagedResult<T> PagedList(int pageNumber, int pageSize, string sort);
-        PagedResult<T> PagedList(IQueryable<T> query, IPagedQueryObject pagedQueryObject);
-        PagedResult<T> PagedList(IPagedQueryObject pagedQueryObject);
+        //IPagedResult<T> PagedList(IQueryable<T> query, int pageNumber, int pageSize, string sort);
+        //PagedResult<T> PagedList(int pageNumber, int pageSize, string sort);
+        //PagedResult<T> PagedList(IQueryable<T> query, IPagedQueryObject pagedQueryObject);
+        //PagedResult<T> PagedList(IPagedQueryObject pagedQueryObject);
     }
 
     public interface IQueryWithTypedId<T,TId> where T : EntityWithTypedId<TId>
@@ -51,6 +48,8 @@ namespace UIT.iDeal.Common.Interfaces.Data
         /// <param name="includes">when provided will force to load specified related properties with the entity</param>
         T GetOne(Expression<Func<T, bool>> predicate,
                              params Expression<Func<T, object>>[] includes);
-        
+
+        Boolean Exists(Expression<Func<T, bool>> predicate, params Expression<Func<T, object>>[] includes);
+
     }
 }

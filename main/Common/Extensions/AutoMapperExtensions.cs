@@ -1,8 +1,8 @@
-using System;
+﻿using System;
 using System.Linq;
 using AutoMapper;
 
-namespace UIT.iDeal.Common.Interfaces.ObjectMapping
+namespace UIT.iDeal.Common.Extensions
 {
     public static class AutoMapperExtensions
     {
@@ -13,7 +13,7 @@ namespace UIT.iDeal.Common.Interfaces.ObjectMapping
                 Mapper
                     .GetAllTypeMaps()
                     .First(x => x.SourceType == sourceType && x.DestinationType == destinationType);
-            
+
             foreach (var property in existingMaps.GetUnmappedPropertyNames())
             {
                 expression.ForMember(property, opt => opt.Ignore());

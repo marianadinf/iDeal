@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using FizzWare.NBuilder;
 
-namespace UIT.iDeal.Common.Builders.Entities.Framework
+namespace UIT.iDeal.Common.Builders.Base
 {
     public class ObjectBuilder<T>
     {

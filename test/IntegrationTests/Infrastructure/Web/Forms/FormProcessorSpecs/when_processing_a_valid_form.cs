@@ -1,7 +1,8 @@
 using FluentValidation;
 using Machine.Fakes;
 using Machine.Specifications;
-using UIT.iDeal.Common.Interfaces.Commands;
+using UIT.iDeal.Common.Commands;
+using UIT.iDeal.Common.Interfaces.ObjectMapping;
 using UIT.iDeal.Infrastructure.ObjectMapping;
 using UIT.iDeal.TestLibrary.FakeObjects;
 

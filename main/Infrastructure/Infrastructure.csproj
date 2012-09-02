@@ -72,6 +72,9 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="UIT.iDeal.Common.ObjectMapping">
+      <HintPath>..\UIT.iDeal.Common.ObjectMapping\bin\Debug\UIT.iDeal.Common.ObjectMapping.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bootstrapper\ApplicationConfigurator.cs" />
@@ -109,8 +112,6 @@
     <Compile Include="Configuration\ISpecifyProjectConfigurationProperties.cs" />
     <Compile Include="Configuration\ProjectConfiguration.cs" />
     <Compile Include="ObjectMapping\Converters\EnumTypeConverter.cs" />
-    <Compile Include="ObjectMapping\IModelMapper.cs" />
-    <Compile Include="ObjectMapping\ModelMapper.cs" />
     <Compile Include="ObjectMapping\Profiles\AutoMapperCustomMappingsProfile.cs" />
     <Compile Include="ObjectMapping\Profiles\AutoMapperDomainToViewModelProfile.cs" />
     <Compile Include="ObjectMapping\Profiles\AutoMapperFormModelToCommandProfile.cs" />

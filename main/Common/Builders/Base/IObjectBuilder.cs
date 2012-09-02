@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using FizzWare.NBuilder;
 
-namespace UIT.iDeal.Common.Builders
+namespace UIT.iDeal.Common.Builders.Base
 {
     public interface IObjectBuilder<T>
     {

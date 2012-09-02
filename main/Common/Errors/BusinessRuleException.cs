@@ -4,7 +4,7 @@ namespace UIT.iDeal.Common.Errors
 {
     public class BusinessRuleException : ApplicationException
     {
-        public string PropertyName { get; private set; }
+        public string PropertyName { get; protected set; }
 
 
         public BusinessRuleException(string propertyName, string error)

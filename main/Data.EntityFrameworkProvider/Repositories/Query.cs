@@ -58,6 +58,9 @@ namespace UIT.iDeal.Data.EntityFrameworkProvider.Repositories
             return set.SingleOrDefault(predicate);
         }
 
-        
+        public bool Exists(Expression<Func<T, bool>> predicate, params Expression<Func<T, object>>[] includes)
+        {
+            return GetOne(predicate, includes) != null;
+        }
     }
 }

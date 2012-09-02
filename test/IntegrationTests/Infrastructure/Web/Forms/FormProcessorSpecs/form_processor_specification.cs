@@ -2,8 +2,9 @@
 using Moq;
 using Machine.Fakes;
 using Machine.Specifications;
+using UIT.iDeal.Common.Commands;
 using UIT.iDeal.Common.Errors;
-using UIT.iDeal.Common.Interfaces.Commands;
+using UIT.iDeal.Common.Interfaces.ObjectMapping;
 using UIT.iDeal.Infrastructure.ObjectMapping;
 using UIT.iDeal.Infrastructure.Web;
 using UIT.iDeal.TestLibrary.FakeObjects;

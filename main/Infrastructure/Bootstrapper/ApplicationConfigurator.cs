@@ -7,7 +7,7 @@ using Castle.Windsor;
 using Castle.Windsor.Installer;
 using FizzWare.NBuilder;
 using FizzWare.NBuilder.Implementation;
-using UIT.iDeal.Common.Builders.Entities.Framework;
+using UIT.iDeal.Common.Builders.Base;
 using UIT.iDeal.Common.Extensions;
 using UIT.iDeal.Data.EntityFrameworkProvider.Database;
 using UIT.iDeal.Infrastructure.Bootstrapper.Installers;

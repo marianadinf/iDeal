@@ -35,28 +35,15 @@ namespace UIT.iDeal.Web.Controllers
         {
             return View(new AddUserForm());
         }
+
         [HttpPost]
         public ActionResult Create(AddUserForm addUserForm)
         {
-            var u = _query.GetOne(user => user.Username == addUserForm.Username);
-            if (u != null)
-            {
-                return HandleForm(addUserForm).WithFailureResult(ShowErrorMessage());
-            }
             return
                 HandleForm(addUserForm)
-                    .WithSuccessResult(ShowSuccessMessage());
+                    .WithSuccessResult(this.RedirectToAction(x => x.Index()));
            
         }
-        public ActionResult ShowSuccessMessage()
-        {
-            this.ShowMessage(MessageType.Success, "User Created", true);
-            return this.RedirectToAction(x => x.Index());
-        }
-        public ActionResult ShowErrorMessage()
-        {
-            this.ShowMessage(MessageType.Error, "User account already exist.", true);
-            return this.RedirectToAction(x => x.Create());
-        }
+        
     }
 }

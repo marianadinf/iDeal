@@ -1,4 +1,4 @@
-using UIT.iDeal.Common.Builders.Entities.Framework;
+using UIT.iDeal.Common.Builders.Base;
 using UIT.iDeal.Domain.Model;
 
 namespace UIT.iDeal.Common.Builders.Entities

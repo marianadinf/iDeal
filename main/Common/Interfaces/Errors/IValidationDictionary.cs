@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace UIT.iDeal.Common.Interfaces
+namespace UIT.iDeal.Common.Interfaces.Errors
 {
     public interface IValidationDictionary : IEnumerable<KeyValuePair<string, IEnumerable<string>>>
     {

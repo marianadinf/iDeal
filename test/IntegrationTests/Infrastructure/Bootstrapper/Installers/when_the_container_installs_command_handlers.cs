@@ -3,8 +3,8 @@ using Castle.MicroKernel;
 using Castle.MicroKernel.Registration;
 using Castle.Windsor;
 using Machine.Specifications;
+using UIT.iDeal.Common.Commands;
 using UIT.iDeal.Common.Extensions;
-using UIT.iDeal.Common.Interfaces.Commands;
 using UIT.iDeal.Infrastructure.Bootstrapper.Installers;
 
 namespace UIT.iDeal.IntegrationTests.Infrastructure.Bootstrapper.Installers

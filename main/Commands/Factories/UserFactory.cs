@@ -8,15 +8,17 @@ namespace UIT.iDeal.Commands.Factories
 {
     public static class UserFactory
     {
-        public static User Create(AddUserCommand  addUserCommand)
+        public static User Create(AddUserCommand addUserCommand,
+                                  List<ApplicationRole> applicationRoles = null,
+                                  List<BusinessUnit> businessUnits = null)
         {
 
             return Create(addUserCommand.Firstname,
                           addUserCommand.Lastname,
                           addUserCommand.Username,
                           addUserCommand.Email,
-                          addUserCommand.ApplicationRoles,
-                          addUserCommand.BusinessUnits);
+                          applicationRoles,
+                          businessUnits);
         }
 
         public static User Create(string firstname,

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using FluentValidation;
 using FluentValidation.Results;
 using Seterlund.CodeGuard;
+using UIT.iDeal.Common.Commands;
 using UIT.iDeal.Common.Errors;
 using UIT.iDeal.Common.Extensions;
-using UIT.iDeal.Common.Interfaces.Commands;
 using UIT.iDeal.Common.Interfaces.Data;
 
 namespace UIT.iDeal.Infrastructure.Commands

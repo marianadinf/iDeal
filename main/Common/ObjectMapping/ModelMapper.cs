@@ -1,10 +1,11 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using AutoMapper;
-using UIT.iDeal.Common.Interfaces.Commands;
+using UIT.iDeal.Common.Commands;
+using UIT.iDeal.Common.Interfaces.ObjectMapping;
 
-namespace UIT.iDeal.Infrastructure.ObjectMapping
+namespace UIT.iDeal.Common.ObjectMapping
 {
     public class ModelMapper : IModelMapper
     {
@@ -18,7 +19,7 @@ namespace UIT.iDeal.Infrastructure.ObjectMapping
         public ICommand MapFormToCommand(object form)
         {
             var sourceType = form.GetType();
-            TypeMap typeMap = Mapper.GetAllTypeMaps().Where(map => map.SourceType == sourceType).SingleOrDefault();
+            TypeMap typeMap = Mapper.GetAllTypeMaps().SingleOrDefault(map => map.SourceType == sourceType);
             if (typeMap == null)
             {
                 throw new ArgumentException("There is no Command associated with Form {0}", form.GetType().ToString());

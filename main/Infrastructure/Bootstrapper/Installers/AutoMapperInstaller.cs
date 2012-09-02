@@ -4,6 +4,8 @@ using Castle.MicroKernel.Registration;
 using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
 using UIT.iDeal.Common.Extensions;
+using UIT.iDeal.Common.Interfaces.ObjectMapping;
+using UIT.iDeal.Common.ObjectMapping;
 using UIT.iDeal.Infrastructure.ObjectMapping;
 using UIT.iDeal.Infrastructure.ObjectMapping.Converters;
 using UIT.iDeal.Infrastructure.ObjectMapping.Profiles;

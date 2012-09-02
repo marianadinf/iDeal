@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using UIT.iDeal.Common.Interfaces.Commands;
+﻿using UIT.iDeal.Common.Commands;
 using UIT.iDeal.Common.Interfaces.Data;
-using UIT.iDeal.Domain.Model;
 
 namespace UIT.iDeal.Commands.EditTask
 {
-    public class EditTaskCommandHanlder:ICommandHandler<EditTaskCommand>
+    public class EditTaskCommandHanlder : ICommandHandler<EditTaskCommand>
     {
         private readonly ITasksRepository _repository;
 

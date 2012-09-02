@@ -3,9 +3,8 @@ using Castle.Facilities.TypedFactory;
 using Castle.MicroKernel.Registration;
 using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
+using UIT.iDeal.Common.Commands;
 using UIT.iDeal.Common.Configuration;
-using UIT.iDeal.Common.Extensions;
-using UIT.iDeal.Common.Interfaces.Commands;
 using UIT.iDeal.Infrastructure.Bootstrapper.Factories;
 using UIT.iDeal.Infrastructure.Commands;
 

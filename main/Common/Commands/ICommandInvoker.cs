@@ -1,6 +1,6 @@
-﻿using UIT.iDeal.Common.Errors;
+using UIT.iDeal.Common.Errors;
 
-namespace UIT.iDeal.Common.Interfaces.Commands
+namespace UIT.iDeal.Common.Commands
 {
     public interface ICommandInvoker
     {

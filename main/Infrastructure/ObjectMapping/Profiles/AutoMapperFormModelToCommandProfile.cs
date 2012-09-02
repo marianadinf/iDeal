@@ -1,10 +1,7 @@
-using System;
-using System.Linq;
-using System.Reflection;
 using AutoMapper;
 using UIT.iDeal.Common.Extensions;
 using UIT.iDeal.Common.Interfaces.ObjectMapping;
-using UIT.iDeal.Infrastructure.Bootstrapper;
+using UIT.iDeal.Common.ObjectMapping;
 using UIT.iDeal.ViewModel.Tasks;
 
 namespace UIT.iDeal.Infrastructure.ObjectMapping.Profiles

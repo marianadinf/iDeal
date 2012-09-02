@@ -1,7 +1,6 @@
 ﻿using Machine.Fakes;
 using Machine.Specifications;
 using UIT.iDeal.Commands.AddTask;
-using UIT.iDeal.Common.Interfaces.Commands;
 using UIT.iDeal.Common.Interfaces.Data;
 using UIT.iDeal.Domain.Model;
 using It = Machine.Specifications.It;

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using FluentValidation.Results;
 using UIT.iDeal.Common.Errors;
-using UIT.iDeal.Common.Interfaces;
+using UIT.iDeal.Common.Interfaces.Errors;
 
 namespace UIT.iDeal.Common.Extensions
 {
@@ -26,9 +26,11 @@ namespace UIT.iDeal.Common.Extensions
 
             if (validationDictionary != null)
             {
-
-                validationDictionary
-                    .Each(item => executionResult.Add(againstMessageCategory, new MessageGroup(item.Value.ToList())));
+                foreach (var item in validationDictionary)
+                {
+                    executionResult.Add(againstMessageCategory, new MessageGroup(item.Value.ToList()));
+                }
+              
             }
 
             return executionResult;
@@ -47,9 +49,11 @@ namespace UIT.iDeal.Common.Extensions
             if ((validationDictionary != null) && (executionResult != null) && !executionResult.IsSuccessFull)
             {
                 var propertyName = executionResult[fromMessageCategory].PropertyName;
-                executionResult[fromMessageCategory]
-                    .Messages
-                    .Each(errorMessage => validationDictionary.AddError(propertyName, errorMessage));
+                foreach (var errorMessage in executionResult[fromMessageCategory].Messages)
+                {
+                    validationDictionary.AddError(propertyName, errorMessage);
+                }
+                
             }
 
             return validationDictionary;
@@ -59,8 +63,13 @@ namespace UIT.iDeal.Common.Extensions
         {
             if (executionResult != null)
             {
-                validationFailures.Each(
-                    x => executionResult.Add(MessageCategory.BrokenBusinessRule, x.ErrorMessage, x.PropertyName));
+
+                foreach (var validationFailure in validationFailures)
+                {
+                    executionResult.Add(MessageCategory.BrokenBusinessRule, validationFailure.ErrorMessage,
+                                        validationFailure.PropertyName);
+                }
+              
             }
             return executionResult;
         }

@@ -1,4 +1,4 @@
-﻿namespace UIT.iDeal.Common.Interfaces.Commands
+namespace UIT.iDeal.Common.Commands
 {
     public interface ICommandHandler
     {

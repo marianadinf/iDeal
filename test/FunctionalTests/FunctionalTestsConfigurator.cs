@@ -2,7 +2,7 @@
 using FizzWare.NBuilder.Implementation;
 using NUnit.Framework;
 using UIT.iDeal.Acceptance.FunctionalTests.UserStories;
-using UIT.iDeal.Common.Builders.Entities.Framework;
+using UIT.iDeal.Common.Builders.Base;
 using UIT.iDeal.Common.Configuration;
 using UIT.iDeal.Common.Interfaces.Data;
 using UIT.iDeal.Infrastructure.Bootstrapper.StartupTasks;

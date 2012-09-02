@@ -2,7 +2,7 @@
 using FizzWare.NBuilder.Implementation;
 using NUnit.Framework;
 using UIT.iDeal.Acceptance.ExecutableSpecifications.UserStories;
-using UIT.iDeal.Common.Builders.Entities.Framework;
+using UIT.iDeal.Common.Builders.Base;
 using UIT.iDeal.Infrastructure.Configuration.Flavours;
 using UIT.iDeal.TestLibrary.Configuration;
 using UIT.iDeal.TestLibrary.Configuration.Bddify;

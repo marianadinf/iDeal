@@ -2,12 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using FizzWare.NBuilder;
-
+using UIT.iDeal.Common.Builders.Base;
 using UIT.iDeal.Common.Extensions;
 using UIT.iDeal.Common.Builders.DataSources.Base;
 using UIT.iDeal.Common.Builders.DataSources.ReferenceData;
-using UIT.iDeal.Common.Builders.Entities.Framework;
-
 using UIT.iDeal.Domain.Model.ReferenceData;
 
 namespace UIT.iDeal.Common.Builders.Entities

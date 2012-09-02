@@ -1,4 +1,4 @@
-using UIT.iDeal.Common.Interfaces.Commands;
+using UIT.iDeal.Common.Commands;
 
 namespace UIT.iDeal.Common.Interfaces.ObjectMapping
 {

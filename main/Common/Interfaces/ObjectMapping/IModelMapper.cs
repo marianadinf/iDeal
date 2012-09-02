@@ -1,7 +1,7 @@
 using System.Collections.Generic;
-using UIT.iDeal.Common.Interfaces.Commands;
+using UIT.iDeal.Common.Commands;
 
-namespace UIT.iDeal.Infrastructure.ObjectMapping
+namespace UIT.iDeal.Common.Interfaces.ObjectMapping
 {
     public interface IModelMapper
     {

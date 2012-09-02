@@ -2,7 +2,7 @@ using System;
 using FluentValidation;
 using Machine.Fakes;
 using Machine.Specifications;
-using UIT.iDeal.Common.Interfaces.Commands;
+using UIT.iDeal.Common.Commands;
 using UIT.iDeal.Common.Interfaces.Data;
 using UIT.iDeal.TestLibrary.FakeObjects;
 

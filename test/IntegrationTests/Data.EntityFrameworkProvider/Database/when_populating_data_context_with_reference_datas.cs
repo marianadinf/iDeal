@@ -7,9 +7,8 @@ using FizzWare.NBuilder.PropertyNaming;
 
 using Machine.Fakes;
 using Machine.Specifications;
-
+using UIT.iDeal.Common.Builders.Base;
 using UIT.iDeal.Common.Builders.DataSources.ReferenceData;
-using UIT.iDeal.Common.Builders.Entities.Framework;
 using UIT.iDeal.Common.Data;
 using UIT.iDeal.Common.Extensions;
 using UIT.iDeal.Data.EntityFrameworkProvider.Context;

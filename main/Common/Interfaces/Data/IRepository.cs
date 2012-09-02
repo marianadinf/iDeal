@@ -1,8 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using UIT.iDeal.Domain;
 using UIT.iDeal.Domain.Model.Base;
 
 namespace UIT.iDeal.Common.Interfaces.Data

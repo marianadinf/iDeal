@@ -2,11 +2,11 @@ using Castle.Core.Logging;
 using FluentValidation;
 using FluentValidation.Results;
 using Seterlund.CodeGuard;
+using UIT.iDeal.Common.Commands;
 using UIT.iDeal.Common.Errors;
 using UIT.iDeal.Common.Extensions;
-using UIT.iDeal.Common.Interfaces.Commands;
 using UIT.iDeal.Common.Interfaces.Forms;
-using UIT.iDeal.Infrastructure.ObjectMapping;
+using UIT.iDeal.Common.Interfaces.ObjectMapping;
 
 namespace UIT.iDeal.Infrastructure.Web
 {

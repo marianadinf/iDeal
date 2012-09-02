@@ -1,3 +1,4 @@
+using UIT.iDeal.Common.Builders.Base;
 using UIT.iDeal.Domain.Model.Base;
 
 namespace UIT.iDeal.Common.Builders.Entities

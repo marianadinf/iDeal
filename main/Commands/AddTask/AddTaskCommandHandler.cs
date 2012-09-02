@@ -1,4 +1,4 @@
-using UIT.iDeal.Common.Interfaces.Commands;
+using UIT.iDeal.Common.Commands;
 using UIT.iDeal.Common.Interfaces.Data;
 using UIT.iDeal.Domain.Model;
 

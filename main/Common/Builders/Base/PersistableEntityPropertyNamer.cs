@@ -5,7 +5,7 @@ using FizzWare.NBuilder.PropertyNaming;
 using UIT.iDeal.Common.Extensions;
 using UIT.iDeal.Domain.Model.Base;
 
-namespace UIT.iDeal.Common.Builders.Entities.Framework
+namespace UIT.iDeal.Common.Builders.Base
 {
     public class PersistableEntityPropertyNamer : SequentialPropertyNamer
     {

@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using UIT.iDeal.Commands.DeleteTask;
 using UIT.iDeal.Common.Interfaces.ObjectMapping;
 using UIT.iDeal.Domain.Model;

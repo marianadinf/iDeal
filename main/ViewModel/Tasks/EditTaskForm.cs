@@ -1,6 +1,6 @@
 ﻿using System;
-using UIT.iDeal.Common.Interfaces.ObjectMapping;
 using UIT.iDeal.Commands.EditTask;
+using UIT.iDeal.Common.Interfaces.ObjectMapping;
 using UIT.iDeal.Domain.Model;
 
 namespace UIT.iDeal.ViewModel.Tasks

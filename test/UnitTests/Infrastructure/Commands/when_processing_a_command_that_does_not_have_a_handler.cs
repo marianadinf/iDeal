@@ -2,8 +2,8 @@ using System;
 using System.Linq;
 using Machine.Fakes;
 using Machine.Specifications;
+using UIT.iDeal.Common.Commands;
 using UIT.iDeal.Common.Errors;
-using UIT.iDeal.Common.Interfaces.Commands;
 using UIT.iDeal.Infrastructure.Commands;
 
 namespace UIT.iDeal.UnitTests.Infrastructure.Commands
