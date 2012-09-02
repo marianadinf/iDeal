@@ -2,14 +2,14 @@ using System;
 using System.Linq;
 using FizzWare.NBuilder.Dates;
 using FluentAssertions;
-using UIT.iDeal.Acceptance.UserStories.US001;
+using UIT.iDeal.Acceptance.UserStories.US000;
 using UIT.iDeal.TestLibrary.Browsers;
 using UIT.iDeal.TestLibrary.Browsers.PageObjects.Task;
 using UIT.iDeal.Web.Controllers;
 
 namespace UIT.iDeal.Acceptance.FunctionalTests.UserStories.US001
 {
-    public class sc03_Add_an_undone_new_Task : us001_sc03<BrowserScenario>
+    public class sc03_Add_an_undone_new_Task : us000_sc03<BrowserScenario>
     {
         AddTaskPage _addTaskPage;
         TaskListPage _taskListPage;

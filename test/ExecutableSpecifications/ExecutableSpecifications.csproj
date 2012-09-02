@@ -52,13 +52,13 @@
     <Compile Include="ExecutableSpecificationsConfigurator.cs" />
     <Compile Include="UserStories\ExecutableSpecificationsHtmlReportConfig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UserStories\US001\sc01_View_a_list_of_Tasks.cs" />
-    <Compile Include="UserStories\US001\sc02_Navigate_to_Add_new_Task_Form.cs" />
-    <Compile Include="UserStories\US001\sc03_Add_an_undone_new_Task.cs" />
-    <Compile Include="UserStories\US002\sc01_Create_new_User.cs" />
-    <Compile Include="UserStories\US002\sc02_navigate_to_create_user.cs" />
-    <Compile Include="UserStories\US002\sc03_Uncomplete_mandatory_fileds.cs" />
-    <Compile Include="UserStories\US002\sc04_Duplicate_windows_login.cs" />
+    <Compile Include="UserStories\US000\sc01_View_a_list_of_Tasks.cs" />
+    <Compile Include="UserStories\US000\sc02_Navigate_to_Add_new_Task_Form.cs" />
+    <Compile Include="UserStories\US000\sc03_Add_an_undone_new_Task.cs" />
+    <Compile Include="UserStories\US001\sc02_Create_new_User.cs" />
+    <Compile Include="UserStories\US001\sc01_navigate_to_create_user.cs" />
+    <Compile Include="UserStories\US001\sc03_Uncomplete_mandatory_fileds.cs" />
+    <Compile Include="UserStories\US001\sc04_Duplicate_windows_login.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\main\Common\Common.csproj">

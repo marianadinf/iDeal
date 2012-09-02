@@ -1,31 +1,26 @@
-using System;
-using System.Collections.Generic;
-using UIT.iDeal.Common.Builders.Entities;
-using UIT.iDeal.Domain.Model;
-using UIT.iDeal.TestLibrary.UserStories.Scenarios;
+﻿using UIT.iDeal.TestLibrary.UserStories.Scenarios;
 
 namespace UIT.iDeal.Acceptance.UserStories.US001
 {
-    public abstract class us001_sc01<T> : ScenarioFor<T, us001_list_of_tasks>
-        where T : class
+    public abstract class us001_sc01<T> : ScenarioFor<T, us001_create_new_user_login> where T : class 
     {
-        protected List<Task> _tasks;
-
-
-        protected us001_sc01() : base(1, "View a list of tasks") {}
-
-        public virtual void Given_there_are_3_tasks()
+        protected us001_sc01() : base(2, "Navigating to create a user")
+        {
+        }
+        public virtual void Given_I_am_an_admin()
         {
 
-            _tasks = new TaskBuilder(3);
-            Database.SaveList(_tasks);
         }
 
-        public abstract void When_I_view_the_Task_list();
+        public abstract void When_I_select_on_admin_menu_create_user_submenu();
+        public abstract void Then_I_should_see_the_view_to_create_a_user();
+        public abstract void AndThen_the_user_first_name_should_be_empty();
+        public abstract void AndThen_the_user_last_name_should_be_empty();
+        public abstract void AndThen_the_user_name_should_be_empty();
+        public abstract void AndThen_the_user_email_should_be_empty();
+        public abstract void AndThen_the_user_application_role_should_not_be_selected();
+        public abstract void AndThen_the_user_business_unit_should_not_be_selected();
 
-        public abstract void Then_there_should_be_3_Tasks_in_the_list();
-
-        public abstract void And_I_should_see_the_Description_and_whether_each_Task_is_done_or_not();
-
+        
     }
 }

@@ -1,15 +1,15 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using FluentAssertions;
-using UIT.iDeal.Acceptance.UserStories.US001;
+using UIT.iDeal.Acceptance.UserStories.US000;
 using UIT.iDeal.TestLibrary.Extensions;
 using UIT.iDeal.TestLibrary.UserStories.Scenarios;
 using UIT.iDeal.ViewModel.Tasks;
 using UIT.iDeal.Web.Controllers;
 
-namespace UIT.iDeal.Acceptance.ExecutableSpecifications.UserStories.US001
+namespace UIT.iDeal.Acceptance.ExecutableSpecifications.UserStories.US000
 {
-    public class sc01_View_a_list_of_Tasks : us001_sc01<AutoMappedViewControllerScenario<TasksController, IEnumerable<TaskItemViewModel>>>
+    public class sc01_View_a_list_of_Tasks : us000_sc01<AutoMappedViewControllerScenario<TasksController, IEnumerable<TaskItemViewModel>>>
     {
 
         public override void When_I_view_the_Task_list()

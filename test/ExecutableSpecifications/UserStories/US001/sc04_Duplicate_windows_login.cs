@@ -1,13 +1,13 @@
 ﻿using FluentAssertions;
-using UIT.iDeal.Acceptance.UserStories.US002;
+using UIT.iDeal.Acceptance.UserStories.US001;
 using UIT.iDeal.TestLibrary.Extensions;
 using UIT.iDeal.TestLibrary.UserStories.Scenarios;
 using UIT.iDeal.ViewModel.Users;
 using UIT.iDeal.Web.Controllers;
 
-namespace UIT.iDeal.Acceptance.ExecutableSpecifications.UserStories.US002
+namespace UIT.iDeal.Acceptance.ExecutableSpecifications.UserStories.US001
 {
-    public class sc04_Duplicate_windows_login : us002_sc04<PostControllerScenario<UserController, AddUserForm>>
+    public class sc04_Duplicate_windows_login : us001_sc04<PostControllerScenario<UserController, AddUserForm>>
     {
        public override void AndGiven_there_are_2_users()
         {

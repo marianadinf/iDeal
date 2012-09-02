@@ -2,16 +2,16 @@ using System.Collections.Generic;
 using System.Linq;
 using FizzWare.NBuilder.Dates;
 using FluentAssertions;
-using UIT.iDeal.Acceptance.UserStories.US001;
+using UIT.iDeal.Acceptance.UserStories.US000;
 using UIT.iDeal.Domain.Model;
 using UIT.iDeal.TestLibrary.Extensions;
 using UIT.iDeal.TestLibrary.UserStories.Scenarios;
 using UIT.iDeal.ViewModel.Tasks;
 using UIT.iDeal.Web.Controllers;
 
-namespace UIT.iDeal.Acceptance.ExecutableSpecifications.UserStories.US001
+namespace UIT.iDeal.Acceptance.ExecutableSpecifications.UserStories.US000
 {
-    public class sc03_Add_an_undone_new_Task : us001_sc03<PostControllerScenario<TasksController, AddTaskForm>>
+    public class sc03_Add_an_undone_new_Task : us000_sc03<PostControllerScenario<TasksController, AddTaskForm>>
     {
         private IEnumerable<Task> _allSavedTaks;
         

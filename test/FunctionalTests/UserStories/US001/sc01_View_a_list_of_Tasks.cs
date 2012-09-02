@@ -1,5 +1,5 @@
 ﻿using FluentAssertions;
-using UIT.iDeal.Acceptance.UserStories.US001;
+using UIT.iDeal.Acceptance.UserStories.US000;
 using UIT.iDeal.TestLibrary.Browsers;
 using UIT.iDeal.TestLibrary.Browsers.PageObjects.Task;
 using UIT.iDeal.TestLibrary.Extensions;
@@ -7,7 +7,7 @@ using UIT.iDeal.Web.Controllers;
 
 namespace UIT.iDeal.Acceptance.FunctionalTests.UserStories.US001
 {
-    public class sc01_View_a_list_of_Tasks : us001_sc01<BrowserScenario>
+    public class sc01_View_a_list_of_Tasks : us000_sc01<BrowserScenario>
     {
         TaskListPage _taskList;
 

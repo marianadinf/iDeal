@@ -1,5 +1,5 @@
 using FluentAssertions;
-using UIT.iDeal.Acceptance.UserStories.US001;
+using UIT.iDeal.Acceptance.UserStories.US000;
 using UIT.iDeal.TestLibrary.Browsers;
 using UIT.iDeal.TestLibrary.Browsers.PageObjects.Task;
 using UIT.iDeal.TestLibrary.Extensions;
@@ -8,7 +8,7 @@ using UIT.iDeal.TestLibrary.Browsers.PageObjects.Framework;
 
 namespace UIT.iDeal.Acceptance.FunctionalTests.UserStories.US001
 {
-    public class sc02_Navigate_to_Add_new_Task_Form : us001_sc02<BrowserScenario>
+    public class sc02_Navigate_to_Add_new_Task_Form : us000_sc02<BrowserScenario>
     {
         TaskListPage _taskListPage;
         AddTaskPage _addTaskPage;
