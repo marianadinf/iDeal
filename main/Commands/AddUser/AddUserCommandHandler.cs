@@ -23,12 +23,10 @@ namespace UIT.iDeal.Commands.AddUser
            if (_repository.Exists(u => u.Username == Command.Username))
            {
                throw new BusinessRuleExceptionFor<User>(u => u.Username, 
-                                                       "A user with user name {0} already exists",
+                                                       "A user with user name '{0}' already exists",
                                                         Command.Username);
            }
 
-           
-           
            _repository.Save(UserFactory.Create(Command));
        }
 

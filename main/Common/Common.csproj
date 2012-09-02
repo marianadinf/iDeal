@@ -60,7 +60,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Builders\Base\FormBuilder.cs" />
     <Compile Include="Builders\DataSources\Base\DatasourceBase.cs" />
     <Compile Include="Builders\DataSources\Base\RandomListGenerator.cs" />
     <Compile Include="Builders\DataSources\Base\RepeatableSequentialGenerator.cs" />
@@ -74,7 +73,6 @@
     <Compile Include="Builders\Entities\TaskBuilder.cs" />
     <Compile Include="Builders\Entities\UserBuilder.cs" />
     <Compile Include="Builders\Entities\ValueObjectBuilder.cs" />
-    <Compile Include="Builders\Forms\AddUserFormBuilder.cs" />
     <Compile Include="Builders\Base\EntityBuilder.cs" />
     <Compile Include="Builders\Base\IObjectBuilder.cs" />
     <Compile Include="Builders\Base\ObjectBuilder.cs" />

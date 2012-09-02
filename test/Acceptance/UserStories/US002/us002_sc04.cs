@@ -8,12 +8,15 @@ namespace UIT.iDeal.Acceptance.UserStories.US002
 {
     public abstract class us002_sc04<T> : ScenarioFor<T, us002_create_new_user_login> where T:class 
     {
+        List<User> _users = new UserBuilder(2);
+        protected User _existingUser;
+        protected string _expectedErrorMessage;
+
         protected us002_sc04()
             : base(3, "Duplicate windows login")
         {
         }
-        protected List<User> _users;
-        protected User _existingUser;
+        
 
         public virtual void Given_I_am_an_admin()
         {
@@ -21,8 +24,8 @@ namespace UIT.iDeal.Acceptance.UserStories.US002
         }
         public virtual void AndGiven_there_are_2_users()
         {
-            _users = new UserBuilder(2);
             _existingUser = _users.First();
+            _expectedErrorMessage = string.Format("A user with user name '{0}' already exists", _existingUser.Username);
             Database.SaveList(_users);
         }
         public abstract void When_I_enter_a_user_with_an_existing_windows_login();
