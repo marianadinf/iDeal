@@ -15,8 +15,9 @@ namespace UIT.iDeal.Acceptance.UserStories.US002
         {
 
         }
-        public abstract void When_I_click_on_admin_menu_User_setup_submenu();
-        public abstract void And_click_on_create_user_button();
+
+        public abstract void When_I_select_on_admin_menu_create_user_submenu();
         public abstract void Then_I_should_see_the_view_to_create_a_user();
+        public abstract void AndThen_the_user_form_should_be_blank();
     }
 }

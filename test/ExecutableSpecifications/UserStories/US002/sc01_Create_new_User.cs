@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Linq;
 using FluentAssertions;
 using UIT.iDeal.Acceptance.UserStories.US002;
-using UIT.iDeal.Common.Builders.Entities;
 using UIT.iDeal.Domain.Model;
 using UIT.iDeal.TestLibrary.Extensions;
 using UIT.iDeal.TestLibrary.UserStories.Scenarios;
@@ -15,11 +11,10 @@ namespace UIT.iDeal.Acceptance.ExecutableSpecifications.UserStories.US002
 {
     public class sc01_Create_new_User : us002_sc01<PostControllerScenario<UserController, AddUserForm>>
     {
-        public sc01_Create_new_User() { SUT.CreateFormUsing(_newUser); }
         
         public override void When_I_create_a_user()
         {
-            //change here
+            SUT.CreateFormUsing(_newUser);
             SUT.ExecuteAction(x => x.Create(SUT.Form));
         }
 
