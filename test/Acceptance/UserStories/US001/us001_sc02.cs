@@ -55,22 +55,22 @@ namespace UIT.iDeal.Acceptance.UserStories.US001
         
         public abstract void Then_I_should_successfully_create_the_new_user();
         
-        public abstract void AndThen_I_should_be_redirected_to_the_Users_List();
+        public abstract void And_I_should_be_redirected_to_the_Users_List();
         
         public abstract void And_there_should_be_3_users_in_the_list();
 
         [AndThen(StepTitle = "And the last user's first name should match the one I have entered")]
-        public abstract void AndThen_the_last_user_first_name_should_match_the_one_I_have_entered();
+        public abstract void And_the_last_user_first_name_should_match_the_one_I_have_entered();
 
         [AndThen(StepTitle = "And the last user's last name should match the one I have entered")]
-        public abstract void AndThen_the_last_user_last_name_should_match_the_one_I_have_entered();
+        public abstract void And_the_last_user_last_name_should_match_the_one_I_have_entered();
 
-        public abstract void AndThen_the_last_user_name_should_match_the_one_I_have_entered();
+        public abstract void And_the_last_user_name_should_match_the_one_I_have_entered();
 
         [AndThen(StepTitle = "And the last user's application role should be 'Investment Analyst'")]
-        public abstract void AndThen_the_last_user_application_role_should_be_Investment_Analyst();
+        public abstract void And_the_last_user_application_role_should_be_Investment_Analyst();
 
         [AndThen(StepTitle = "And the last user's business unit should be 'Investment Analyst'")]
-        public abstract void AndThen_the_last_user_business_unit_should_be_Business_Unit_1();
+        public abstract void And_the_last_user_business_unit_should_be_Business_Unit_1();
     }
 }

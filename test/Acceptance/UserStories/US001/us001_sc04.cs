@@ -13,7 +13,7 @@ namespace UIT.iDeal.Acceptance.UserStories.US001
         protected string _expectedErrorMessage;
 
         protected us001_sc04()
-            : base(3, "Duplicate windows login")
+            : base(4, "Duplicate windows login")
         {
         }
         
@@ -30,6 +30,6 @@ namespace UIT.iDeal.Acceptance.UserStories.US001
         }
         public abstract void When_I_enter_a_user_with_an_existing_windows_login();
         public abstract void Then_I_should_see_an_error_message();
-        public abstract void AndThen_I_should_remain_on_the_same_page();
+        public abstract void And_I_should_remain_on_the_same_page();
     }
 }

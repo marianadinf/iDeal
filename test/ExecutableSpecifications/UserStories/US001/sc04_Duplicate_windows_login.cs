@@ -25,7 +25,7 @@ namespace UIT.iDeal.Acceptance.ExecutableSpecifications.UserStories.US001
             SUT.CommandResult.AllErrorMessages.Should().Contain(_expectedErrorMessage);
         }
 
-        public override void AndThen_I_should_remain_on_the_same_page()
+        public override void And_I_should_remain_on_the_same_page()
         {
             SUT.ActionResult.ShouldBeDefaultViewForAction();
         }

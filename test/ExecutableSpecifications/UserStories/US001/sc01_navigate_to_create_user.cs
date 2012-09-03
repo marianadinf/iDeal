@@ -20,32 +20,32 @@ namespace UIT.iDeal.Acceptance.ExecutableSpecifications.UserStories.US001
            SUT.ActionResult.ShouldBeDefaultViewForAction();
        }
 
-       public override void AndThen_the_user_first_name_should_be_empty()
+       public override void And_the_user_first_name_should_be_empty()
        {
            SUT.ViewModel.Firstname.Should().BeBlank();
        }
 
-       public override void AndThen_the_user_last_name_should_be_empty()
+       public override void And_the_user_last_name_should_be_empty()
        {
            SUT.ViewModel.Lastname.Should().BeBlank();
        }
 
-       public override void AndThen_the_user_name_should_be_empty()
+       public override void And_the_user_name_should_be_empty()
        {
            SUT.ViewModel.Username.Should().BeBlank();
        }
 
-       public override void AndThen_the_user_email_should_be_empty()
+       public override void And_the_user_email_should_be_empty()
        {
            SUT.ViewModel.Email.Should().BeBlank();
        }
 
-       public override void AndThen_the_user_application_role_should_not_be_selected()
+       public override void And_the_user_application_role_should_not_be_selected()
        {
            SUT.ViewModel.ApplicationRoles.First().Text.Should().Be("Please Select...");
        }
 
-       public override void AndThen_the_user_business_unit_should_not_be_selected()
+       public override void And_the_user_business_unit_should_not_be_selected()
        {
            SUT.ViewModel.BusinessUnits.First().Text.Should().Be("Please Select...");
        }

@@ -24,7 +24,7 @@ namespace UIT.iDeal.Acceptance.ExecutableSpecifications.UserStories.US001
             SUT.CommandResult.IsSuccessFull.Should().BeTrue();
         }
 
-        public override void AndThen_I_should_be_redirected_to_the_Users_List()
+        public override void And_I_should_be_redirected_to_the_Users_List()
         {
             SUT.ActionResult.ShouldBeRedirect<UserController>(x => x.Index());
         }
@@ -36,27 +36,27 @@ namespace UIT.iDeal.Acceptance.ExecutableSpecifications.UserStories.US001
             allUsers.Count().Should().Be(3);
         }
 
-        public override void AndThen_the_last_user_first_name_should_match_the_one_I_have_entered()
+        public override void And_the_last_user_first_name_should_match_the_one_I_have_entered()
         {
             _lastSavedUser.Firstname.Should().Be(_newUser.Firstname);
         }
 
-        public override void AndThen_the_last_user_last_name_should_match_the_one_I_have_entered()
+        public override void And_the_last_user_last_name_should_match_the_one_I_have_entered()
         {
             _lastSavedUser.Lastname.Should().Be(_newUser.Lastname);
         }
 
-        public override void AndThen_the_last_user_name_should_match_the_one_I_have_entered()
+        public override void And_the_last_user_name_should_match_the_one_I_have_entered()
         {
             _lastSavedUser.Username.Should().Be(_newUser.Username);
         }
 
-        public override void AndThen_the_last_user_application_role_should_be_Investment_Analyst()
+        public override void And_the_last_user_application_role_should_be_Investment_Analyst()
         {
             throw new System.NotImplementedException();
         }
 
-        public override void AndThen_the_last_user_business_unit_should_be_Business_Unit_1()
+        public override void And_the_last_user_business_unit_should_be_Business_Unit_1()
         {
             throw new System.NotImplementedException();
         }
