@@ -41,7 +41,6 @@ namespace UIT.iDeal.Web.Controllers
                     ApplicationRoles = _applicationRoleReferenceDataQuery.GetAll().ToSelectList(),
                     BusinessUnits = _businessUnitReferenceDataQuery.GetAll().ToSelectList()
                 });
-
         }
 
         [HttpPost]
