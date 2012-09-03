@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using UIT.iDeal.Common.Commands;
-using UIT.iDeal.Domain.Model.ReferenceData;
 
 namespace UIT.iDeal.Commands.AddUser
 {

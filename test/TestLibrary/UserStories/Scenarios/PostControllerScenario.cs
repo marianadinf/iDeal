@@ -4,6 +4,7 @@ using System.Web.Mvc;
 using UIT.iDeal.Common.Errors;
 using UIT.iDeal.Common.Interfaces.ObjectMapping;
 using UIT.iDeal.Common.ObjectMapping;
+using UIT.iDeal.Domain.Model.Base;
 using UIT.iDeal.Infrastructure.Web.ActionResults;
 using UIT.iDeal.TestLibrary.Extensions;
 using UIT.iDeal.Web.Controllers;
@@ -34,6 +35,7 @@ namespace UIT.iDeal.TestLibrary.UserStories.Scenarios
         }
 
         public void CreateFormUsing<TEntity>(TEntity entity)
+            where TEntity : Entity
         {
             Form = _modelMapper.CreateInstance<TEntity, TForm>(entity);
         }
