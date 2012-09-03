@@ -25,7 +25,6 @@ namespace UIT.iDeal.Domain.Model
             Description = description;
             IsDone = isDone;
             ToBeCompletedByDate = toBeCompletedByDate;
-
         }
     }
 }

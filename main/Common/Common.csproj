@@ -103,6 +103,7 @@
     <Compile Include="Interfaces\Data\IPagedQueryObject.cs" />
     <Compile Include="Interfaces\Data\IQuery.cs" />
     <Compile Include="Interfaces\Data\IReferenceDataInititaliser.cs" />
+    <Compile Include="Interfaces\Data\IReferenceDataQuery.cs" />
     <Compile Include="Interfaces\Data\IRepository.cs" />
     <Compile Include="Interfaces\Data\ITasksQuery.cs" />
     <Compile Include="Interfaces\Data\ITasksRepository.cs" />
