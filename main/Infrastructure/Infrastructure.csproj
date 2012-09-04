@@ -84,6 +84,7 @@
     <Compile Include="Bootstrapper\Factories\WindsorControllerFactory.cs" />
     <Compile Include="Bootstrapper\Installers\AutoMapperInstaller.cs" />
     <Compile Include="Bootstrapper\Installers\EntityFrameworkDataProviderFacility.cs" />
+    <Compile Include="Bootstrapper\Installers\FluentSecurityInstaller.cs" />
     <Compile Include="Bootstrapper\Installers\FluentValidationInstaller.cs" />
     <Compile Include="Bootstrapper\Installers\FormProcessorInstaller.cs" />
     <Compile Include="Bootstrapper\Installers\ModelMetaDataInstaller.cs" />

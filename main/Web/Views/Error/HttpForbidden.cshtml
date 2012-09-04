@@ -1,0 +1,46 @@
+﻿@using Microsoft.Web.Mvc
+@using UIT.iDeal.Common.Web
+@using UIT.iDeal.Web.Controllers
+           
+@section PageIdentifier
+{
+    @Html.SetUpPageIdWith(LocalSiteMap.Navigation.PageIds.Users.Index)
+}
+@{
+    ViewBag.Title = "HttpForbidden";
+}
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title</title>
+    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/bootstrap/css/bootstrap.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/bootstrap/css/bootstrap-responsive.min.css")" rel="stylesheet"/>
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+    </style>
+</head>
+
+
+
+
+<span class="label label-warning">iDeal - ACCESS DENIED !</span>
+
+<div class="hero-unit">
+  <h1>YOU ARE NOT AUTHORIZED</h1>
+  <p>If you think this is mistake please speak to your IT support to check.</p>
+  <p>
+    <a class="btn btn-primary btn-large">
+      you can't break the iDeal security that easily ;o) !
+    </a>
+  </p>
+</div>
+
+
+
+
+</html>
