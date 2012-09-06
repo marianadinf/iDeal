@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
+using UIT.iDeal.Common.Extensions;
 using UIT.iDeal.Common.Extensions.Web;
 using UIT.iDeal.Common.Interfaces.Data;
 using UIT.iDeal.Domain.Model.ReferenceData;
@@ -14,6 +16,8 @@ namespace UIT.iDeal.Web.Controllers
         private readonly IUserQuery _query;
         private readonly IReferenceDataQuery<ApplicationRole> _applicationRoleReferenceDataQuery;
         private readonly IReferenceDataQuery<BusinessUnit> _businessUnitReferenceDataQuery;
+        private static IEnumerable<ApplicationRole> _applicationRoles;
+        private static IEnumerable<BusinessUnit> _businessUnits;
 
         public UserController(IUserQuery query,
                               IReferenceDataQuery<ApplicationRole> applicationRoleReferenceDataQuery,
@@ -36,20 +40,33 @@ namespace UIT.iDeal.Web.Controllers
         [HttpGet]
         public ViewResult Create()
         {
-            return View(new AddUserForm
-                {
-                    ApplicationRoles = _applicationRoleReferenceDataQuery.GetAll().ToSelectList(),
-                    BusinessUnits = _businessUnitReferenceDataQuery.GetAll().ToSelectList()
-                });
+            return View(InitialiseSelectLists(new AddUserForm()));
         }
 
         [HttpPost]
         public ActionResult Create(AddUserForm addUserForm)
         {
             return
-                HandleForm(addUserForm)
+                HandleForm(InitialiseSelectLists(addUserForm))
                     .WithSuccessResult(this.RedirectToAction(x => x.Index()));
            
+        }
+
+       
+
+        private AddUserForm InitialiseSelectLists(AddUserForm addUserForm)
+        {
+            addUserForm.ApplicationRoles =
+                EnumerableExtensions
+                    .LazyInitialiseFor(ref _applicationRoles, () => _applicationRoleReferenceDataQuery.GetAll().ToList())
+                    .ToSelectList();
+
+            addUserForm.BusinessUnits =
+                EnumerableExtensions
+                    .LazyInitialiseFor(ref _businessUnits,() => _businessUnitReferenceDataQuery.GetAll().ToList())
+                    .ToSelectList();
+
+            return addUserForm;
         }
         
     }

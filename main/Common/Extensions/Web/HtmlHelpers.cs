@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Linq;
+using System.Collections;
+using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Web.Mvc;
 
@@ -6,9 +9,9 @@ namespace UIT.iDeal.Common.Extensions.Web
 {
     public static class HtmlHelpers
     {
-         public static MvcHtmlString MultiSelectWithCheckboxes<TModel>(this HtmlHelper<TModel> htmlHelper, 
+         public static MvcHtmlString MultiSelectWithCheckboxes<TModel,TProperty>(this HtmlHelper<TModel> htmlHelper, 
                                                                        Expression<Func<TModel,SelectList>> readListExpressionSelector,
-                                                                       Expression<Func<TModel, Object>> postListExpressionSelector)
+                                                                       Expression<Func<TModel, IEnumerable<TProperty>>> postListExpressionSelector)
          {
 
              
@@ -16,19 +19,23 @@ namespace UIT.iDeal.Common.Extensions.Web
              multiSelectDiv.AddCssClass("multiselect");
              multiSelectDiv.MergeAttribute("id", ExpressionHelper.GetExpressionText(readListExpressionSelector));
 
-             var list = readListExpressionSelector.Compile().Invoke(htmlHelper.ViewData.Model);
+             var readList = readListExpressionSelector.Compile().Invoke(htmlHelper.ViewData.Model);
              var postListPropertyName = ExpressionHelper.GetExpressionText(postListExpressionSelector);
              var isFirstLabel = true;
 
-             foreach (var item in list)
-             {
-                 multiSelectDiv.InnerHtml +=
-                                   string.Format("<label{0}><input type=\"checkbox\" name=\"{1}[]\" value=\"{2}\"/>{3}</label>",
-                                                 isFirstLabel? " class=\"first\"" : "",
-                                                 postListPropertyName,
-                                                 item.Value,
-                                                 item.Text);
+             var postList = postListExpressionSelector.Compile().Invoke(htmlHelper.ViewData.Model);
 
+             foreach (var item in readList)
+             {
+                 var isSelected = postList != null && postList.Any(x => x.ToString() == item.Value);
+                 multiSelectDiv.InnerHtml +=
+                     string.Format("<label{0}><input type=\"checkbox\" {4} name=\"{1}[]\" value=\"{2}\"/>{3}</label>",
+                                   isFirstLabel ? " class=\"first\"" : string.Empty,
+                                   postListPropertyName,
+                                   item.Value,
+                                   item.Text,
+                                   isSelected ? "checked" : string.Empty);
+                 
                  isFirstLabel = false;
              }
              

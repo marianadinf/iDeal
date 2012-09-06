@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 using FizzWare.NBuilder;
 using UIT.iDeal.Common.Builders.Base;
+using UIT.iDeal.Common.Extensions;
 using UIT.iDeal.Domain.Model;
 using UIT.iDeal.Domain.Model.ReferenceData;
 using UIT.iDeal.Common.Builders.DataSources.Base;
@@ -15,34 +16,51 @@ namespace UIT.iDeal.Common.Builders.Entities
     {
         #region members
 
-        DatasourceBase<User> _userDataSource;
+        IEnumerable<User> _userDataSource;
         private IEnumerable<User> UserDataSource
         {
-            get { return LazyInitialiseFor(_userDataSource, size => new UserDataSource().Take(size)); }
+            get
+            {
+                return EnumerableExtensions.LazyInitialiseFor(ref _userDataSource,
+                                                              () => new UserDataSource().Take(_listSize));
+            }
         }
 
-        private string[] _firstNames;
+        private IEnumerable<string> _firstNames;
         private IEnumerable<string>  FirstNames
         {
-            get { return LazyInitialiseFor(_firstNames, listOfSize => UserDataSource.Select(x => x.Firstname).Take(listOfSize)); }
+            get
+            {
+                return EnumerableExtensions.LazyInitialiseFor(ref _firstNames,
+                                                              () => UserDataSource.Select(x => x.Firstname).Take(_listSize));
+            }
         }
 
-        private string[] _lastNames;
+        private IEnumerable<string> _lastNames;
         private IEnumerable<string> LastNames
         {
-            get { return LazyInitialiseFor(_lastNames, size => UserDataSource.Select(x => x.Lastname).Take(size)); }
+            get
+            {
+                return EnumerableExtensions.LazyInitialiseFor(ref _lastNames,
+                                                              () => UserDataSource.Select(x => x.Lastname).Take(_listSize));
+            }
         }
 
-        private string[] _userNames;
+        private IEnumerable<string> _userNames;
         private IEnumerable<string> UserNames
         {
-            get { return LazyInitialiseFor(_userNames, size => UserDataSource.Select(x => x.Username).Take(size)); }
+            get
+            {
+                return EnumerableExtensions.LazyInitialiseFor(ref _userNames,
+                                                              () => UserDataSource.Select(x => x.Username).Take(_listSize));
+            }
         }
 
-        private string[] _emails;
+        private IEnumerable<string> _emails;
         private IEnumerable<string> Emails
         {
-            get { return LazyInitialiseFor(_emails, size => UserDataSource.Select(x => x.Email).Take(size)); }
+            get { return EnumerableExtensions.LazyInitialiseFor(ref _emails, 
+                                                                () => UserDataSource.Select(x => x.Email).Take(_listSize)); }
         }
        
 
@@ -83,7 +101,7 @@ namespace UIT.iDeal.Common.Builders.Entities
         }
 
         
-        public UserBuilder WithDataSource(DatasourceBase<User> userDataSource)
+        public UserBuilder WithDataSource(IEnumerable<User> userDataSource)
         {
             _userDataSource = userDataSource;
             return this;
