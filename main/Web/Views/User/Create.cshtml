@@ -1,6 +1,7 @@
 ﻿@using Microsoft.Web.Mvc
 @using UIT.iDeal.Common.Web
 @using UIT.iDeal.Web.Controllers
+@using UIT.iDeal.Common.Extensions.Web
 @model UIT.iDeal.ViewModel.Users.AddUserForm
 
 @{
@@ -21,10 +22,22 @@
     <fieldset>
         <legend>Create a new User</legend>
         @Html.EditorForModel()
-        <br/>
+        <hr/>
+        <div class="left-panel">
+            @Html.LabelFor(m => m.ApplicationRoles)
+            @Html.MultiSelectWithCheckboxes(m => m.ApplicationRoles, m => m.ApplicationRoleIds)
+            <br/>
+        </div>
+        
+        <div class="right-panel">
+            @Html.LabelFor(m => m.BusinessUnits)
+            @Html.MultiSelectWithCheckboxes(m => m.BusinessUnits, m => m.BusinessUnitIds)
+            <br/>
+        </div>
         <div>
             <input type="submit" class="btn btn-primary" id="@LocalSiteMap.Locators.ActionElementIds.AddUser.AddUserButton" value="Create" />
         </div>
+        
     </fieldset>
 }
 
@@ -32,3 +45,10 @@
 <div>
    @(Html.ActionLink<UserController>(x => x.Index(), "Back to Users list"))
 </div>
+
+@section JavaScript
+{
+    $(function(){
+        $(".multiselect").multiselect();
+    });
+}

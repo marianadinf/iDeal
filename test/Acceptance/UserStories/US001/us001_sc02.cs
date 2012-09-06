@@ -33,10 +33,10 @@ namespace UIT.iDeal.Acceptance.UserStories.US001
         public virtual void AndGiven_I_have_entered_first_last_user_name_as_well_as_his_email()
         {
             _userBuilder
-                .WithUserName("ftheolade")
-                .WithFirstName("Franck")
-                .WithLastName("Theolade")
-                .WithEmail("ftheolade@gmail.com");
+                .WithUserNames("ftheolade")
+                .WithFirstNames("Franck")
+                .WithLastNames("Theolade")
+                .WithEmails("ftheolade@gmail.com");
         }
 
         [AndGiven(StepTitle = "And I have selected the Application role 'Investment Analyst'")]

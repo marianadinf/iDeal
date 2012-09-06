@@ -1,9 +1,14 @@
-﻿using UIT.iDeal.TestLibrary.UserStories.Scenarios;
+﻿using System.Collections.Generic;
+using UIT.iDeal.Common.Builders.Entities;
+using UIT.iDeal.Domain.Model.ReferenceData;
+using UIT.iDeal.TestLibrary.UserStories.Scenarios;
 
 namespace UIT.iDeal.Acceptance.UserStories.US001
 {
-    public abstract class us001_sc01<T> : ScenarioFor<T, us001_create_new_user_login> where T : class 
+    public abstract class us001_sc01<T> : ScenarioFor<T, us001_create_new_user_login> where T : class
     {
+        protected List<ApplicationRole> _applicationRoles = new ReferenceDataBuilderFor<ApplicationRole>();
+        protected List<BusinessUnit> _businessUnits = new ReferenceDataBuilderFor<BusinessUnit>();
         protected us001_sc01() : base(2, "Navigating to create a user")
         {
         }

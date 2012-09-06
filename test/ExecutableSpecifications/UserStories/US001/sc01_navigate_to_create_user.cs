@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using FluentAssertions;
+﻿using FluentAssertions;
 using UIT.iDeal.Acceptance.UserStories.US001;
 using UIT.iDeal.TestLibrary.Extensions;
 using UIT.iDeal.TestLibrary.UserStories.Scenarios;
@@ -42,12 +41,12 @@ namespace UIT.iDeal.Acceptance.ExecutableSpecifications.UserStories.US001
 
        public override void And_the_user_application_role_should_not_be_selected()
        {
-           SUT.ViewModel.ApplicationRoles.First().Text.Should().Be("Please Select...");
+           SUT.ViewModel.ApplicationRoles.ShouldBeEquivalentToModel(_applicationRoles);
        }
 
        public override void And_the_user_business_unit_should_not_be_selected()
        {
-           SUT.ViewModel.BusinessUnits.First().Text.Should().Be("Please Select...");
+           SUT.ViewModel.BusinessUnits.ShouldBeEquivalentToModel(_businessUnits);
        }
    }
 }

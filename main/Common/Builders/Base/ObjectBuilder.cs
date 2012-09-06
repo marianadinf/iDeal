@@ -28,6 +28,16 @@ namespace UIT.iDeal.Common.Builders.Base
             return _listTemplate.Build().ToList();
         }
 
+        protected IEnumerable<T>  LazyInitialiseFor<T>(IEnumerable<T> internalEnumeration, Func<int,IEnumerable<T>> listInitialiser )
+        {
+            if (internalEnumeration == null || !internalEnumeration.Any())
+            {
+                internalEnumeration = listInitialiser(_listSize);
+            }
+
+            return internalEnumeration;
+        }
+
         public static implicit operator T(ObjectBuilder<T> builder)
         {
             if (builder._action != null)

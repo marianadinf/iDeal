@@ -30,10 +30,10 @@ namespace UIT.iDeal.Commands.Factories
         {
             return
                 new UserBuilder()
-                    .WithFirstName(firstname)
-                    .WithLastName(lastname)
-                    .WithUserName(username)
-                    .WithEmail(email)
+                    .WithFirstNames(firstname)
+                    .WithLastNames(lastname)
+                    .WithUserNames(username)
+                    .WithEmails(email)
                     .WithApplicationRoles(applicationRoles)
                     .WithBusinessUnits(businessUnits);
         }

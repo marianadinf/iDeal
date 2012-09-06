@@ -212,6 +212,30 @@ input[type="submit"] {
 }
 
 
+.multiselect {
+    width:22em;
+    height:12em;
+    border:solid 1px #c0c0c0;
+    overflow:auto;
+}
+
+.multiselect label.first {
+    margin-top: 5px;
+} 
+.multiselect label {
+    display:block;
+    margin-bottom: 0px;    
+}
+ 
+ 
+.multiselect input[type=checkbox] {
+    margin: 0px 10px 2px 15px;
+}
+.multiselect-on {
+    color:#ffffff;
+    background-color:#034AF3;
+}
+
 /* MISC  
 ----------------------------------------------------------*/
 .clear {

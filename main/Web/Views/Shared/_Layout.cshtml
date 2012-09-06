@@ -11,6 +11,7 @@
     <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
     <link href="@Url.Content("~/Content/bootstrap/css/bootstrap.css")" rel="stylesheet" type="text/css" />
     <link href="@Url.Content("~/Content/bootstrap/css/bootstrap-responsive.min.css")" rel="stylesheet"/>
+    
     <style type="text/css">
       body {
         padding-top: 60px;
@@ -86,16 +87,21 @@
         </div>
    
        
-    @RenderSection("JavaScript", false)
+    
     <div id="hidden">
         @RenderSection("Hidden", false)
     </div>
+    
     
     <script src="@Url.Content("~/Scripts/jquery-1.7.2.min.js")" type="text/javascript"></script>
     <script src="@Url.Content("~/Scripts/jquery-ui-1.8.11.min.js")" type="text/javascript"></script>
     <script src="@Url.Content("~/Scripts/bootstrap/bootstrap.min.js")" type="text/javascript"></script>
     <script src="@Url.Content("~/Scripts/modernizr-1.7.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.ui.extensions.js")" type="text/javascript"></script>
     <script type="text/javascript">
+        @RenderSection("JavaScript", false)
+    </script>
+    @*<script type="text/javascript">
         $(document).ready(function () {
             handleAjaxMessages();
             displayMessages();
@@ -139,7 +145,7 @@
                 displayMessage(msg, request.getResponseHeader('X-Message-Type'));
             }
         }	
-	</script>
+	</script>*@
 </body>
 </html>
 
