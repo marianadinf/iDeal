@@ -18,7 +18,7 @@ namespace UIT.iDeal.Common.Extensions.Web
         public static SelectList ToSelectList<TReferenceData>(this IEnumerable<TReferenceData> referenceDatas )
             where TReferenceData : ReferenceData
         {
-            return referenceDatas.ToSelectList(x => x.Id, x => x.Description,topAdditionalItemText:null);
+            return referenceDatas.ToSelectList(x => x.Id, x => x.Description, topAdditionalItemText: null);
         }
 
 
