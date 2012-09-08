@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using FluentValidation;
+﻿using FluentValidation;
 
 namespace UIT.iDeal.Commands.AddUser
 {
@@ -14,8 +10,8 @@ namespace UIT.iDeal.Commands.AddUser
             RuleFor(x => x.Lastname).NotNull().Length(2, 50);
             RuleFor(x => x.Username).NotNull().Length(3, 50);
             RuleFor(x => x.Email).NotNull().Length(3, 50);
-            RuleFor(x => x.ApplicationRoleIds).NotEmpty().WithMessage("Please select a list one application roles");
-            RuleFor(x => x.BusinessUnitIds).NotEmpty();
+            RuleFor(x => x.ApplicationRoleIds).NotEmpty().WithMessage("Please select at least one application role");
+            RuleFor(x => x.BusinessUnitIds).NotEmpty().WithMessage("Please select at least one business unit");
         }
     }
 }
