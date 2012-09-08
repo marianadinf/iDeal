@@ -17,7 +17,7 @@ body {
 
 
 a:link {
-    color: #034af3;
+    color: #1d60ff;
     text-decoration: underline;
 }
 
@@ -218,13 +218,14 @@ input[type="submit"] {
 
 .multiselect {
     width:22em;
-    height:12em;
+    height:12.2em;
     border:solid 1px #c0c0c0;
     overflow:auto;
+    margin-right: 100px;
 }
 
 .multiselect label.first {
-    margin-top: 5px;
+    margin-top: 2px;
 } 
 .multiselect label {
     display:block;
@@ -237,7 +238,11 @@ input[type="submit"] {
 }
 .multiselect-on {
     color:#ffffff;
-    background-color:#034AF3;
+    background-color:#1d60ff;
+}
+
+.left-panel {
+    float: left;
 }
 
 /* MISC  
