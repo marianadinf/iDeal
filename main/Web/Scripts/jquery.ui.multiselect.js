@@ -16,9 +16,7 @@
         clickedCheckedbox.parent().toggleClass("multiselect-on", isChecked);
     });
 
-
     //when submitting the form for which the multiselect belongs it adds hidden input field for the the selected checkboxes
-
     multiselects.each(function () {
         var multiselect = $(this),
             form = multiselect.closest("form");
@@ -26,7 +24,7 @@
         form.submit(function () {
 
             var hiddenInputName = multiselect.attr("data-hidden-input-name"),
-                selectedCheckedBoxes = multiselect.find("label.multiselect-on input");
+                selectedCheckedBoxes = multiselect.find("label.multiselect-on input:checkbox");
 
             selectedCheckedBoxes.each(function (index, checkbox) {
                 var newHiddenInput =
@@ -40,22 +38,4 @@
             });
         });
     });
-
-    /*multiselects.each(function () {
-
-    checkboxes.each(function () {
-    var checkbox = $(this);
-    // Highlight pre-selected checkboxes
-    if (checkbox.attr("checked"))
-    checkbox.parent().addClass("multiselect-on");
-
-    // Highlight checkboxes that the user selects
-    checkbox.click(function () {
-    if (checkbox.attr("checked"))
-    checkbox.parent().addClass("multiselect-on");
-    else
-    checkbox.parent().removeClass("multiselect-on");
-    });
-    });
-    });*/
 };

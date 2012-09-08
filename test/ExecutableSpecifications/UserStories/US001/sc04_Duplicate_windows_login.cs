@@ -1,4 +1,6 @@
-﻿using FluentAssertions;
+﻿using System;
+using System.Collections.Generic;
+using FluentAssertions;
 using UIT.iDeal.Acceptance.UserStories.US001;
 using UIT.iDeal.TestLibrary.Extensions;
 using UIT.iDeal.TestLibrary.UserStories.Scenarios;
@@ -13,6 +15,8 @@ namespace UIT.iDeal.Acceptance.ExecutableSpecifications.UserStories.US001
         {
             base.AndGiven_there_are_2_users();
             SUT.CreateFormUsing(_existingUser);
+           SUT.Form.ApplicationRoleIds = new List<Guid> {Guid.NewGuid()};
+           SUT.Form.BusinessUnitIds = new List<Guid> { Guid.NewGuid() };
         }
        
         public override void When_I_enter_a_user_with_an_existing_windows_login()

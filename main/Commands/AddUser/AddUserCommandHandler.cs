@@ -3,34 +3,44 @@ using UIT.iDeal.Common.Commands;
 using UIT.iDeal.Common.Errors;
 using UIT.iDeal.Common.Interfaces.Data;
 using UIT.iDeal.Domain.Model;
+using UIT.iDeal.Domain.Model.ReferenceData;
 
 namespace UIT.iDeal.Commands.AddUser
 {
-   public class AddUserCommandHandler : ICommandHandler<AddUserCommand>
+    public class AddUserCommandHandler : ICommandHandler<AddUserCommand>
     {
-       private readonly IUserRepository _repository;
+        readonly IUserRepository _repository;
+        readonly IReferenceDataQuery<ApplicationRole> _applicationRoleReferenceDataQuery;
+        readonly IReferenceDataQuery<BusinessUnit> _businessUnitReferenceDataQuery;
 
-       public AddUserCommandHandler(IUserRepository repository)
-       {
-           _repository = repository;
-       }
+        public AddUserCommandHandler(IUserRepository repository,
+                                     IReferenceDataQuery<ApplicationRole> applicationRoleReferenceDataQuery,
+                                     IReferenceDataQuery<BusinessUnit> businessUnitReferenceDataQuery)
+        {
+            _repository = repository;
+            _applicationRoleReferenceDataQuery = applicationRoleReferenceDataQuery;
+            _businessUnitReferenceDataQuery = businessUnitReferenceDataQuery;
+        }
 
-       public AddUserCommand Command { get; set; }
+        public AddUserCommand Command { get; set; }
 
-       public void Handle()
-       {
-           
-           if (_repository.Exists(u => u.Username == Command.Username))
-           {
-               throw new BusinessRuleExceptionFor<User>(u => u.Username, 
-                                                       "A user with user name '{0}' already exists",
-                                                        Command.Username);
-           }
+        public void Handle()
+        {
 
-           _repository.Save(UserFactory.Create(Command));
-       }
+            if (_repository.Exists(u => u.Username == Command.Username))
+            {
+                throw new BusinessRuleExceptionFor<User>(u => u.Username,
+                                                         "A user with user name '{0}' already exists",
+                                                         Command.Username);
+            }
 
+            var selectedApplicationRoles = 
+                _applicationRoleReferenceDataQuery.GetAllCachedForSelectedIds(Command.ApplicationRoleIds);
 
+            var selectedBusinessUnits = 
+                _businessUnitReferenceDataQuery.GetAllCachedForSelectedIds(Command.BusinessUnitIds);
 
+            _repository.Save(UserFactory.Create(Command, selectedApplicationRoles, selectedBusinessUnits));
+        }
     }
 }

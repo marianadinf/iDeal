@@ -27,7 +27,7 @@ namespace UIT.iDeal.Common.Extensions
                 internalEnumeration = listInitialiser();
             }
 
-            return internalEnumeration;
+            return internalEnumeration ?? Enumerable.Empty<T>();
         }
     }
 

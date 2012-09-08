@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using UIT.iDeal.Domain.Model.Base;
 using UIT.iDeal.Domain.Model.ReferenceData;
 
@@ -13,10 +14,10 @@ namespace UIT.iDeal.Domain.Model
         public virtual string Email { get; protected set; }
 
         #region Application Roles
-
-        protected ICollection<ApplicationRole> _applicationRoles = new List<ApplicationRole>();
+        
+        private IList<ApplicationRole>  _applicationRoles = new List<ApplicationRole>();
         public virtual IEnumerable<ApplicationRole> ApplicationRoles { get { return _applicationRoles; } }
-
+        
         public virtual void AddApplicationRoles(IEnumerable<ApplicationRole> applicationRoles)
         {
             _applicationRoles.AddRange(applicationRoles);
@@ -26,7 +27,7 @@ namespace UIT.iDeal.Domain.Model
 
         #region Business Units
 
-        protected ICollection<BusinessUnit> _businessUnits = new List<BusinessUnit>();
+        private IList<BusinessUnit>  _businessUnits = new List<BusinessUnit>();
         public virtual IEnumerable<BusinessUnit> BusinessUnits { get { return _businessUnits; } }
 
         public virtual void AddBusinessUnits(IEnumerable<BusinessUnit> businessUnits)

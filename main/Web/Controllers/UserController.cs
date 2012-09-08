@@ -16,8 +16,6 @@ namespace UIT.iDeal.Web.Controllers
         private readonly IUserQuery _query;
         private readonly IReferenceDataQuery<ApplicationRole> _applicationRoleReferenceDataQuery;
         private readonly IReferenceDataQuery<BusinessUnit> _businessUnitReferenceDataQuery;
-        private static IEnumerable<ApplicationRole> _applicationRoles;
-        private static IEnumerable<BusinessUnit> _businessUnits;
 
         public UserController(IUserQuery query,
                               IReferenceDataQuery<ApplicationRole> applicationRoleReferenceDataQuery,
@@ -53,16 +51,8 @@ namespace UIT.iDeal.Web.Controllers
         
         private AddUserForm InitialiseSelectLists(AddUserForm addUserForm)
         {
-            addUserForm.ApplicationRoles =
-                EnumerableExtensions
-                    .LazyInitialiseFor(ref _applicationRoles, () => _applicationRoleReferenceDataQuery.GetAll().ToList())
-                    .ToSelectList();
-
-            addUserForm.BusinessUnits =
-                EnumerableExtensions
-                    .LazyInitialiseFor(ref _businessUnits,() => _businessUnitReferenceDataQuery.GetAll().ToList())
-                    .ToSelectList();
-
+            addUserForm.ApplicationRoles = _applicationRoleReferenceDataQuery.GetAllCached().ToSelectList();
+            addUserForm.BusinessUnits = _businessUnitReferenceDataQuery.GetAllCached().ToSelectList();
             return addUserForm;
         }
         

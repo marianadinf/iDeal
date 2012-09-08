@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UIT.iDeal.Commands.AddUser;
 using UIT.iDeal.Common.Builders.Entities;
 using UIT.iDeal.Domain.Model;
@@ -9,8 +10,8 @@ namespace UIT.iDeal.Commands.Factories
     public static class UserFactory
     {
         public static User Create(AddUserCommand addUserCommand,
-                                  List<ApplicationRole> applicationRoles = null,
-                                  List<BusinessUnit> businessUnits = null)
+                                  IEnumerable<ApplicationRole> applicationRoles,
+                                  IEnumerable<BusinessUnit> businessUnits)
         {
 
             return Create(addUserCommand.Firstname,
@@ -25,8 +26,8 @@ namespace UIT.iDeal.Commands.Factories
                                   string lastname,
                                   string username,
                                   string email,
-                                  List<ApplicationRole> applicationRoles = null, 
-                                  List<BusinessUnit> businessUnits = null)
+                                  IEnumerable<ApplicationRole> applicationRoles,
+                                  IEnumerable<BusinessUnit> businessUnits)
         {
             return
                 new UserBuilder()
@@ -34,8 +35,8 @@ namespace UIT.iDeal.Commands.Factories
                     .WithLastNames(lastname)
                     .WithUserNames(username)
                     .WithEmails(email)
-                    .WithApplicationRoles(applicationRoles)
-                    .WithBusinessUnits(businessUnits);
+                    .WithApplicationRoles(applicationRoles.ToList())
+                    .WithBusinessUnits(businessUnits.ToList());
         }
     }
 }

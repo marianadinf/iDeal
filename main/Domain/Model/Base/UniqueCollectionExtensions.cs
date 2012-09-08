@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 
 namespace UIT.iDeal.Domain.Model.Base
@@ -20,5 +21,17 @@ namespace UIT.iDeal.Domain.Model.Base
             return additionalItems.All(collection.AddUnique);
 
         }
+
+        public static ReadOnlyCollection<T> ConcateneToReadOnlyCollection<T>(this ReadOnlyCollection<T> readOnlyCollection, IEnumerable<T> items)
+           where T : class
+        {
+            var arrayOfItems = new T[] { };
+            readOnlyCollection.CopyTo(arrayOfItems, 0);
+            var list = arrayOfItems.ToList();
+            list.AddRange(items);
+            return new ReadOnlyCollection<T>(list);
+        }
+
+        
     }
 }
