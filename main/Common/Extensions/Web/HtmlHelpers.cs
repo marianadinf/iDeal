@@ -40,7 +40,8 @@ namespace UIT.iDeal.Common.Extensions.Web
                                                  postListPropertyName,
                                                  "multiselect",
                                                  ExpressionHelper.GetExpressionText(readListExpressionSelector),
-                                                 innerHtml));
+                                                 innerHtml) +
+                                  htmlHelper.ValidationMessageFor(postListExpressionSelector));
          }
 
     }

@@ -35,7 +35,6 @@
         <div class="right-panel">
             @Html.LabelFor(m => m.BusinessUnits)
             @Html.MultiSelectWithCheckboxes(m => m.BusinessUnits, m => m.BusinessUnitIds)
-            @Html.ValidationMessageFor(m => m.BusinessUnitIds)
             <br/>
         </div>
         <div>
