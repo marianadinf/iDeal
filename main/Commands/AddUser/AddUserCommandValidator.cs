@@ -14,8 +14,8 @@ namespace UIT.iDeal.Commands.AddUser
             RuleFor(x => x.Lastname).NotNull().Length(2, 50);
             RuleFor(x => x.Username).NotNull().Length(3, 50);
             RuleFor(x => x.Email).NotNull().Length(3, 50);
-            //RuleFor(x => x.ApplicationRoles).NotNull();
-            
+            RuleFor(x => x.ApplicationRoleIds).NotEmpty().WithMessage("Please select a list one application roles");
+            RuleFor(x => x.BusinessUnitIds).NotEmpty();
         }
     }
 }

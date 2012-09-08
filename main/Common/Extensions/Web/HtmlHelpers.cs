@@ -3,6 +3,7 @@ using System.Linq;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Web.Mvc;
+using System.Web.Mvc.Html;
 
 namespace UIT.iDeal.Common.Extensions.Web
 {
@@ -25,18 +26,18 @@ namespace UIT.iDeal.Common.Extensions.Web
              {
                  var isSelected = postList != null && postList.Any(x => x.ToString() == item.Value);
                  innerHtml +=
-                     string.Format("<label{0}><input type=\"checkbox\" {4} name=\"{1}[]\" value=\"{2}\"/>{3}</label>",
+                     string.Format("<label{0}><input type=\"checkbox\" {1} value=\"{2}\"/>{3}</label>",
                                    isFirstLabel ? " class=\"first\"" : string.Empty,
-                                   postListPropertyName,
+                                   isSelected ? "checked" : string.Empty,
                                    item.Value,
-                                   item.Text,
-                                   isSelected ? "checked" : string.Empty);
+                                   item.Text);
                  
                  isFirstLabel = false;
              }
 
              return
-                 new MvcHtmlString(string.Format("<div class=\"{0}\" id=\"{1}\">{2}</div>",
+                 new MvcHtmlString(string.Format("<div data-hidden-input-name=\"{0}\" class=\"{1}\" id=\"{2}\">{3}</div>",
+                                                 postListPropertyName,
                                                  "multiselect",
                                                  ExpressionHelper.GetExpressionText(readListExpressionSelector),
                                                  innerHtml));

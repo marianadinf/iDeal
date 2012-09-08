@@ -75,9 +75,7 @@ namespace UIT.iDeal.Common.Builders.Entities
 
         protected override User Build()
         {
-
-            
-             var item =
+            var item =
                 _itemTemplate
                     .With(user => user.Firstname, FirstNames.First())
                     .With(user => user.Lastname, LastNames.First())
@@ -95,7 +93,7 @@ namespace UIT.iDeal.Common.Builders.Entities
             return
                 _listTemplate
                     .All()
-                    .Do(user => PopulateUser(user,ref index))
+                    .Do(user => PopulateUser(user,index++))
                     .Build()
                     .ToList();
         }
@@ -146,7 +144,7 @@ namespace UIT.iDeal.Common.Builders.Entities
             return this;
         }
 
-        private void PopulateUser(User destinationUser, ref int index )
+        private void PopulateUser(User destinationUser, int index)
         {
             var fromUser = User.Create(FirstNames.ElementAt(index),
                                        LastNames.ElementAt(index),
@@ -156,7 +154,6 @@ namespace UIT.iDeal.Common.Builders.Entities
             CopyValues(fromUser, destinationUser);
             destinationUser.AddApplicationRoles(fromUser.ApplicationRoles);
             destinationUser.AddBusinessUnits(fromUser.BusinessUnits);
-            index++;
         }
     }
 }

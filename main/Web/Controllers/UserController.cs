@@ -30,7 +30,6 @@ namespace UIT.iDeal.Web.Controllers
 
         //
         // GET: /User/
-      
         public ActionResult Index()
         {
             var users = _query.GetAll();
@@ -51,9 +50,7 @@ namespace UIT.iDeal.Web.Controllers
                     .WithSuccessResult(this.RedirectToAction(x => x.Index()));
            
         }
-
-       
-
+        
         private AddUserForm InitialiseSelectLists(AddUserForm addUserForm)
         {
             addUserForm.ApplicationRoles =

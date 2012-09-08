@@ -10,7 +10,11 @@ body {
     margin: 0;
     padding: 0;
     color: #696969;
+    padding-top: 60px;
+    padding-bottom: 40px;    
 }
+
+
 
 a:link {
     color: #034af3;
