@@ -12,7 +12,7 @@
 
         var clickedCheckedbox = $(this),
                 isChecked = clickedCheckedbox.is(":checked");
-
+  
         clickedCheckedbox.parent().toggleClass("multiselect-on", isChecked);
     });
 

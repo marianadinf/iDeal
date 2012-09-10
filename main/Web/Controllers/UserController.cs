@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 using UIT.iDeal.Common.Extensions;
@@ -47,6 +48,15 @@ namespace UIT.iDeal.Web.Controllers
                 HandleForm(InitialiseSelectLists(addUserForm))
                     .WithSuccessResult(this.RedirectToAction(x => x.Index()));
            
+        }
+
+        [HttpPost]
+        public AutoMappedJsonResult GetPermissionsMatrix(IList<Guid> applicationRoleIds)
+        {
+            /*var permissionMatrix = _permissionQuery.GetAll(x => x.Contains(applicationRoleIds));
+            return AutoMappedJsonResult<List<string>>(permissionMatrix);*/
+
+            throw new NotImplementedException();
         }
         
         private AddUserForm InitialiseSelectLists(AddUserForm addUserForm)
