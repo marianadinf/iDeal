@@ -26,16 +26,18 @@
         <legend>Create a new User</legend>
         @Html.EditorForModel()
         <hr/>
-        <div class="left-panel">
+        <div class="controls-row">
+        <div class="pull-left">
             @Html.LabelFor(m => m.ApplicationRoles)
             @Html.MultiSelectWithCheckboxes(m => m.ApplicationRoles, m => m.ApplicationRoleIds)
             <br/>
         </div>
         
-        <div class="right-panel">
+        <div class="pull-left">
             @Html.LabelFor(m => m.BusinessUnits)
             @Html.MultiSelectWithCheckboxes(m => m.BusinessUnits, m => m.BusinessUnitIds)
             <br/>
+        </div>
         </div>
         <div>
             <input type="submit" class="btn btn-primary" id="@LocalSiteMap.Locators.ActionElementIds.AddUser.AddUserButton" value="Create" />
