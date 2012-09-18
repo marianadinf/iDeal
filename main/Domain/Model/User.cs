@@ -1,6 +1,4 @@
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
 using UIT.iDeal.Domain.Model.Base;
 using UIT.iDeal.Domain.Model.ReferenceData;
 
@@ -14,8 +12,8 @@ namespace UIT.iDeal.Domain.Model
         public virtual string Email { get; protected set; }
 
         #region Application Roles
-        
-        private IList<ApplicationRole>  _applicationRoles = new List<ApplicationRole>();
+
+        protected virtual ICollection<ApplicationRole> _applicationRoles { get; private set; }
         public virtual IEnumerable<ApplicationRole> ApplicationRoles { get { return _applicationRoles; } }
         
         public virtual void AddApplicationRoles(IEnumerable<ApplicationRole> applicationRoles)
@@ -27,7 +25,7 @@ namespace UIT.iDeal.Domain.Model
 
         #region Business Units
 
-        private IList<BusinessUnit>  _businessUnits = new List<BusinessUnit>();
+        protected virtual ICollection<BusinessUnit> _businessUnits { get; private set; }
         public virtual IEnumerable<BusinessUnit> BusinessUnits { get { return _businessUnits; } }
 
         public virtual void AddBusinessUnits(IEnumerable<BusinessUnit> businessUnits)
@@ -50,6 +48,12 @@ namespace UIT.iDeal.Domain.Model
                 Email = email
             };
 
+        }
+
+        internal User()
+        {
+            _applicationRoles = new HashSet<ApplicationRole>();
+            _businessUnits = new HashSet<BusinessUnit>();
         }
 
         public virtual void Edit(string firstname , string lastname, string username)

@@ -48,6 +48,26 @@ namespace UIT.iDeal.Common.Extensions
             return CanBeCastTo(type, destinationType);
         }
 
+        
+
+        public static Type GetGenericArgumentOfGenericCollectionFor(this Type collectionType, Type openCollectionGenericType)
+        {
+
+            var genericIEnumerableInterfaceType =
+                collectionType
+                    .GetInterfaces()
+                    .FirstOrDefault(i => i.IsGenericType && i.GetGenericTypeDefinition() == openCollectionGenericType);
+
+            Type result = null;
+
+            if (genericIEnumerableInterfaceType != null)
+            {
+                result = genericIEnumerableInterfaceType.GetGenericArguments()[0];
+            }
+
+            return result;
+        }
+
         public static bool CanBeCastTo(this Type type, Type destinationType)
         {
             if (type == null) return false;

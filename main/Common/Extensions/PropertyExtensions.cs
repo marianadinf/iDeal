@@ -35,6 +35,14 @@ namespace UIT.iDeal.Common.Extensions
             return propInfo;
         }
 
+        public static TProperty GetPropertyFor<TProperty>(this object instance)
+        {
+            var property = instance.FindPropertyMatching(p => p.PropertyType == typeof (TProperty));
+            if (property == null) return default(TProperty);
+
+            return (TProperty) property.GetValue(instance, null);
+        }
+
 
         public static PropertyInfo GetPropertyFromLambda<T, TProperty>(this T obj, Expression<Func<T, TProperty>> propertySelector)
             where T : class

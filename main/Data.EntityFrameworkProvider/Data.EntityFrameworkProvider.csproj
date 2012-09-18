@@ -53,7 +53,7 @@
     <Reference Include="System.Data" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Context\DataContextConfiguration.cs" />
+    <Compile Include="Context\UserConfiguration.cs" />
     <Compile Include="Context\DataContext.cs" />
     <Compile Include="Context\DataContextFactory.cs" />
     <Compile Include="Context\IDbContextFactory.cs" />

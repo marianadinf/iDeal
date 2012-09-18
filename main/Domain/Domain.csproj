@@ -61,6 +61,7 @@
     <Compile Include="Model\ReferenceData\BusinessUnit.cs" />
     <Compile Include="Model\ReferenceData\ReferenceData.cs" />
     <Compile Include="Model\ReferenceData\Stage.cs" />
+    <Compile Include="Model\ReferenceData\UserRelatedReferenceData.cs" />
     <Compile Include="Model\Task.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
