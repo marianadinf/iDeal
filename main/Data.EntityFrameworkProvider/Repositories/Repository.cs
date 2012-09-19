@@ -21,11 +21,6 @@ namespace UIT.iDeal.Data.EntityFrameworkProvider.Repositories
             return GuidComb.Generate();
         }
 
-        public override void ResetIdSequence()
-        {
-            GuidComb.Reset();
-        }
-
         public override T Get(Guid id)
         {
             return GetOne(entity => entity.Id == id);
@@ -42,8 +37,6 @@ namespace UIT.iDeal.Data.EntityFrameworkProvider.Repositories
 
         public abstract TId GenerateId();
 
-        public abstract void ResetIdSequence();
-
         public virtual T Save(T entity)
         {
             Guard.That(entity).IsNotNull();
@@ -54,16 +47,12 @@ namespace UIT.iDeal.Data.EntityFrameworkProvider.Repositories
             return entity;
 
         }
-        
-        public IEnumerable<T> SaveList(List<T> entities, bool resetIdSequence = false)
+
+       
+        public IEnumerable<T> SaveList(List<T> entities)
         {
             Guard.That(entities).IsNotNull();
-
-            if (resetIdSequence)
-            {
-                ResetIdSequence();
-            }
-
+            
             var result = entities.Each(AddToContextIfTransient);
 
             Context.SaveChanges();

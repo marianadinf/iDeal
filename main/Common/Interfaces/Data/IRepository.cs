@@ -26,7 +26,7 @@ namespace UIT.iDeal.Common.Interfaces.Data
         /// </summary>
         T Save(T entity);
             
-        IEnumerable<T> SaveList(List<T> entities, bool resetIdSequence = false);
+        IEnumerable<T> SaveList(List<T> entities);
 
         /// <summary>
         /// I'll let you guess what this does.

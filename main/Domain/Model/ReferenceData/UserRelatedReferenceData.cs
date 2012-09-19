@@ -1,14 +1,18 @@
+using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 
 namespace UIT.iDeal.Domain.Model.ReferenceData
 {
     public abstract class UserRelatedReferenceData : ReferenceData
     {
-        protected internal virtual ICollection<User> _users { get; set; }
+        internal virtual ICollection<User> internalUsers { get; private set; }
 
-        protected internal UserRelatedReferenceData()
+        protected UserRelatedReferenceData()
         {
-            _users = new List<User>();
+            internalUsers = new List<User>();
         }
+
+        
     }
 }

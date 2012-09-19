@@ -18,7 +18,7 @@ namespace UIT.iDeal.Data.EntityFrameworkProvider.Database.Initialisation
             where TReferenceData : ReferenceData, new()
         {
             new Repository<TReferenceData>(context)
-                .SaveList(new ReferenceDataBuilderFor<TReferenceData>(), resetIdSequence: true);
+                .SaveList(new ReferenceDataBuilderFor<TReferenceData>());
         }
     }
 }

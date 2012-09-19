@@ -53,7 +53,6 @@ namespace UIT.iDeal.IntegrationTests.Data.EntityFrameworkProvider.Database
         private static IEnumerable<TRefenceData> MakeReferenceDataPersistable<TRefenceData>(IEnumerable<TRefenceData> referenceDatas)
             where TRefenceData : ReferenceData
         {
-            GuidComb.Reset();
             return referenceDatas.Each(r => r.SetValue(x => x.Id, GuidComb.Generate()));
         }
 

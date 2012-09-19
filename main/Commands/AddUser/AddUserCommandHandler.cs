@@ -33,7 +33,7 @@ namespace UIT.iDeal.Commands.AddUser
                                                          "A user with user name '{0}' already exists",
                                                          Command.Username);
             }
-
+            
             var selectedApplicationRoles = 
                 _applicationRoleReferenceDataQuery.GetAllCachedForSelectedIds(Command.ApplicationRoleIds);
 

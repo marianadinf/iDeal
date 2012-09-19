@@ -13,27 +13,29 @@ namespace UIT.iDeal.Domain.Model
 
         #region Application Roles
 
-        protected virtual ICollection<ApplicationRole> _applicationRoles { get; private set; }
-        public virtual IEnumerable<ApplicationRole> ApplicationRoles { get { return _applicationRoles; } }
+        internal virtual ICollection<ApplicationRole> internalApplicationRoles { get; set; }
+        public virtual IEnumerable<ApplicationRole> ApplicationRoles { get { return internalApplicationRoles; } }
         
         public virtual void AddApplicationRoles(IEnumerable<ApplicationRole> applicationRoles)
         {
-            _applicationRoles.AddRange(applicationRoles);
+            internalApplicationRoles.AddRange(applicationRoles);
         }
 
         #endregion
 
         #region Business Units
-
-        protected virtual ICollection<BusinessUnit> _businessUnits { get; private set; }
-        public virtual IEnumerable<BusinessUnit> BusinessUnits { get { return _businessUnits; } }
+        
+        internal virtual ICollection<BusinessUnit> internalBusinessUnits { get; private set; }
+        public virtual IEnumerable<BusinessUnit> BusinessUnits { get { return internalBusinessUnits; } }
 
         public virtual void AddBusinessUnits(IEnumerable<BusinessUnit> businessUnits)
         {
-            _businessUnits.AddRange(businessUnits);
+            internalBusinessUnits.AddRange(businessUnits);
         }
 
         #endregion
+
+        #region Contructors
 
         internal static User Create(string firstname,
                                   string lastname,
@@ -52,15 +54,10 @@ namespace UIT.iDeal.Domain.Model
 
         internal User()
         {
-            _applicationRoles = new HashSet<ApplicationRole>();
-            _businessUnits = new HashSet<BusinessUnit>();
+            internalApplicationRoles = new HashSet<ApplicationRole>();
+            internalBusinessUnits = new HashSet<BusinessUnit>();
         }
 
-        public virtual void Edit(string firstname , string lastname, string username)
-        {
-            Firstname = firstname;
-            Lastname = lastname;
-            Username = username;
-        }
+        #endregion
     }
 }

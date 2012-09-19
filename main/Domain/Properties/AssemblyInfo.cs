@@ -14,7 +14,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
-//[assembly: InternalsVisibleTo("UIT.iDeal.Data.EntityFrameworkProvider")]
+[assembly: InternalsVisibleTo("UIT.iDeal.Data.EntityFrameworkProvider")]
 [assembly: InternalsVisibleTo("UIT.iDeal.Common")]
 
 

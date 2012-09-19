@@ -137,9 +137,9 @@ namespace UIT.iDeal.Common.Builders.DataSources.Domain
                                   string email)
         {
             var newUser = User.Create(firstname, lastname, username, email);
+
             newUser.AddApplicationRoles(GetRandomListFrom(_applicationRoleDataSource));
             newUser.AddBusinessUnits(GetRandomListFrom(_businessUnitDataSource));
-            
             return newUser;
         }
 
