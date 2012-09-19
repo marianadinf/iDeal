@@ -13,9 +13,6 @@ namespace UIT.iDeal.Data.EntityFrameworkProvider.Configuration
     {
         public UserConfiguration()
         {
-
-            //Property(x => x.ApplicationRoles).Not;
-
             Ignore(x => x.ApplicationRoles);
             Ignore(x => x.BusinessUnits);
 
@@ -36,7 +33,6 @@ namespace UIT.iDeal.Data.EntityFrameworkProvider.Configuration
                     x.MapLeftKey("UserId");
                     x.MapRightKey("BusinessId");
                 });
-
         }
     }
 }
