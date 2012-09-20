@@ -228,7 +228,7 @@ namespace UIT.iDeal.Common.Extensions
 
         public static bool IsConcrete(this Type type)
         {
-            return !type.IsAbstract && !type.IsInterface;
+            return type != null && !type.IsAbstract && !type.IsInterface;
         }
 
         public static bool IsNotConcrete(this Type type)

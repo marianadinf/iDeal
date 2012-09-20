@@ -1,10 +1,12 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using UIT.iDeal.Common.Extensions;
 using UIT.iDeal.Common.Interfaces.Data;
 using UIT.iDeal.Data.EntityFrameworkProvider.Context;
 using UIT.iDeal.Data.EntityFrameworkProvider.Repositories;
 using UIT.iDeal.Domain.Model.Base;
+using UIT.iDeal.Domain.Model.ReferenceData;
 using UIT.iDeal.Infrastructure.Configuration.Flavours;
 
 namespace UIT.iDeal.TestLibrary.Data
@@ -67,7 +69,8 @@ namespace UIT.iDeal.TestLibrary.Data
               _context
                   .GetType()
                   .GetProperties()
-                  .Where(p => p.PropertyType.IsGenericType && p.PropertyType.GetGenericTypeDefinition() == typeof(IDbSet<>))
+                  .Where(p => p.PropertyType.IsGenericType && p.PropertyType.GetGenericTypeDefinition() == typeof (IDbSet<>))
+                  .Where(p =>  p.PropertyType.GetGenericArguments()[0].IsNotConcreteTypeOf<ReferenceData>() )
                   .Select(p => (dynamic)p.GetValue(_context, null))
                   .ToList();
 

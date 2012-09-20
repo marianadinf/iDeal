@@ -1,7 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using Bddify.Scanners.StepScanners.ExecutableAttribute.GwtAttributes;
-using UIT.iDeal.Common.Builders.DataSources.ReferenceData;
 using UIT.iDeal.Common.Builders.Entities;
 using UIT.iDeal.Domain.Model;
 using UIT.iDeal.Domain.Model.ReferenceData;
@@ -9,23 +10,36 @@ using UIT.iDeal.TestLibrary.UserStories.Scenarios;
 
 namespace UIT.iDeal.Acceptance.UserStories.US001
 {
-    public abstract class us001_sc02<T> : ScenarioFor<T, us001_create_new_user_login> where T : class 
+    public abstract class us001_sc02<T> : ScenarioFor<T, us001_create_new_user_login> where T : class
     {
 
+        protected Expression<Func<ApplicationRole,bool>> InvestmentAnalystApplicationRole =
+            x => x == _applicationRoles.Single();
+
+        protected Expression<Func<BusinessUnit,bool>> BusinessUnitOne =
+            x => x == _businessUnits.Single();
+
+
         private readonly UserBuilder _userBuilder = new UserBuilder();
-        private static List<ApplicationRole> _investmentAnalystApplicationRole = new ApplicationRoleReferenceDataSource().Where(x => x.Description == "Investment Analyst").ToList();
-        private static List<BusinessUnit> _businessUnit1 = new BusinessUnitReferenceDataSource().Where(x => x.Description == "Business Unit 1").ToList();
+        private static List<ApplicationRole> _applicationRoles;
+        private static List<BusinessUnit> _businessUnits;
 
         protected User _newUser;
 
-        protected us001_sc02() : base(1, "Successful creation") { }
+        protected us001_sc02() : base(1, "Successful user creation") { }
         
         public virtual void Given_I_am_an_admin()  { }
         
         public virtual void AndGiven_there_are_2_users()
         {
-          
+            _applicationRoles =
+                Database.Query<ApplicationRole>().GetAll(x => x.Description == "Investment Analyst").ToList();
+
+            _businessUnits =
+                Database.Query<BusinessUnit>().GetAll(x => x.Description == "Business Unit 1").ToList();
+
             List<User> users = new UserBuilder(2);
+
             Database.SaveList(users);
         }
 
@@ -42,13 +56,13 @@ namespace UIT.iDeal.Acceptance.UserStories.US001
         [AndGiven(StepTitle = "And I have selected the Application role 'Investment Analyst'")]
         public virtual void AndGiven_I_have_selected_the_Application_role_Investment_Analyst()
         {
-            _userBuilder.WithApplicationRoles(_investmentAnalystApplicationRole);
+            _userBuilder.WithApplicationRoles(_applicationRoles);
         }
 
         [AndGiven(StepTitle = "And I have selected the Business unit to 'Business Unit 1'")]
         public virtual void AndGiven_I_have_selected_the_Business_unit_to_Business_Unit_1()
         {
-            _newUser = _userBuilder.WithBusinessUnits(_businessUnit1);
+            _newUser = _userBuilder.WithBusinessUnits(_businessUnits);
         }
 
         public abstract void When_I_create_a_user();

@@ -53,12 +53,12 @@ namespace UIT.iDeal.Acceptance.ExecutableSpecifications.UserStories.US001
 
         public override void And_the_last_user_application_role_should_be_Investment_Analyst()
         {
-            throw new System.NotImplementedException();
+            _lastSavedUser.ApplicationRoles.Should().OnlyContain(InvestmentAnalystApplicationRole);
         }
 
         public override void And_the_last_user_business_unit_should_be_Business_Unit_1()
         {
-            throw new System.NotImplementedException();
+            _lastSavedUser.BusinessUnits.Should().Contain(BusinessUnitOne);
         }
     }
 }
