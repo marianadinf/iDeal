@@ -8,6 +8,9 @@ namespace UIT.iDeal.Common.Data
     /// </summary>
     public static class GuidComb
     {
+        public static  Func<Guid> GuidStartTemplate = () => Guid.NewGuid();
+        public static Func<DateTime> DateTimeStartTemplate = () => DateTime.UtcNow;
+        
         /// <summary>
         /// Creates a new sequential guid (aka comb) <see cref="http://www.informit.com/articles/article.aspx?p=25862&seqNum=7"/>.
         /// </summary>
@@ -15,8 +18,8 @@ namespace UIT.iDeal.Common.Data
         /// <returns>A new sequential guid (comb).</returns>
         public static Guid Generate()
         {
-            byte[] uid = Guid.NewGuid().ToByteArray();
-            byte[] binDate = BitConverter.GetBytes(DateTime.UtcNow.Ticks); // use UTC now to prevent conflicts w/ date time savings
+            byte[] uid = GuidStartTemplate().ToByteArray();
+            byte[] binDate = BitConverter.GetBytes(DateTimeStartTemplate().Ticks); // use UTC now to prevent conflicts w/ date time savings
 
             // create comb in SQL Server sort order
             byte[] comb = new byte[uid.Length];

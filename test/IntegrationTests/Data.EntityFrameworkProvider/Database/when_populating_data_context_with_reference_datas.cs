@@ -1,14 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
-
-using FizzWare.NBuilder;
-using FizzWare.NBuilder.Implementation;
-using FizzWare.NBuilder.PropertyNaming;
-
+using System.Linq;
 using Machine.Fakes;
 using Machine.Specifications;
-using UIT.iDeal.Common.Builders.Base;
-using UIT.iDeal.Common.Builders.DataSources.ReferenceData;
+using UIT.iDeal.Common.Builders.Entities;
 using UIT.iDeal.Common.Data;
 using UIT.iDeal.Common.Extensions;
 using UIT.iDeal.Data.EntityFrameworkProvider.Context;
@@ -21,14 +17,39 @@ namespace UIT.iDeal.IntegrationTests.Data.EntityFrameworkProvider.Database
 {
     public class when_populating_data_context_with_reference_datas : WithSubject<DataContextReferenceDataInitialiser>
     {
+
+        private static IEnumerable<IEnumerable<ReferenceData>> ReferenceDatasListWithSameGuidCombSequence
+        {
+            get
+            {
+                GuidComb.GuidStartTemplate = Guid.NewGuid;
+                GuidComb.DateTimeStartTemplate = () => DateTime.UtcNow;
+
+                var referenceDatasCollection = new List<IEnumerable<ReferenceData>>
+                    {
+                        ReferenceDataSourceFor<BusinessUnit>(),
+                        ReferenceDataSourceFor<ApplicationRole>(),
+                        ReferenceDataSourceFor<Stage>()
+                    };
+                
+                referenceDatasCollection
+                    .SelectMany(referenceDatas => referenceDatas)
+                    .Each(r => r.SetValue(x => x.Id, GuidComb.Generate()));
+
+                return referenceDatasCollection;
+            }
+        }
+        
         static DataContext _dataContext;
-        static readonly IEnumerable<BusinessUnit> ExpectedBusinessUnits = MakeReferenceDataPersistable(new BusinessUnitReferenceDataSource());
-        static readonly IEnumerable<ApplicationRole> ExpectedApplicationRoles = MakeReferenceDataPersistable(new ApplicationRoleReferenceDataSource());
-        static readonly IEnumerable<Stage> ExpectedStages = MakeReferenceDataPersistable(new StageReferenceDataSource());
+        static readonly IEnumerable<BusinessUnit> ExpectedBusinessUnits = GetReferenceDatasFor<BusinessUnit>();
+        static readonly IEnumerable<ApplicationRole> ExpectedApplicationRoles = GetReferenceDatasFor<ApplicationRole>();
+        static readonly IEnumerable<Stage> ExpectedStages = GetReferenceDatasFor<Stage>();
 
         Establish context = () =>
         {
-            BuilderSetup.SetDefaultPropertyNamer(new PersistableEntityPropertyNamer(new ReflectionUtil()));
+            GuidComb.GuidStartTemplate = Guid.NewGuid;
+            GuidComb.DateTimeStartTemplate = () => DateTime.UtcNow;
+            
             System.Data.Entity.Database.SetInitializer(new DropCreateDatabaseAlways<DataContext>());
             var environment = ConfigurationFactory.DevelopmentEnvironment();
             var contextFactory = new DataContextFactory(environment.ConnectionString(ProjectFlavour.IntegrationTests));
@@ -50,10 +71,18 @@ namespace UIT.iDeal.IntegrationTests.Data.EntityFrameworkProvider.Database
             _dataContext.Stages.ShouldContainOnly(ExpectedStages);
 
 
-        private static IEnumerable<TRefenceData> MakeReferenceDataPersistable<TRefenceData>(IEnumerable<TRefenceData> referenceDatas)
-            where TRefenceData : ReferenceData
+        private static IEnumerable<TRefenceData> ReferenceDataSourceFor<TRefenceData>()
+            where TRefenceData : ReferenceData, new()
         {
-            return referenceDatas.Each(r => r.SetValue(x => x.Id, GuidComb.Generate()));
+            return ReferenceDataBuilderFor<TRefenceData>.GetInstanceOfReferenceDataSource().ToList();
+        }
+
+        public static IEnumerable<TReferenceData>  GetReferenceDatasFor<TReferenceData>()
+        {
+            return
+                ReferenceDatasListWithSameGuidCombSequence
+                .First(x => x.GetType() == typeof (IEnumerable<TReferenceData>))
+                .Cast<TReferenceData>();
         }
 
         

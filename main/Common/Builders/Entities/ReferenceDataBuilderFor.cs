@@ -47,7 +47,7 @@ namespace UIT.iDeal.Common.Builders.Entities
         }
 
         private static int _numberOfReferenceData = 3;
-        private static ReferenceDataSource<TReferenceData> GetInstanceOfReferenceDataSource()
+        public static ReferenceDataSource<TReferenceData> GetInstanceOfReferenceDataSource()
         {
             var referenceDataSourceBaseType = typeof(ReferenceDataSource<>).MakeGenericType(typeof(TReferenceData));
 
