@@ -4,13 +4,11 @@ using Seterlund.CodeGuard;
 namespace UIT.iDeal.Common.Data
 {
     /// <summary>
+    /// 
     /// http://www.developmentalmadness.com/archive/2010/09/28/sequential-guid-algorithm-ndash-implementing-combs-in-.net.aspx
     /// </summary>
     public static class GuidComb
     {
-        public static  Func<Guid> GuidStartTemplate = () => Guid.NewGuid();
-        public static Func<DateTime> DateTimeStartTemplate = () => DateTime.UtcNow;
-        
         /// <summary>
         /// Creates a new sequential guid (aka comb) <see cref="http://www.informit.com/articles/article.aspx?p=25862&seqNum=7"/>.
         /// </summary>
@@ -18,11 +16,11 @@ namespace UIT.iDeal.Common.Data
         /// <returns>A new sequential guid (comb).</returns>
         public static Guid Generate()
         {
-            byte[] uid = GuidStartTemplate().ToByteArray();
-            byte[] binDate = BitConverter.GetBytes(DateTimeStartTemplate().Ticks); // use UTC now to prevent conflicts w/ date time savings
-
-            // create comb in SQL Server sort order
-            byte[] comb = new byte[uid.Length];
+            byte[] uid = Guid.NewGuid().ToByteArray(); 
+            byte[] binDate = BitConverter.GetBytes(DateTime.UtcNow.Ticks); 
+            // use UTC now to prevent conflicts w/ date time savings             
+            // create comb in SQL Server sort order            
+            byte[] comb = new byte[uid.Length]; 
 
             // the first 7 bytes are random - if two combs
             // are generated at the same point in time

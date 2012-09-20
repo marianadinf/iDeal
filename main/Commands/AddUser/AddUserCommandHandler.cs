@@ -35,10 +35,10 @@ namespace UIT.iDeal.Commands.AddUser
             }
             
             var selectedApplicationRoles = 
-                _applicationRoleReferenceDataQuery.GetAllCachedForSelectedIds(Command.ApplicationRoleIds);
+                _applicationRoleReferenceDataQuery.GetAll(x => Command.ApplicationRoleIds.Contains(x.Id));
 
-            var selectedBusinessUnits = 
-                _businessUnitReferenceDataQuery.GetAllCachedForSelectedIds(Command.BusinessUnitIds);
+            var selectedBusinessUnits =
+                _businessUnitReferenceDataQuery.GetAll(x =>  Command.BusinessUnitIds.Contains(x.Id));
 
             _repository.Save(UserFactory.Create(Command, selectedApplicationRoles, selectedBusinessUnits));
         }

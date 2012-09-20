@@ -17,14 +17,12 @@ namespace UIT.iDeal.IntegrationTests.Data.EntityFrameworkProvider.Database
 {
     public class when_populating_data_context_with_reference_datas : WithSubject<DataContextReferenceDataInitialiser>
     {
+        #region Members
 
         private static IEnumerable<IEnumerable<ReferenceData>> ReferenceDatasListWithSameGuidCombSequence
         {
             get
             {
-                GuidComb.GuidStartTemplate = Guid.NewGuid;
-                GuidComb.DateTimeStartTemplate = () => DateTime.UtcNow;
-
                 var referenceDatasCollection = new List<IEnumerable<ReferenceData>>
                     {
                         ReferenceDataSourceFor<BusinessUnit>(),
@@ -41,23 +39,22 @@ namespace UIT.iDeal.IntegrationTests.Data.EntityFrameworkProvider.Database
         }
         
         static DataContext _dataContext;
+        
         static readonly IEnumerable<BusinessUnit> ExpectedBusinessUnits = GetReferenceDatasFor<BusinessUnit>();
         static readonly IEnumerable<ApplicationRole> ExpectedApplicationRoles = GetReferenceDatasFor<ApplicationRole>();
         static readonly IEnumerable<Stage> ExpectedStages = GetReferenceDatasFor<Stage>();
 
+        #endregion
+
         Establish context = () =>
         {
-            GuidComb.GuidStartTemplate = Guid.NewGuid;
-            GuidComb.DateTimeStartTemplate = () => DateTime.UtcNow;
-            
             System.Data.Entity.Database.SetInitializer(new DropCreateDatabaseAlways<DataContext>());
             var environment = ConfigurationFactory.DevelopmentEnvironment();
             var contextFactory = new DataContextFactory(environment.ConnectionString(ProjectFlavour.IntegrationTests));
             _dataContext = contextFactory.Create();
-
             _dataContext.Database.Initialize(true);
-
         };
+
         Because of = () =>
             Subject.Populate(_dataContext);
 
@@ -70,6 +67,7 @@ namespace UIT.iDeal.IntegrationTests.Data.EntityFrameworkProvider.Database
         It the_data_context_should_only_contain_the_list_of_stages_specified_in_its_data_source = () =>
             _dataContext.Stages.ShouldContainOnly(ExpectedStages);
 
+        #region Utility methods
 
         private static IEnumerable<TRefenceData> ReferenceDataSourceFor<TRefenceData>()
             where TRefenceData : ReferenceData, new()
@@ -77,14 +75,14 @@ namespace UIT.iDeal.IntegrationTests.Data.EntityFrameworkProvider.Database
             return ReferenceDataBuilderFor<TRefenceData>.GetInstanceOfReferenceDataSource().ToList();
         }
 
-        public static IEnumerable<TReferenceData>  GetReferenceDatasFor<TReferenceData>()
+        private static IEnumerable<TReferenceData> GetReferenceDatasFor<TReferenceData>()
         {
             return
                 ReferenceDatasListWithSameGuidCombSequence
-                .First(x => x.GetType() == typeof (IEnumerable<TReferenceData>))
+                .First(list => list.GetType().GetInterfaces().Any(x => x == typeof (IEnumerable<TReferenceData>)))
                 .Cast<TReferenceData>();
         }
 
-        
+        #endregion
     }
 }

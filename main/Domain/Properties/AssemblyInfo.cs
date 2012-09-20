@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("Domain")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Houses of Parliament")]
+[assembly: AssemblyCompany("UIT")]
 [assembly: AssemblyProduct("Domain")]
 [assembly: AssemblyCopyright("Copyright © Houses of Parliament 2012")]
 [assembly: AssemblyTrademark("")]

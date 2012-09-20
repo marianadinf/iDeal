@@ -13,7 +13,7 @@ namespace UIT.iDeal.Domain.Model
 
         #region Application Roles
 
-        internal virtual ICollection<ApplicationRole> internalApplicationRoles { get; set; }
+        protected internal virtual ICollection<ApplicationRole> internalApplicationRoles { get; set; }
         public virtual IEnumerable<ApplicationRole> ApplicationRoles { get { return internalApplicationRoles; } }
         
         public virtual void AddApplicationRoles(IEnumerable<ApplicationRole> applicationRoles)
@@ -52,7 +52,7 @@ namespace UIT.iDeal.Domain.Model
 
         }
 
-        internal User()
+        public User()
         {
             internalApplicationRoles = new HashSet<ApplicationRole>();
             internalBusinessUnits = new HashSet<BusinessUnit>();
