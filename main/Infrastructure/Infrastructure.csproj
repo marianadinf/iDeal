@@ -112,7 +112,6 @@
     <Compile Include="Configuration\ISpecifyProjectConfigurationFlavour.cs" />
     <Compile Include="Configuration\ISpecifyProjectConfigurationProperties.cs" />
     <Compile Include="Configuration\ProjectConfiguration.cs" />
-    <Compile Include="ObjectMapping\Converters\EnumTypeConverter.cs" />
     <Compile Include="ObjectMapping\Profiles\AutoMapperCustomMappingsProfile.cs" />
     <Compile Include="ObjectMapping\Profiles\AutoMapperDomainToViewModelProfile.cs" />
     <Compile Include="ObjectMapping\Profiles\AutoMapperFormModelToCommandProfile.cs" />

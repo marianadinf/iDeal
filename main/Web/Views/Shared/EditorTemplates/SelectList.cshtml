@@ -1,0 +1,19 @@
+﻿@using Parliament.Transcripts.SelectCommittees.CommonLibrary.Extensions.Web
+@model SelectList
+
+@{
+    Layout = null;
+    var propertyName = ViewData.ModelMetadata.PropertyName.RemoveSuffix("List");
+}
+<div class='@ViewData.ModelMetadata.PropertyName'>
+    <label for="@propertyName">@propertyName</label>
+    <select id="@propertyName" name="@propertyName">
+        @foreach (var item in Model)
+        {
+            var selectedOption =
+                Model.SelectedValue != null && item.Value == Model.SelectedValue.ToString() ? "selected=\"selected\"" : String.Empty;            
+            
+            <option value="@item.Value" @selectedOption>@item.Text</option>
+        }
+    </select>
+</div>

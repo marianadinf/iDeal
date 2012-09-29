@@ -1,0 +1,24 @@
+﻿@*Output an editor for all editable properties*@
+
+@{
+    Layout = null;
+}
+
+@*@foreach (var prop in ViewData.ModelMetadata.Properties)
+{
+    @Html.Editor(prop.PropertyName)
+}
+*@
+
+@foreach (var prop in ViewData.ModelMetadata.Properties.Where(pm => pm.ShowForEdit))
+{
+    if (prop.ShowForEdit && prop.IsReadOnly)
+    {
+       @Html.Display(prop.PropertyName)
+
+    }
+    else if (prop.ShowForEdit)
+    {
+        @Html.Editor(prop.PropertyName)
+    }
+}

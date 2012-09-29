@@ -7,7 +7,7 @@ using AutoMapper;
 using UIT.iDeal.Commands.AddUser;
 using UIT.iDeal.Common.Interfaces.ObjectMapping;
 using UIT.iDeal.Domain.Model;
-using UIT.iDeal.ViewModel.Converters.User;
+using UIT.iDeal.Common.Extensions;
 
 namespace UIT.iDeal.ViewModel.Users
 {
@@ -27,7 +27,8 @@ namespace UIT.iDeal.ViewModel.Users
         {
             configuration
                 .CreateMap<User, AddUserForm>()
-                .ConvertUsing(new AddUserFormConverter());
+                .MapSelectListAndIdsFrom(s => s.ApplicationRoles)
+                .MapSelectListAndIdsFrom(s => s.BusinessUnits);
         }
     }
 }

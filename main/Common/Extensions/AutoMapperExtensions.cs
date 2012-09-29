@@ -1,7 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Web.Mvc;
 using AutoMapper;
+using UIT.iDeal.Common.ObjectMapping.Converters;
+using UIT.iDeal.Domain.Model.ReferenceData;
+
 
 namespace UIT.iDeal.Common.Extensions
 {
@@ -23,6 +28,24 @@ namespace UIT.iDeal.Common.Extensions
             ApplyIgnoreOnNonExisting(property => expression.ForMember(property, opt => opt.Ignore()),
                                      typeof (TSource),
                                      typeof (TDestination));
+            return expression;
+        }
+
+        public static IMappingExpression<TSource, TDestination> MapSelectListAndIdsFrom<TSource, TDestination,TProperty>
+            (this IMappingExpression<TSource, TDestination> expression,
+            Expression<Func<TSource, IEnumerable<TProperty>>> sourcePropertySelector) 
+            where TSource : class 
+            where TProperty : ReferenceData
+        {
+            Mapper
+                .CreateMap<IEnumerable<TProperty>,SelectList>()
+                .ConvertUsing(new ReferenceDatasToSelectListTypeConverter<TProperty>());
+
+            var selectListPropertyName = sourcePropertySelector.GetPropertyFromLambda().Name;
+            expression.ForMember(selectListPropertyName, o => o.MapFrom(sourcePropertySelector));
+
+            var selectedIdsPropertyName = selectListPropertyName.Insert(selectListPropertyName.Length - 1, "Id");
+            expression.ForMember(selectedIdsPropertyName, o => o.MapFrom(sourcePropertySelector));
             return expression;
         }
 

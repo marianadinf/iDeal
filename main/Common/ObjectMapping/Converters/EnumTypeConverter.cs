@@ -2,7 +2,7 @@ using System;
 using AutoMapper;
 using UIT.iDeal.Common.Extensions;
 
-namespace UIT.iDeal.Infrastructure.ObjectMapping.Converters
+namespace UIT.iDeal.Common.ObjectMapping.Converters
 {
     public class EnumTypeConverter : TypeConverter<Enum, string>
     {

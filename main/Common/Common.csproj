@@ -128,6 +128,9 @@
     <Compile Include="Interfaces\Queries\IQueryHandlerFactory.cs" />
     <Compile Include="Interfaces\Security\ISecurityHelper.cs" />
     <Compile Include="Interfaces\UserRole.cs" />
+    <Compile Include="ObjectMapping\Converters\EntityToGuidTypeConverter.cs" />
+    <Compile Include="ObjectMapping\Converters\EnumTypeConverter.cs" />
+    <Compile Include="ObjectMapping\Converters\ReferenceDatasToSelectListTypeConverter.cs" />
     <Compile Include="ObjectMapping\ModelMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Types\Disposable.cs" />

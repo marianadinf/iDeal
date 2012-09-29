@@ -6,8 +6,9 @@ using Castle.Windsor;
 using UIT.iDeal.Common.Extensions;
 using UIT.iDeal.Common.Interfaces.ObjectMapping;
 using UIT.iDeal.Common.ObjectMapping;
+using UIT.iDeal.Common.ObjectMapping.Converters;
+using UIT.iDeal.Domain.Model.Base;
 using UIT.iDeal.Infrastructure.ObjectMapping;
-using UIT.iDeal.Infrastructure.ObjectMapping.Converters;
 using UIT.iDeal.Infrastructure.ObjectMapping.Profiles;
 
 namespace UIT.iDeal.Infrastructure.Bootstrapper.Installers
@@ -27,7 +28,8 @@ namespace UIT.iDeal.Infrastructure.Bootstrapper.Installers
         {
             Mapper.Initialize(x => x.ConstructServicesUsing(container.Resolve));
             Mapper.CreateMap<Enum, string>().ConvertUsing(new EnumTypeConverter());
-
+            Mapper.CreateMap<Entity, Guid>().ConvertUsing(new EntityToGuidTypeConverter());
+            
             Mapper.AddProfile<AutoMapperDomainToViewModelProfile>();
             Mapper.AddProfile<AutoMapperFormModelToCommandProfile>();
             Mapper.AddProfile<AutoMapperCustomMappingsProfile>();
@@ -44,6 +46,4 @@ namespace UIT.iDeal.Infrastructure.Bootstrapper.Installers
             MapperExtensions.Map = Mapper.Map;
         }
     }
-
-    
 }
