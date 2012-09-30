@@ -42,7 +42,10 @@ namespace UIT.iDeal.Common.Web
         {
             public static class PanelIds
             {
-         
+                public static class AddUser
+                {
+                    public static readonly string Fieldset = "CreateUserFieldset";
+                }
             }
 
             public static class ActionElementIds
@@ -109,5 +112,6 @@ namespace UIT.iDeal.Common.Web
 
             
         }
+
     }
 }

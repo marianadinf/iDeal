@@ -229,6 +229,7 @@ input[type="submit"] {
 } 
 .multiselect label {
     display:block;
+    font-size: 15px;
     margin-bottom: 0px;    
 }
  
@@ -300,8 +301,8 @@ div#title {
 }
 
 .input-validation-error {
-    border: 1px solid #ff0000;
-    background-color: #ffeeee;
+    border: 1px solid #ff0000 !important;
+    background-color: #ffeeee !important;
 }
 
 .validation-summary-errors {
@@ -369,3 +370,37 @@ div#title {
 	color: #c00;
 	background: #fcc url(Images/fail.gif) no-repeat 8px 12px;
 }
+
+/*-----------------------------------------------------------
+-  Add user Page
+-----------------------------------------------------------*/
+
+    #CreateUserFieldset legend + div {
+        height: 30px;
+    }
+    
+        #CreateUserFieldset div.formElement {
+            float: left;
+        }
+            #CreateUserFieldset label[for], #CreateUserFieldset div.formElement label {        
+	            color: #555353;
+	            font-weight: bold;
+            }
+            #CreateUserFieldset div.formElement label {
+
+                float: left;
+                margin-top: 6px;
+                margin-right: 10px;
+            }
+    
+            #CreateUserFieldset div.formElement:not(#wrapped_Firstname) label {
+                 margin-left: 30px;
+            }
+    
+            #CreateUserFieldset div#wrapped_Email input {
+                width: 245px;
+            }
+    
+    #CreateUserFieldset div.controls-row {
+        clear: both;
+    }

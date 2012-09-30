@@ -34,14 +34,19 @@ namespace UIT.iDeal.Common.Extensions.Web
                  
                  isFirstLabel = false;
              }
+             var classes = "multiselect";
+
+             if (htmlHelper.ViewData.ModelState.ContainsKey(postListPropertyName))
+             {
+                 classes += " " + HtmlHelper.ValidationInputCssClassName;
+             }
 
              return
                  new MvcHtmlString(string.Format("<div data-hidden-input-name=\"{0}\" class=\"{1}\" id=\"{2}\">{3}</div>",
                                                  postListPropertyName,
-                                                 "multiselect",
+                                                 classes,
                                                  ExpressionHelper.GetExpressionText(readListExpressionSelector),
-                                                 innerHtml) +
-                                  htmlHelper.ValidationMessageFor(postListExpressionSelector));
+                                                 innerHtml) );
          }
 
     }

@@ -2,16 +2,11 @@
 
 @{
     Layout = null;
+    var requiredClass = ViewData.ModelMetadata.IsRequired ? "required" : string.Empty;
 }
-<div id="@string.Format("wrapped_{0}", ViewData.ModelMetadata.PropertyName)" class="formElement">
+<div id="@string.Format("wrapped_{0}", ViewData.ModelMetadata.PropertyName)" class="formElement @requiredClass">
 @Html.LabelForModel()
 
 @RenderBody() 
 
-@if (ViewData.ModelMetadata.IsRequired)
-{
-    <span class="required">*</span>
-}
-
-@Html.ValidationMessage("")
 </div>
