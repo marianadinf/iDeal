@@ -1,7 +1,9 @@
 ﻿@using Microsoft.Web.Mvc
 @using UIT.iDeal.Common.Web
+@using UIT.iDeal.ViewModel.Users
 @using UIT.iDeal.Web.Controllers
 @using UIT.iDeal.Common.Extensions.Web
+@using MvcContrib
 @model UIT.iDeal.ViewModel.Users.AddUserForm
 
 @{
@@ -44,22 +46,43 @@
             </div>
         </div>
         <hr/>
-        <hr/>
+        <div>
+            @{ var modulePermission = new ModulePermissionViewModel(); }
+            
+            <table id="@LocalSiteMap.Locators.Grids.UserRoleModulePermissions">
+                <thead>
+                    <tr>
+                        @(modulePermission.HeaderColumnFor(x => x.Description))
+                        @(modulePermission.HeaderColumnFor(x => x.isAuthorised,false))
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                </tbody>
+            </table>
+        </div>
+         <hr/>
         <div>
             <input type="submit" class="btn btn-primary" id="@LocalSiteMap.Locators.ActionElementIds.AddUser.AddUserButton" value="Create" />
+            @(Html.ActionLink<UserController>(x => x.Index(), "Back to Users list"))
         </div>
-        
     </fieldset>
 }
 
 
-<div>
-   @(Html.ActionLink<UserController>(x => x.Index(), "Back to Users list"))
-</div>
 
 @section JavaScript
 {
     $(function(){
         $(".multiselect").multiselect();
+    
+        $.ajax({
+            url: "@(Url.Action<UserController>(x => x.GetAllModulePermissions()))",
+            type:"POST",
+            success: function(modulePermissions) {
+                console.debug(modulePermissions);
+            }
+
+        });
     });
 }

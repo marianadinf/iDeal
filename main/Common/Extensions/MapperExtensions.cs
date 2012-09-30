@@ -27,7 +27,7 @@ namespace UIT.iDeal.Common.Extensions
                         "The Mapping function must be set");
                 };
 
-        public static IEnumerable<TViewModel> MapViewModel<TEntity, TViewModel>(this IQueryable<TEntity> entities)
+        public static IEnumerable<TViewModel> MapViewModel<TEntity, TViewModel>(this IEnumerable<TEntity> entities)
             where TEntity : class
             where TViewModel : class
         {

@@ -17,18 +17,19 @@ namespace UIT.iDeal.ViewModel.Users
         public string Lastname { get; set; }
         public string Username { get; set; }
         public string Email { get; set; }
+        
         public List<Guid> ApplicationRoleIds { get; set; }
-        public List<Guid> BusinessUnitIds { get; set; }
-
         public SelectList ApplicationRoles { get; set; }
+
+        public List<Guid> BusinessUnitIds { get; set; }
         public SelectList BusinessUnits { get; set; }
         
         public void CreateMappings(IConfiguration configuration)
         {
             configuration
                 .CreateMap<User, AddUserForm>()
-                .MapSelectListAndIdsFrom(s => s.ApplicationRoles)
-                .MapSelectListAndIdsFrom(s => s.BusinessUnits);
+                .IgnoreSelectListAndMapIdsFrom(s => s.ApplicationRoles)
+                .IgnoreSelectListAndMapIdsFrom(s => s.BusinessUnits);
         }
     }
 }

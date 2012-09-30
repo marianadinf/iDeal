@@ -49,6 +49,8 @@
     <Compile Include="Tasks\EditTaskForm.cs" />
     <Compile Include="Tasks\TaskItemViewModel.cs" />
     <Compile Include="Users\AddUserForm.cs" />
+    <Compile Include="Users\ApplicationRoleViewModel.cs" />
+    <Compile Include="Users\ModulePermissionViewModel.cs" />
     <Compile Include="Users\UserViewModel.cs" />
   </ItemGroup>
   <ItemGroup>

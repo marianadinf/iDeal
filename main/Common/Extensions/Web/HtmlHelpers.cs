@@ -9,7 +9,20 @@ namespace UIT.iDeal.Common.Extensions.Web
 {
     public static class HtmlHelpers
     {
-         public static MvcHtmlString MultiSelectWithCheckboxes<TModel,TProperty>(this HtmlHelper<TModel> htmlHelper, 
+
+
+
+        public static MvcHtmlString HeaderColumnFor<TModel, TProperty>(this TModel model, Expression<Func<TModel, TProperty>> propertySelector,
+                                                            bool populateColumn = true) 
+            where TModel : class
+        {
+            var property = propertySelector.GetPropertyFromLambda();
+            return new MvcHtmlString(string.Format("<th data-property-name=\"{0}\" data-property-type=\"{1}\">{2}</th>",
+                                    property.Name,
+                                    property.PropertyType.Name,
+                                    populateColumn ? property.Name.ToWords() : string.Empty));
+        }
+        public static MvcHtmlString MultiSelectWithCheckboxes<TModel,TProperty>(this HtmlHelper<TModel> htmlHelper, 
                                                                        Expression<Func<TModel,SelectList>> readListExpressionSelector,
                                                                        Expression<Func<TModel, IEnumerable<TProperty>>> postListExpressionSelector)
          {

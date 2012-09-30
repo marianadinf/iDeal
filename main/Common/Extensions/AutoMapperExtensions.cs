@@ -31,18 +31,14 @@ namespace UIT.iDeal.Common.Extensions
             return expression;
         }
 
-        public static IMappingExpression<TSource, TDestination> MapSelectListAndIdsFrom<TSource, TDestination,TProperty>
+        public static IMappingExpression<TSource, TDestination> IgnoreSelectListAndMapIdsFrom<TSource, TDestination,TProperty>
             (this IMappingExpression<TSource, TDestination> expression,
             Expression<Func<TSource, IEnumerable<TProperty>>> sourcePropertySelector) 
             where TSource : class 
             where TProperty : ReferenceData
         {
-            Mapper
-                .CreateMap<IEnumerable<TProperty>,SelectList>()
-                .ConvertUsing(new ReferenceDatasToSelectListTypeConverter<TProperty>());
-
             var selectListPropertyName = sourcePropertySelector.GetPropertyFromLambda().Name;
-            expression.ForMember(selectListPropertyName, o => o.MapFrom(sourcePropertySelector));
+            expression.ForMember(selectListPropertyName, o => o.Ignore());
 
             var selectedIdsPropertyName = selectListPropertyName.Insert(selectListPropertyName.Length - 1, "Id");
             expression.ForMember(selectedIdsPropertyName, o => o.MapFrom(sourcePropertySelector));

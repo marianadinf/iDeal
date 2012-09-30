@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 using UIT.iDeal.Common.Extensions;
@@ -7,8 +6,11 @@ using UIT.iDeal.Common.Extensions.Web;
 using UIT.iDeal.Common.Interfaces.Data;
 using UIT.iDeal.Domain.Model.ReferenceData;
 using UIT.iDeal.Infrastructure.Web.ActionResults;
-using UIT.iDeal.ViewModel.Users;
+
 using MvcContrib;
+using UIT.iDeal.ViewModel.Users;
+
+
 
 namespace UIT.iDeal.Web.Controllers
 {
@@ -51,12 +53,48 @@ namespace UIT.iDeal.Web.Controllers
         }
 
         [HttpPost]
-        public AutoMappedJsonResult GetPermissionsMatrix(IList<Guid> applicationRoleIds)
+        public JsonResult GetAllModulePermissions()
         {
-            /*var permissionMatrix = _permissionQuery.GetAll(x => x.Contains(applicationRoleIds));
-            return AutoMappedJsonResult<List<string>>(permissionMatrix);*/
 
-            throw new NotImplementedException();
+            //temporary until changes made in domain
+            var modulePermissions = new[]
+            {
+                new ModulePermissionViewModel
+                {
+                    Description = "Asset Module Lookup - Create/ Edit",
+                    ApplyForApplicationRoles =
+                        _applicationRoleReferenceDataQuery
+                            .GetAllCached()
+                            .Where(x => x.Code == "ADMIN" || x.Code == "ASSPWRUSR")
+                            .MapViewModel<ApplicationRole, ApplicationRoleViewModel>()
+
+                },
+
+                new ModulePermissionViewModel
+                {
+                    Description = "Asset - View",
+                    ApplyForApplicationRoles =
+                        _applicationRoleReferenceDataQuery
+                            .GetAllCached()
+                            .Where(x => new[]{"ASSMAN","ASSAN","ADMIN", "ASSGUEST"}.Contains(x.Code))
+                            .MapViewModel<ApplicationRole, ApplicationRoleViewModel>()
+                },
+
+                new ModulePermissionViewModel
+                {
+                    Description = "Asset - Create",
+                    ApplyForApplicationRoles =
+                        _applicationRoleReferenceDataQuery
+                            .GetAllCached()
+                            .Where(x => new[]{"ASSMAN,ASSAN,ADMIN"}.Contains(x.Code))
+                            .MapViewModel<ApplicationRole, ApplicationRoleViewModel>()
+                },
+                
+            };
+
+            return Json(modulePermissions);
+
+            //throw new NotImplementedException();
         }
         
         private AddUserForm InitialiseSelectLists(AddUserForm addUserForm)

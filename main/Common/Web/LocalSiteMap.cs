@@ -81,6 +81,7 @@ namespace UIT.iDeal.Common.Web
             {
                 public static readonly string Tasks = "TaskList";
                 public static readonly string Users = "UserList";
+                public static readonly string UserRoleModulePermissions = "UseRoleModulePermissionList";
             }
 
             
