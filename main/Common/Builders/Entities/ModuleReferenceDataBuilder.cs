@@ -35,7 +35,7 @@ namespace UIT.iDeal.Common.Builders.Entities
             new[] {"ASSPWRUSR", "ADMIN"},
             new[] {"ASSMAN","ASSAN","ADMIN","ASSGUEST"},
         };
-        public ModuleReferenceDataBuilder WithAllApplicationCodeGroups(params IEnumerable<string>[] applicationCodeGroups)
+        public ModuleReferenceDataBuilder WithApplicationCodeGroups(params IEnumerable<string>[] applicationCodeGroups)
         {
             _applicationCodeGroups = applicationCodeGroups;
             return this;
