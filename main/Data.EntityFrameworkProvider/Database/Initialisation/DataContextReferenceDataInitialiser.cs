@@ -11,10 +11,10 @@ namespace UIT.iDeal.Data.EntityFrameworkProvider.Database.Initialisation
         public void Populate(DataContext context)
         {
             GenerateAndSaveReferenceDataFor<BusinessUnit>(context);
-            var applicationRoles = GenerateAndSaveReferenceDataFor<ApplicationRole>(context);
             GenerateAndSaveReferenceDataFor<Stage>(context);
-
-            GenerateAndSaveReferenceData(context, new ModuleReferenceDataBuilder(applicationRoles));
+            
+            var applicationRoles = GenerateAndSaveReferenceDataFor<ApplicationRole>(context);
+            GenerateAndSaveReferenceDataFor<Module>(context, new ModuleReferenceDataBuilder(applicationRoles));
         }
 
         private IEnumerable<TReferenceData> GenerateAndSaveReferenceDataFor<TReferenceData>(DataContext context)
@@ -25,12 +25,11 @@ namespace UIT.iDeal.Data.EntityFrameworkProvider.Database.Initialisation
                     .SaveList(new ReferenceDataBuilderFor<TReferenceData>());
         }
 
-        private void GenerateAndSaveReferenceData<TReferenceData>(DataContext context, 
-                                                                  ReferenceDataBuilderFor<TReferenceData> referenceDataBuilder)
+        private void GenerateAndSaveReferenceDataFor<TReferenceData>(DataContext context, List<TReferenceData> referenceDatas)
            
             where TReferenceData : ReferenceData, new()
         {
-                new Repository<TReferenceData>(context).SaveList(referenceDataBuilder);
+            new Repository<TReferenceData>(context).SaveList(referenceDatas);
         }
     }
 }
