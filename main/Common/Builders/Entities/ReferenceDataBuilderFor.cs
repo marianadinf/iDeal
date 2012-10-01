@@ -37,6 +37,8 @@ namespace UIT.iDeal.Common.Builders.Entities
             return this;
         }
 
+        
+
         private void VerifyThatReferenceDataSourceHasBeenSet()
         {
             if (_referenceDataSource == null)

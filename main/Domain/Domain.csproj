@@ -59,6 +59,7 @@
     <Compile Include="Model\Base\UniqueCollectionExtensions.cs" />
     <Compile Include="Model\ReferenceData\ApplicationRole.cs" />
     <Compile Include="Model\ReferenceData\BusinessUnit.cs" />
+    <Compile Include="Model\ReferenceData\Module.cs" />
     <Compile Include="Model\ReferenceData\ReferenceData.cs" />
     <Compile Include="Model\ReferenceData\Stage.cs" />
     <Compile Include="Model\ReferenceData\UserRelatedReferenceData.cs" />

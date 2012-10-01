@@ -2,7 +2,6 @@
 using System.Data.Entity.ModelConfiguration;
 using UIT.iDeal.Common.Extensions;
 using UIT.iDeal.Domain.Model;
-using UIT.iDeal.Domain.Model.ReferenceData;
 
 namespace UIT.iDeal.Data.EntityFrameworkProvider.Configuration
 {
