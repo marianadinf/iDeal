@@ -2,15 +2,12 @@ using System;
 using System.Linq;
 using System.Data.Entity;
 using System.Linq.Expressions;
-
 using Seterlund.CodeGuard;
-
-using UIT.iDeal.Domain;
-using UIT.iDeal.Common.Interfaces.Data;
+using UIT.iDeal.Common.Interfaces.Data.Repositories.Read;
 using UIT.iDeal.Data.EntityFrameworkProvider.Context;
 using UIT.iDeal.Domain.Model.Base;
 
-namespace UIT.iDeal.Data.EntityFrameworkProvider.Repositories
+namespace UIT.iDeal.Data.EntityFrameworkProvider.Repositories.Read
 {
     public class Query<T> : QueryWithTypedId<T,Guid>, IQuery<T>
         where T : Entity

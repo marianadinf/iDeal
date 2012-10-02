@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Web.Mvc;
 using UIT.iDeal.Common.Interfaces.Data;
+using UIT.iDeal.Common.Interfaces.Data.Repositories.Read;
 using UIT.iDeal.Common.Interfaces.Queries;
 using UIT.iDeal.Infrastructure.QueryHandlers;
 using UIT.iDeal.Infrastructure.Web.ActionResults;

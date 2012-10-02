@@ -2,6 +2,7 @@
 using Machine.Specifications;
 using UIT.iDeal.Commands.AddTask;
 using UIT.iDeal.Common.Interfaces.Data;
+using UIT.iDeal.Common.Interfaces.Data.Repositories.Write;
 using UIT.iDeal.Domain.Model;
 using It = Machine.Specifications.It;
 

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using UIT.iDeal.Common.Interfaces.Data.Repositories.Read;
 using UIT.iDeal.Infrastructure.Bootstrapper.StartupTasks;
 using FluentSecurity;
 using System.Web.Mvc;

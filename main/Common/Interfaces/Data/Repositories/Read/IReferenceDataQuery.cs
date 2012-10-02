@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UIT.iDeal.Domain.Model.ReferenceData;
 
-namespace UIT.iDeal.Common.Interfaces.Data
+namespace UIT.iDeal.Common.Interfaces.Data.Repositories.Read
 {
     public interface IReferenceDataQuery<TReferenceData> : IQuery<TReferenceData>
         where TReferenceData : ReferenceData

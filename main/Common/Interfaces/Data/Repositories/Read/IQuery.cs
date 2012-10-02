@@ -3,7 +3,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using UIT.iDeal.Domain.Model.Base;
 
-namespace UIT.iDeal.Common.Interfaces.Data
+namespace UIT.iDeal.Common.Interfaces.Data.Repositories.Read
 {
     
     public interface IQuery<T> : IQueryWithTypedId<T,Guid> where T : Entity

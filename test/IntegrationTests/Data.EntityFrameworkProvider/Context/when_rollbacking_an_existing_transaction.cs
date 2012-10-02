@@ -4,6 +4,7 @@ using UIT.iDeal.Common.Builders.Entities;
 using UIT.iDeal.Common.Extensions;
 using UIT.iDeal.Data.EntityFrameworkProvider.Context;
 using UIT.iDeal.Data.EntityFrameworkProvider.Repositories;
+using UIT.iDeal.Data.EntityFrameworkProvider.Repositories.Write;
 using UIT.iDeal.Domain.Model;
 
 namespace UIT.iDeal.IntegrationTests.Data.EntityFrameworkProvider.Context

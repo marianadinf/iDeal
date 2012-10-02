@@ -9,6 +9,7 @@ using UIT.iDeal.Data.EntityFrameworkProvider.Context;
 using UIT.iDeal.Data.EntityFrameworkProvider.Database;
 using UIT.iDeal.Data.EntityFrameworkProvider.Database.Initialisation;
 using UIT.iDeal.Data.EntityFrameworkProvider.Repositories;
+using UIT.iDeal.Data.EntityFrameworkProvider.Repositories.Write;
 using UIT.iDeal.Infrastructure.Bootstrapper.StartupTasks;
 using UIT.iDeal.Infrastructure.Configuration;
 using UIT.iDeal.Infrastructure.Configuration.Flavours;

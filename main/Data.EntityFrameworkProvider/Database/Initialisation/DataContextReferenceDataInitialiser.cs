@@ -4,7 +4,7 @@ using UIT.iDeal.Common.Builders.Entities;
 
 using UIT.iDeal.Data.EntityFrameworkProvider.Context;
 using UIT.iDeal.Data.EntityFrameworkProvider.Repositories;
-
+using UIT.iDeal.Data.EntityFrameworkProvider.Repositories.Write;
 using UIT.iDeal.Domain.Model.ReferenceData;
 
 namespace UIT.iDeal.Data.EntityFrameworkProvider.Database.Initialisation

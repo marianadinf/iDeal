@@ -1,5 +1,6 @@
 using System;
 using UIT.iDeal.Common.Interfaces.Data;
+using UIT.iDeal.Common.Interfaces.Data.Repositories.Read;
 using UIT.iDeal.Domain.Model;
 using UIT.iDeal.ViewModel.Tasks;
 

@@ -4,6 +4,7 @@ using Machine.Specifications;
 using Moq;
 using UIT.iDeal.Commands.EditTask;
 using UIT.iDeal.Common.Interfaces.Data;
+using UIT.iDeal.Common.Interfaces.Data.Repositories.Write;
 using UIT.iDeal.Domain.Model;
 using It = Machine.Specifications.It;
 

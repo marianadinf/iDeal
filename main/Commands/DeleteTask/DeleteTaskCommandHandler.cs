@@ -1,5 +1,6 @@
 ﻿using UIT.iDeal.Common.Commands;
 using UIT.iDeal.Common.Interfaces.Data;
+using UIT.iDeal.Common.Interfaces.Data.Repositories.Write;
 
 
 namespace UIT.iDeal.Commands.DeleteTask

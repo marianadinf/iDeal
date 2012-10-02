@@ -1,5 +1,6 @@
-using System.Collections.Generic;
 using System.Linq;
+using System.Collections.Generic;
+
 using UIT.iDeal.Domain.Model.ReferenceData;
 
 namespace UIT.iDeal.Common.Builders.Entities

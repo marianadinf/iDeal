@@ -66,13 +66,13 @@
     <Compile Include="Database\DropAndRecreateWhenModelChangesDatabaseStrategyInitialiser.cs" />
     <Compile Include="Database\NullDatabaseStrategyInitialiser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\Query.cs" />
-    <Compile Include="Repositories\ReferenceDataQuery.cs" />
-    <Compile Include="Repositories\Repository.cs" />
-    <Compile Include="Repositories\TasksQuery.cs" />
-    <Compile Include="Repositories\TasksRepository.cs" />
-    <Compile Include="Repositories\UserQuery.cs" />
-    <Compile Include="Repositories\UserRepository.cs" />
+    <Compile Include="Repositories\Read\Query.cs" />
+    <Compile Include="Repositories\Read\ReferenceDataQuery.cs" />
+    <Compile Include="Repositories\Read\TasksQuery.cs" />
+    <Compile Include="Repositories\Read\UserQuery.cs" />
+    <Compile Include="Repositories\Write\Repository.cs" />
+    <Compile Include="Repositories\Write\TasksRepository.cs" />
+    <Compile Include="Repositories\Write\UserRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Common\Common.csproj">

@@ -1,4 +1,4 @@
-namespace UIT.iDeal.Common.Interfaces.Data
+namespace UIT.iDeal.Common.Interfaces.Data.Repositories.Read
 {
     public interface IPagedQueryObject
     {

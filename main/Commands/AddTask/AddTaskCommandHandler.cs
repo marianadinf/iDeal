@@ -1,5 +1,6 @@
 using UIT.iDeal.Common.Commands;
 using UIT.iDeal.Common.Interfaces.Data;
+using UIT.iDeal.Common.Interfaces.Data.Repositories.Write;
 using UIT.iDeal.Domain.Model;
 
 namespace UIT.iDeal.Commands.AddTask

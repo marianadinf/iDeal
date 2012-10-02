@@ -2,6 +2,7 @@ using System;
 using Machine.Specifications;
 using UIT.iDeal.Common.Builders.Entities;
 using UIT.iDeal.Data.EntityFrameworkProvider.Repositories;
+using UIT.iDeal.Data.EntityFrameworkProvider.Repositories.Write;
 using UIT.iDeal.Domain.Model;
 
 namespace UIT.iDeal.IntegrationTests.Data.EntityFrameworkProvider.Repositories

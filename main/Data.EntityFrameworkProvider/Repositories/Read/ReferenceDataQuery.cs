@@ -1,13 +1,12 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Expressions;
 using UIT.iDeal.Common.Extensions;
-using UIT.iDeal.Common.Interfaces.Data;
+using UIT.iDeal.Common.Interfaces.Data.Repositories.Read;
 using UIT.iDeal.Data.EntityFrameworkProvider.Context;
 using UIT.iDeal.Domain.Model.ReferenceData;
 
-namespace UIT.iDeal.Data.EntityFrameworkProvider.Repositories
+namespace UIT.iDeal.Data.EntityFrameworkProvider.Repositories.Read
 {
     public class ReferenceDataQuery<TReferenceData> : Query<TReferenceData>, IReferenceDataQuery<TReferenceData>
         where TReferenceData : ReferenceData

@@ -4,6 +4,7 @@ using System.Web.Mvc;
 using UIT.iDeal.Common.Extensions;
 using UIT.iDeal.Common.Extensions.Web;
 using UIT.iDeal.Common.Interfaces.Data;
+using UIT.iDeal.Common.Interfaces.Data.Repositories.Read;
 using UIT.iDeal.Domain.Model.ReferenceData;
 using UIT.iDeal.Infrastructure.Web.ActionResults;
 
@@ -21,6 +22,7 @@ namespace UIT.iDeal.Web.Controllers
         private readonly IReferenceDataQuery<BusinessUnit> _businessUnitReferenceDataQuery;
 
         public UserController(IUserQuery query,
+
                               IReferenceDataQuery<ApplicationRole> applicationRoleReferenceDataQuery,
                               IReferenceDataQuery<BusinessUnit> businessUnitReferenceDataQuery)
         {
@@ -56,10 +58,11 @@ namespace UIT.iDeal.Web.Controllers
         public JsonResult GetAllModulePermissions()
         {
 
+            
             //temporary until changes made in domain
             var modulePermissions = new[]
             {
-                new ModulePermissionViewModel
+                new ApplicationPermissionViewModel
                 {
                     Description = "Asset Module Lookup - Create/ Edit",
                     ApplyForApplicationRoles =
@@ -70,7 +73,7 @@ namespace UIT.iDeal.Web.Controllers
 
                 },
 
-                new ModulePermissionViewModel
+                new ApplicationPermissionViewModel
                 {
                     Description = "Asset - View",
                     ApplyForApplicationRoles =
@@ -80,7 +83,7 @@ namespace UIT.iDeal.Web.Controllers
                             .MapViewModel<ApplicationRole, ApplicationRoleViewModel>()
                 },
 
-                new ModulePermissionViewModel
+                new ApplicationPermissionViewModel
                 {
                     Description = "Asset - Create",
                     ApplyForApplicationRoles =

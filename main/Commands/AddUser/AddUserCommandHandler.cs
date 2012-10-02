@@ -2,6 +2,8 @@
 using UIT.iDeal.Common.Commands;
 using UIT.iDeal.Common.Errors;
 using UIT.iDeal.Common.Interfaces.Data;
+using UIT.iDeal.Common.Interfaces.Data.Repositories.Read;
+using UIT.iDeal.Common.Interfaces.Data.Repositories.Write;
 using UIT.iDeal.Domain.Model;
 using UIT.iDeal.Domain.Model.ReferenceData;
 

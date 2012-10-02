@@ -1,15 +1,14 @@
 using System;
-using System.Linq;
 using System.Collections.Generic;
 using Seterlund.CodeGuard;
 using UIT.iDeal.Common.Data;
 using UIT.iDeal.Common.Extensions;
-using UIT.iDeal.Common.Interfaces.Data;
+using UIT.iDeal.Common.Interfaces.Data.Repositories.Write;
 using UIT.iDeal.Data.EntityFrameworkProvider.Context;
-using UIT.iDeal.Domain;
+using UIT.iDeal.Data.EntityFrameworkProvider.Repositories.Read;
 using UIT.iDeal.Domain.Model.Base;
 
-namespace UIT.iDeal.Data.EntityFrameworkProvider.Repositories
+namespace UIT.iDeal.Data.EntityFrameworkProvider.Repositories.Write
 {
     public class Repository<T> : RepositoryWithTypedId<T, Guid>, IRepository<T> 
         where T : AggregateRoot

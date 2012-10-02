@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using UIT.iDeal.Common.Extensions;
 using UIT.iDeal.Common.Interfaces.Data;
+using UIT.iDeal.Common.Interfaces.Data.Repositories.Read;
+using UIT.iDeal.Common.Interfaces.Data.Repositories.Write;
 using UIT.iDeal.Domain;
 using UIT.iDeal.Domain.Model.Base;
 

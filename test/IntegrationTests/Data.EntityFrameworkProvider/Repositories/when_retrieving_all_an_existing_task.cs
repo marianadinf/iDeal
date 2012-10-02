@@ -5,6 +5,7 @@ using Machine.Specifications;
 using UIT.iDeal.Common.Builders.Entities;
 using UIT.iDeal.Common.Extensions;
 using UIT.iDeal.Data.EntityFrameworkProvider.Repositories;
+using UIT.iDeal.Data.EntityFrameworkProvider.Repositories.Read;
 using UIT.iDeal.Domain.Model;
 
 namespace UIT.iDeal.IntegrationTests.Data.EntityFrameworkProvider.Repositories

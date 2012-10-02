@@ -1,8 +1,9 @@
 using System;
 using System.Collections.Generic;
+using UIT.iDeal.Common.Interfaces.Data.Repositories.Read;
 using UIT.iDeal.Domain.Model.Base;
 
-namespace UIT.iDeal.Common.Interfaces.Data
+namespace UIT.iDeal.Common.Interfaces.Data.Repositories.Write
 {
     /// <summary>
     ///     Provides a standard interface for Repositories which are data-access mechanism agnostic.

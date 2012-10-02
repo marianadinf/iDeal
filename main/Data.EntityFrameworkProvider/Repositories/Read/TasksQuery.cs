@@ -1,9 +1,8 @@
-using System.Data.Entity;
+using UIT.iDeal.Common.Interfaces.Data.Repositories.Read;
 using UIT.iDeal.Data.EntityFrameworkProvider.Context;
 using UIT.iDeal.Domain.Model;
-using UIT.iDeal.Common.Interfaces.Data;
 
-namespace UIT.iDeal.Data.EntityFrameworkProvider.Repositories
+namespace UIT.iDeal.Data.EntityFrameworkProvider.Repositories.Read
 {
     public class TasksQuery : Query<Task>, ITasksQuery
     {

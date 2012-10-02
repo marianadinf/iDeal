@@ -3,10 +3,14 @@ using Castle.Core;
 using Castle.MicroKernel.Facilities;
 using Castle.MicroKernel.Registration;
 using UIT.iDeal.Common.Interfaces.Data;
+using UIT.iDeal.Common.Interfaces.Data.Repositories.Read;
+using UIT.iDeal.Common.Interfaces.Data.Repositories.Write;
 using UIT.iDeal.Data.EntityFrameworkProvider.Context;
 using UIT.iDeal.Data.EntityFrameworkProvider.Database;
 using UIT.iDeal.Data.EntityFrameworkProvider.Database.Initialisation;
 using UIT.iDeal.Data.EntityFrameworkProvider.Repositories;
+using UIT.iDeal.Data.EntityFrameworkProvider.Repositories.Read;
+using UIT.iDeal.Data.EntityFrameworkProvider.Repositories.Write;
 
 namespace UIT.iDeal.Infrastructure.Bootstrapper.Installers
 {
