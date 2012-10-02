@@ -66,6 +66,7 @@
     <Compile Include="Database\DropAndRecreateWhenModelChangesDatabaseStrategyInitialiser.cs" />
     <Compile Include="Database\NullDatabaseStrategyInitialiser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\Read\ModuleQuery.cs" />
     <Compile Include="Repositories\Read\Query.cs" />
     <Compile Include="Repositories\Read\ReferenceDataQuery.cs" />
     <Compile Include="Repositories\Read\TasksQuery.cs" />

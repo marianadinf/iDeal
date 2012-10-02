@@ -17,16 +17,18 @@ namespace UIT.iDeal.Web.Controllers
 {
     public class UserController : BaseController
     {
-        private readonly IUserQuery _query;
+        private readonly IUserQuery _userQuery;
+        private readonly IModuleQuery _moduleQuery;
         private readonly IReferenceDataQuery<ApplicationRole> _applicationRoleReferenceDataQuery;
         private readonly IReferenceDataQuery<BusinessUnit> _businessUnitReferenceDataQuery;
 
-        public UserController(IUserQuery query,
-
+        public UserController(IUserQuery userQuery,
+                              IModuleQuery moduleQuery,
                               IReferenceDataQuery<ApplicationRole> applicationRoleReferenceDataQuery,
                               IReferenceDataQuery<BusinessUnit> businessUnitReferenceDataQuery)
         {
-            _query = query;
+            _userQuery = userQuery;
+            _moduleQuery = moduleQuery;
             _applicationRoleReferenceDataQuery = applicationRoleReferenceDataQuery;
             _businessUnitReferenceDataQuery = businessUnitReferenceDataQuery;
         }
@@ -35,7 +37,7 @@ namespace UIT.iDeal.Web.Controllers
         // GET: /User/
         public ActionResult Index()
         {
-            var users = _query.GetAll();
+            var users = _userQuery.GetAll();
             return AutoMappedView<IEnumerable<UserViewModel>>(users);
         }
 
