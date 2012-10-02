@@ -8,13 +8,14 @@ namespace UIT.iDeal.Data.EntityFrameworkProvider.Configuration
         public ModuleConfiguration()
         {
             Ignore(x => x.ApplicationRoles);
+
             HasMany(x => x.internalApplicationRoles)
                 .WithMany(x => x.internalModules)
                 .Map(x =>
                 {
                     x.ToTable("ApplicationPermissions");
-                    x.MapLeftKey("ApplicationRoleId");
-                    x.MapRightKey("ModuleId");
+                    x.MapLeftKey("ModuleId");
+                    x.MapRightKey("ApplicationRoleId");
                 });
         }
     }

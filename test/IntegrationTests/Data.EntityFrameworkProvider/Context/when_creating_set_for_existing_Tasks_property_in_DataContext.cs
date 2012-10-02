@@ -11,7 +11,7 @@ namespace UIT.iDeal.IntegrationTests.Data.EntityFrameworkProvider.Context
         private static IDbSet<Task> _taskSet;
 
         Because of = () =>
-            _taskSet = Context.CreateIncludedSet<Task>();
+            _taskSet = Context.RetrieveSet<Task>();
 
         It should_return_the_value_of_the_public_property_holding_IDbSet_of_Task = () =>
             _taskSet.ShouldBeTheSameAs(Context.Tasks);

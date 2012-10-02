@@ -7,7 +7,7 @@ namespace UIT.iDeal.Domain.Model.ReferenceData
     {
         #region Application Roles
         
-        internal virtual ICollection<ApplicationRole> internalApplicationRoles { get; private set; }
+        internal virtual ICollection<ApplicationRole> internalApplicationRoles { get; set; }
         public virtual IEnumerable<ApplicationRole> ApplicationRoles { get { return internalApplicationRoles; } }
 
         #endregion
@@ -16,30 +16,20 @@ namespace UIT.iDeal.Domain.Model.ReferenceData
 
         public Module()
         {
-            internalApplicationRoles = new List<ApplicationRole>();
+            internalApplicationRoles = new HashSet<ApplicationRole>();
         }
 
-        internal static Module Create(string code, string description, IEnumerable<ApplicationRole> applicationRoles = null )
+        internal static Module Create(string code, string description)
         {
-            var newModule = new Module
-                                {
-                                    Code = code,
-                                    Description = description
-                                };
+            return new Module
+            {
+                Code = code,
+                Description = description
+            };
 
-            newModule.AddApplicationRoles(applicationRoles);
-            return newModule;
         }
-
-        internal static Module Create(string description)
-        {
-            return Create(null,description);
-        }
-
 
         #endregion
-
-        
 
         public virtual void AddApplicationRoles(IEnumerable<ApplicationRole> applicationRoles)
         {

@@ -39,25 +39,26 @@ namespace UIT.iDeal.Data.EntityFrameworkProvider.Repositories.Read
 
         public abstract T Get(TId id);
 
-        public virtual IQueryable<T> GetAll(Expression<Func<T, bool>> predicate = null,
-                                            params Expression<Func<T, object>>[] includes)
+        public virtual IQueryable<T> GetAll(Expression<Func<T, bool>> predicate = null)
         {
-            var set = Context.CreateIncludedSet(includes);
-
-            return (predicate == null) ? set : set.Where(predicate);
+            return GetAllWithIncludes(predicate);
         }
 
-        public virtual T GetOne(Expression<Func<T, bool>> predicate,
-                                params Expression<Func<T, object>>[] includes)
+        public virtual T GetOne(Expression<Func<T, bool>> predicate)
         {
-            var set = Context.CreateIncludedSet(includes);
-
-            return set.SingleOrDefault(predicate);
+            return Context.RetrieveSet<T>().SingleOrDefault(predicate);
         }
 
-        public bool Exists(Expression<Func<T, bool>> predicate, params Expression<Func<T, object>>[] includes)
+        public bool Exists(Expression<Func<T, bool>> predicate)
         {
-            return GetOne(predicate, includes) != null;
+            return GetOne(predicate) != null;
+        }
+
+        protected IQueryable<T> GetAllWithIncludes(Expression<Func<T, bool>> predicate = null, params Expression<Func<T, object>>[] includes)
+        {
+            var query = Context.CreateQueryWith(includes);
+
+            return (predicate == null) ? query : query.Where(predicate);
         }
     }
 }

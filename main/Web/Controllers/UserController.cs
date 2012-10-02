@@ -1,9 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
-using UIT.iDeal.Common.Extensions;
 using UIT.iDeal.Common.Extensions.Web;
-using UIT.iDeal.Common.Interfaces.Data;
 using UIT.iDeal.Common.Interfaces.Data.Repositories.Read;
 using UIT.iDeal.Domain.Model.ReferenceData;
 using UIT.iDeal.Infrastructure.Web.ActionResults;
@@ -57,47 +55,47 @@ namespace UIT.iDeal.Web.Controllers
         }
 
         [HttpPost]
-        public JsonResult GetAllModulePermissions()
+        public AutoMappedJsonResult GetAllModulePermissions()
         {
-
-            
+            var applicationPermissions = _moduleQuery.GetAll().ToList();
+            return AutoMappedJsonResult<IEnumerable<ApplicationPermissionViewModel>>(applicationPermissions);
             //temporary until changes made in domain
-            var modulePermissions = new[]
-            {
-                new ApplicationPermissionViewModel
-                {
-                    Description = "Asset Module Lookup - Create/ Edit",
-                    ApplyForApplicationRoles =
-                        _applicationRoleReferenceDataQuery
-                            .GetAllCached()
-                            .Where(x => x.Code == "ADMIN" || x.Code == "ASSPWRUSR")
-                            .MapViewModel<ApplicationRole, ApplicationRoleViewModel>()
+            //var modulePermissions = new[]
+            //{
+            //    new ApplicationPermissionViewModel
+            //    {
+            //        Description = "Asset Module Lookup - Create/ Edit",
+            //        ApplyForApplicationRoles =
+            //            _applicationRoleReferenceDataQuery
+            //                .GetAllCached()
+            //                .Where(x => x.Code == "ADMIN" || x.Code == "ASSPWRUSR")
+            //                .MapViewModel<ApplicationRole, ApplicationRoleViewModel>()
 
-                },
+            //    },
 
-                new ApplicationPermissionViewModel
-                {
-                    Description = "Asset - View",
-                    ApplyForApplicationRoles =
-                        _applicationRoleReferenceDataQuery
-                            .GetAllCached()
-                            .Where(x => new[]{"ASSMAN","ASSAN","ADMIN", "ASSGUEST"}.Contains(x.Code))
-                            .MapViewModel<ApplicationRole, ApplicationRoleViewModel>()
-                },
+            //    new ApplicationPermissionViewModel
+            //    {
+            //        Description = "Asset - View",
+            //        ApplyForApplicationRoles =
+            //            _applicationRoleReferenceDataQuery
+            //                .GetAllCached()
+            //                .Where(x => new[]{"ASSMAN","ASSAN","ADMIN", "ASSGUEST"}.Contains(x.Code))
+            //                .MapViewModel<ApplicationRole, ApplicationRoleViewModel>()
+            //    },
 
-                new ApplicationPermissionViewModel
-                {
-                    Description = "Asset - Create",
-                    ApplyForApplicationRoles =
-                        _applicationRoleReferenceDataQuery
-                            .GetAllCached()
-                            .Where(x => new[]{"ASSMAN,ASSAN,ADMIN"}.Contains(x.Code))
-                            .MapViewModel<ApplicationRole, ApplicationRoleViewModel>()
-                },
+            //    new ApplicationPermissionViewModel
+            //    {
+            //        Description = "Asset - Create",
+            //        ApplyForApplicationRoles =
+            //            _applicationRoleReferenceDataQuery
+            //                .GetAllCached()
+            //                .Where(x => new[]{"ASSMAN,ASSAN,ADMIN"}.Contains(x.Code))
+            //                .MapViewModel<ApplicationRole, ApplicationRoleViewModel>()
+            //    },
                 
-            };
+            //};
 
-            return Json(modulePermissions);
+            //return Json(modulePermissions);
 
             //throw new NotImplementedException();
         }

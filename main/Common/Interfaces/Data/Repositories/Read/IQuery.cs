@@ -37,19 +37,17 @@ namespace UIT.iDeal.Common.Interfaces.Data.Repositories.Read
         /// Get all the entities
         /// </summary>
         /// <param name="predicate">when provided will filter entity statisfying the predicate</param>
-        /// <param name="includes">when provided will force to load specified related properties with entities</param>
-        IQueryable<T> GetAll(Expression<Func<T, bool>> predicate = null,
-                             params Expression<Func<T, object>>[] includes);
+        IQueryable<T> GetAll(Expression<Func<T, bool>> predicate = null);
 
+      
         /// <summary>
         /// Get one entity matching a condition
         /// </summary>
         /// <param name="predicate">will ensure only one or none statisfy the predicate</param>
         /// <param name="includes">when provided will force to load specified related properties with the entity</param>
-        T GetOne(Expression<Func<T, bool>> predicate,
-                             params Expression<Func<T, object>>[] includes);
+        T GetOne(Expression<Func<T, bool>> predicate);
 
-        Boolean Exists(Expression<Func<T, bool>> predicate, params Expression<Func<T, object>>[] includes);
+        Boolean Exists(Expression<Func<T, bool>> predicate);
 
     }
 }

@@ -12,7 +12,7 @@ namespace UIT.iDeal.IntegrationTests.Data.EntityFrameworkProvider.Context
         private static Exception _exception;
 
         Because of = () =>
-            _exception = Catch.Exception(() => Context.CreateIncludedSet<FakeDomain>());
+            _exception = Catch.Exception(() => Context.RetrieveSet<FakeDomain>());
 
         It should_throw_an_Property_Not_Found_Exception = () =>
             _exception.ShouldBeOfType<PropertyNotFoundException>();

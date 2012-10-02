@@ -5,9 +5,11 @@ using System.Collections.Generic;
 using AutoMapper;
 
 using UIT.iDeal.Commands.AddUser;
-using UIT.iDeal.Common.Interfaces.ObjectMapping;
+
 using UIT.iDeal.Domain.Model;
 using UIT.iDeal.Common.Extensions;
+
+using UIT.iDeal.Common.Interfaces.ObjectMapping;
 
 namespace UIT.iDeal.ViewModel.Users
 {

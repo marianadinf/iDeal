@@ -27,7 +27,7 @@ namespace UIT.iDeal.IntegrationTests.Data.EntityFrameworkProvider.Repositories
                 .Each(task =>
                 {
                     task.SetValue(x => x.Id, Guid.NewGuid());
-                    Context.CreateIncludedSet<Task>().Add(task);
+                    Context.Tasks.Add(task);
                 });
 
             Context.SaveChanges();

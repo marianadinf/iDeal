@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Data;
 using System.Data.Entity;
+using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
 using Seterlund.CodeGuard;
@@ -10,6 +10,8 @@ using UIT.iDeal.Common.Errors;
 using UIT.iDeal.Common.Extensions;
 using UIT.iDeal.Domain.Model;
 using UIT.iDeal.Domain.Model.ReferenceData;
+//using UIT.iDeal.Data.EntityFrameworkProvider.Extensions;
+using Module = UIT.iDeal.Domain.Model.ReferenceData.Module;
 
 namespace UIT.iDeal.Data.EntityFrameworkProvider.Context
 {
@@ -32,6 +34,8 @@ namespace UIT.iDeal.Data.EntityFrameworkProvider.Context
         public IDbSet<ApplicationRole> ApplicationRoles { get; set; }
         public IDbSet<Stage> Stages { get; set; }
         public IDbSet<User> Users { get; set; } 
+        public IDbSet<Module> Modules { get; set; } 
+
         #endregion
 
         #region Constructor
@@ -49,26 +53,37 @@ namespace UIT.iDeal.Data.EntityFrameworkProvider.Context
 
         #region Public methods
 
-        public IDbSet<T> CreateIncludedSet<T>(IEnumerable<Expression<Func<T, object>>> includes = null)
+        public IQueryable<T> CreateQueryWith<T>(IEnumerable<Expression<Func<T, object>>> propertySelectors = null)
             where T : class
         {
 
-            var entityType = typeof (T);
-            var closedDbSetType = typeof(IDbSet<>).MakeGenericType(entityType);
+            IQueryable<T> set = RetrieveSet<T>();
 
-            var property = this.FindPropertyMatching(p => p.PropertyType == closedDbSetType);
-
-            if (property == null)
-                throw new PropertyNotFoundException(string.Format("No IDbset of {0} property found in DataContext", entityType.Name));
-
-            var set = (IDbSet<T>)property.GetValue(this, null);
-
-            includes.Each(i => set.Include(i));
+            if (propertySelectors != null && propertySelectors.Any())
+            {
+                set = propertySelectors.Aggregate(set, (current, propertySelector) => current.Include(propertySelector));
+            }
 
             return set;
         }
 
-        
+        public IDbSet<T> RetrieveSet<T>() 
+            where T : class
+        {
+            var entityType = typeof (T);
+            var closedDbSetType = typeof (IDbSet<>).MakeGenericType(entityType);
+
+            var property = this.FindPropertyMatching(p => p.PropertyType == closedDbSetType);
+
+            if (property == null)
+                throw new PropertyNotFoundException(string.Format("No IDbset of {0} property found in DataContext",
+                                                                  entityType.Name));
+
+            return (IDbSet<T>)property.GetValue(this, null);
+
+        }
+
+
         public virtual void MarkAsModified<TEntity>(TEntity instance)
             where TEntity : class
         {
