@@ -9,18 +9,11 @@ namespace UIT.iDeal.Common.Builders.DataSources.ReferenceData
     {
         protected override List<Module> InitialiseList()
         {
-
             return new List<Module>
             {
-                new Module()
-                    .SetValue(x => x.Description, "Asset Module Lookup - Create/ Edit"),
-
-                new Module()
-                    .SetValue(x => x.Description, "Asset - View"),
-
-                new Module()
-                    .SetValue(x => x.Description, "Asset - Create"),
-
+                Module.Create("ADDASSETLOOKUP","Asset Module Lookup - Create/ Edit"),
+                Module.Create("VIEWASSET","Asset - View"),
+                Module.Create("ADDASSET","Asset - Create"),
             };
         }
     }

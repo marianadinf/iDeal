@@ -68,6 +68,7 @@
     <Compile Include="Builders\DataSources\Domain\UserDataSource.cs" />
     <Compile Include="Builders\DataSources\ReferenceData\ApplicationRoleReferenceDataSource.cs" />
     <Compile Include="Builders\DataSources\ReferenceData\BusinessUnitReferenceDataSource.cs" />
+    <Compile Include="Builders\DataSources\ReferenceData\ModuleReferenceDataSource.cs" />
     <Compile Include="Builders\DataSources\ReferenceData\ReferenceDataSource.cs" />
     <Compile Include="Builders\DataSources\ReferenceData\StageReferenceDataSource.cs" />
     <Compile Include="Builders\Entities\ModuleReferenceDataBuilder.cs" />
