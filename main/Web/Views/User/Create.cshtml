@@ -17,7 +17,8 @@
 
 @section JavaScriptReference
 {
-  <script src="@Url.Content("~/Scripts/jquery.ui.multiselect.js")" type="text/javascript"></script>   
+    <script src="@Url.Content("~/Scripts/jquery.ui.multiselect.js")" type="text/javascript"></script>   
+    <script src="@Url.Content("~/Scripts/jquery.custom.extensions.js")" type="text/javascript"></script>   
 }
 @using (Html.BeginForm("Create", "User", FormMethod.Post, new { @class = "form-horizontal well" }))
 {
@@ -49,7 +50,7 @@
         <div>
             @{ var modulePermission = new ApplicationPermissionViewModel(); }
             
-            <table id="@LocalSiteMap.Locators.Grids.UserRoleModulePermissions">
+            <table id="@LocalSiteMap.Locators.Grids.ApplicationPermissions">
                 <thead>
                     <tr>
                         @(modulePermission.HeaderColumnFor(x => x.Description))
@@ -74,14 +75,20 @@
 @section JavaScript
 {
     $(function(){
-        $(".multiselect").multiselect();
+    $(".multiselect").multiselect();
     
-        $.ajax({
-            url: "@(Url.Action<UserController>(x => x.GetAllModulePermissions()))",
-            type:"POST",
-            success: function(modulePermissions) {
-                
-            }
+    $.ajax({
+    url: "@(Url.Action<UserController>(x => x.GetAllModulePermissions()))",
+    type:"POST",
+    success: function(applicationPermissions) {
+        var rowTemplate = 
+        $("#@LocalSiteMap.Locators.Grids.ApplicationPermissions thead tr").outerHtml().replace(/th/g,"td");
+    
+        for(var i = 0; i < applicationPermissions; i++) {
+            var permission = applicationPermissions[i];
+            $("#@LocalSiteMap.Locators.Grids.ApplicationPermissions tbody")
+        
+        }
 
         });
     });

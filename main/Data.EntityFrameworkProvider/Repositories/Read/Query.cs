@@ -41,7 +41,7 @@ namespace UIT.iDeal.Data.EntityFrameworkProvider.Repositories.Read
 
         public virtual IQueryable<T> GetAll(Expression<Func<T, bool>> predicate = null)
         {
-            return GetAllWithIncludes(predicate);
+            return QueryAllWith(predicate);
         }
 
         public virtual T GetOne(Expression<Func<T, bool>> predicate)
@@ -54,9 +54,9 @@ namespace UIT.iDeal.Data.EntityFrameworkProvider.Repositories.Read
             return GetOne(predicate) != null;
         }
 
-        protected IQueryable<T> GetAllWithIncludes(Expression<Func<T, bool>> predicate = null, params Expression<Func<T, object>>[] includes)
+        protected IQueryable<T> QueryAllWith(Expression<Func<T, bool>> predicate = null, params Expression<Func<T, object>>[] entitiesToBeincluded)
         {
-            var query = Context.CreateQueryWith(includes);
+            var query = Context.CreateQueryWith(entitiesToBeincluded);
 
             return (predicate == null) ? query : query.Where(predicate);
         }

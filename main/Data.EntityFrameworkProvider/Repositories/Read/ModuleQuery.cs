@@ -19,7 +19,7 @@ namespace UIT.iDeal.Data.EntityFrameworkProvider.Repositories.Read
 
         public override IQueryable<Module> GetAll(Expression<Func<Module, bool>> predicate = null)
         {
-            return GetAllWithIncludes(predicate, x => x.internalApplicationRoles);
+            return QueryAllWith(predicate, x => x.internalApplicationRoles);
         }
     }
 }
