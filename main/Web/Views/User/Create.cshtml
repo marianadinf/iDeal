@@ -53,6 +53,7 @@
             <table id="@LocalSiteMap.Locators.Grids.ApplicationPermissions">
                 <thead>
                     <tr>
+                        @(modulePermission.HeaderColumnFor(x => x.ApplicationRoles))
                         @(modulePermission.HeaderColumnFor(x => x.Description))
                         @(modulePermission.HeaderColumnFor(x => x.isAuthorised,false))
                     </tr>
@@ -74,22 +75,86 @@
 
 @section JavaScript
 {
-    $(function(){
-    $(".multiselect").multiselect();
-    
-    $.ajax({
-    url: "@(Url.Action<UserController>(x => x.GetAllModulePermissions()))",
-    type:"POST",
-    success: function(applicationPermissions) {
-        var rowTemplate = 
-        $("#@LocalSiteMap.Locators.Grids.ApplicationPermissions thead tr").outerHtml().replace(/th/g,"td");
-    
-        for(var i = 0; i < applicationPermissions; i++) {
-            var permission = applicationPermissions[i];
-            $("#@LocalSiteMap.Locators.Grids.ApplicationPermissions tbody")
-        
-        }
+    <script type="text/javascript">
+        $(function () {
+            $(".multiselect").multiselect();
 
+            var applicationPermissions,
+                setUpApplicationPermissionsCheckBoxes = function () {
+
+                    if (!applicationPermissions || applicationPermissions.length == 0) return;
+                    var checkBoxes = $("#@(Html.NameFor(x => x.ApplicationRoles))").find("input:checkbox");
+                    checkBoxes.click(function () {
+
+                        var clickedCheckedbox = $(this),
+                            isChecked = clickedCheckedbox.is(":checked");
+
+                        if (isChecked) {
+
+                        }
+                    });
+                };
+
+
+            var concatApplicationRoles = function (applicationRolesForModule) {
+                var applicationCodes = "", applicationDescription = "";
+                $.each(applicationRolesForModule, function (index, applicationRole) {
+                    applicationCodes += applicationRole.Code;
+                    applicationDescription += applicationRole.Description;
+
+                    if (index < applicationRolesForModule.length - 2) {
+                        applicationCodes += ", ";
+                        applicationDescription += ", ";
+                    } else if (index < applicationRolesForModule.length - 1) {
+                        applicationCodes += " and ";
+                        applicationDescription += " and ";
+                    }
+                });
+
+                return {
+                    Codes: applicationCodes,
+                    Descriptions: applicationDescription
+                };
+            };
+
+            var rowTemplate =
+                    $("#@LocalSiteMap.Locators.Grids.ApplicationPermissions thead tr").outerHtml().replace(/th\b/g, "td");
+
+            $.ajax({
+                url: "@(Url.Action<UserController>(x => x.GetAllModulePermissions()))",
+                type: "POST",
+                success: function (data) {
+                    applicationPermissions = data;
+                    $.each(applicationPermissions, function (index, applicationPermission) {
+                        var newRow =
+                            $(rowTemplate)
+                                .find("td[data-property-name]")
+                                .each(function () {
+
+                                    var cell = $(this);
+                                    var propertyName = cell.attr("data-property-name"),
+                                        content = applicationPermission[propertyName];
+
+                                    if ($.isArray(content)) {
+                                        role = concatApplicationRoles(content);
+                                        content = role.Descriptions;
+                                        $(cell).parent().attr("title", "Respectives code: " + role.Codes);
+                                    } else if (typeof content == "boolean") {
+                                        content = "<input type='checkbox' disabled/>";
+                                    }
+
+                                    cell.html(content);
+                                })
+                                .end();
+
+                        $("#@LocalSiteMap.Locators.Grids.ApplicationPermissions tbody").append(newRow);
+
+                    });
+
+                    setUpApplicationPermissionsCheckBoxes();
+                }
+            });
         });
-    });
+       
+    </script>
 }

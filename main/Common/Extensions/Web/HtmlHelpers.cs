@@ -17,9 +17,9 @@ namespace UIT.iDeal.Common.Extensions.Web
             where TModel : class
         {
             var property = propertySelector.GetPropertyFromLambda();
-            return new MvcHtmlString(string.Format("<th data-property-name=\"{0}\" data-property-type=\"{1}\">{2}</th>",
+            
+            return new MvcHtmlString(string.Format("<th data-property-name=\"{0}\">{1}</th>",
                                     property.Name,
-                                    property.PropertyType.Name,
                                     populateColumn ? property.Name.ToWords() : string.Empty));
         }
         public static MvcHtmlString MultiSelectWithCheckboxes<TModel,TProperty>(this HtmlHelper<TModel> htmlHelper, 

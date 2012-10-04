@@ -32,8 +32,15 @@ jQuery.extend({
       // We handle everything using the script element injection
       return undefined;
    }
-   
+
 });
+
+String.prototype.camelCase = function () {
+    var s = trim(this);
+    return (/\S[A-Z]/.test(s)) ?
+  s.replace(/(.)([A-Z])/g, function (t, a, b) { return a + ' ' + b.toLowerCase(); }) :
+  s.replace(/( )([a-z])/g, function (t, a, b) { return b.toUpperCase(); });
+};
 
 $.fn.outerHtml = function () {
 
