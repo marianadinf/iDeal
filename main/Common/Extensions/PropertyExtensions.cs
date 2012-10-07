@@ -34,6 +34,25 @@ namespace UIT.iDeal.Common.Extensions
 
             return propInfo;
         }
+
+        public static TAttribute GetAttributeFor<TAttribute>(this PropertyInfo property, bool inherit = false)
+            where TAttribute : Attribute
+        {
+            return
+                property
+                    .GetCustomAttributes(typeof(TAttribute), inherit)
+                    .OfType<TAttribute>()
+                    .FirstOrDefault();
+        }
+
+        public static bool SatisfyForAttribute<TAttribute>(this PropertyInfo property,Predicate<TAttribute> attributePredicate) 
+            where TAttribute : Attribute
+        {
+            var attribute = property.GetAttributeFor<TAttribute>();
+
+            return attribute != null && attributePredicate(attribute);
+
+        }
         
         public static PropertyInfo GetPropertyFromLambda<T, TProperty>(this T obj, Expression<Func<T, TProperty>> propertySelector)
             where T : class

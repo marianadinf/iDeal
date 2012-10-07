@@ -12,15 +12,8 @@ namespace UIT.iDeal.Common.Extensions.Web
 {
     public static class HtmlHelpers
     {
-
-        public static TAttribute GetAttributeFor<TAttribute>(this PropertyInfo property, bool inherit = false)
-        {
-            return
-                property
-                    .GetCustomAttributes(typeof (TAttribute), inherit)
-                    .OfType<TAttribute>()
-                    .FirstOrDefault();
-        }
+        
+        
 
         public static MvcHtmlString HeaderColumnFor<TModel, TProperty>(this TModel model, Expression<Func<TModel, TProperty>> propertySelector) 
             where TModel : class
@@ -33,13 +26,17 @@ namespace UIT.iDeal.Common.Extensions.Web
                                                    model.GetColumnSpanFor(property)));
         }
 
+        static bool IsScaffoldColumn(this PropertyInfo property)
+        {
+            return property.SatisfyForAttribute<ScaffoldColumnAttribute>(x => x.Scaffold);
+        }
+
         static string GetDisplayedColumnName(this PropertyInfo property)
             
         {
             var displayedColumnName = string.Empty;
-            var scaffoldColumnAttribute = property.GetAttributeFor<ScaffoldColumnAttribute>();
 
-            if (scaffoldColumnAttribute == null || !scaffoldColumnAttribute.Scaffold)
+            if (!property.IsScaffoldColumn())
             {
                 displayedColumnName = property.Name.ToWords();
 
@@ -53,20 +50,23 @@ namespace UIT.iDeal.Common.Extensions.Web
             return displayedColumnName;
         }
 
-        static string GetColumnSpanFor<TModel>(this TModel model, PropertyInfo property)
+        static string GetColumnSpanFor(this Object model, PropertyInfo property)
         {
+
+            var modelProperties = model.GetType().GetProperties().ToList();
             
-            var modelProperties = typeof(TModel).GetProperties().ToList();
-            var isLastColumIsUsedForScaffolding = false;
+            var currentPropertyIndexPosition = modelProperties.IndexOf(property);
+            
+            var isAllFollowingColumnsAreUsedForScaffolding =
+                modelProperties
+                    .Where(p => modelProperties.IndexOf(p) > currentPropertyIndexPosition)
+                    .All(p => p.IsScaffoldColumn());
 
-            if (modelProperties.IndexOf(property) == modelProperties.Count - 2)
-            {
-                var attribute = modelProperties.Last().GetAttributeFor<ScaffoldColumnAttribute>();
-                isLastColumIsUsedForScaffolding = attribute != null && attribute.Scaffold;
-                
-            }
+            var numberOfSpannedColumns = modelProperties.Count - currentPropertyIndexPosition;
 
-            return isLastColumIsUsedForScaffolding ? "colspan=\"2\"" : string.Empty;
+            return isAllFollowingColumnsAreUsedForScaffolding
+                ? string.Format("colspan=\"{0}\"", numberOfSpannedColumns)
+                : string.Empty;
 
         }
 
