@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 using UIT.iDeal.Common.Extensions.Web;
@@ -23,7 +24,8 @@ namespace UIT.iDeal.Web.Controllers
         public UserController(IUserQuery userQuery,
                               IModuleQuery moduleQuery,
                               IReferenceDataQuery<ApplicationRole> applicationRoleReferenceDataQuery,
-                              IReferenceDataQuery<BusinessUnit> businessUnitReferenceDataQuery)
+                              IReferenceDataQuery<BusinessUnit> businessUnitReferenceDataQuery
+            )
         {
             _userQuery = userQuery;
             _moduleQuery = moduleQuery;
@@ -99,7 +101,12 @@ namespace UIT.iDeal.Web.Controllers
 
             //throw new NotImplementedException();
         }
-        
+        [HttpPost]
+        public AutoMappedJsonResult GetModulePermissionsByApplicationRole(string applicationRoleId)
+        {
+            throw new NotImplementedException();
+        }
+
         private AddUserForm InitialiseSelectLists(AddUserForm addUserForm)
         {
             addUserForm.ApplicationRoles = _applicationRoleReferenceDataQuery.GetAllCached().ToSelectList();

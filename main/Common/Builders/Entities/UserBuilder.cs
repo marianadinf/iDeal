@@ -82,8 +82,9 @@ namespace UIT.iDeal.Common.Builders.Entities
                     .With(user => user.Username, UserNames.First())
                     .With(user => user.Email, Emails.First())
                     .Do(user => user.AddApplicationRoles(_applicationRoles))
-                    .Do(user => user.AddBusinessUnits(_businessUnits));
-
+                    .Do(user => user.AddBusinessUnits(_businessUnits))
+                    .Do(user => user.AddModules(_modules));
+                    
             return item.Build();
         }
 
@@ -144,6 +145,12 @@ namespace UIT.iDeal.Common.Builders.Entities
             return this;
         }
 
+        protected List<Module> _modules = new ReferenceDataBuilderFor<Module>();
+        public UserBuilder WithModules(List<Module> modules)
+        {
+            _modules = modules;
+            return this;
+        }
         private void PopulateUser(User destinationUser, int index)
         {
             var fromUser = User.Create(FirstNames.ElementAt(index),
@@ -154,6 +161,7 @@ namespace UIT.iDeal.Common.Builders.Entities
             CopyValues(fromUser, destinationUser);
             destinationUser.AddApplicationRoles(fromUser.ApplicationRoles);
             destinationUser.AddBusinessUnits(fromUser.BusinessUnits);
+            destinationUser.AddModules(fromUser.Modules);
         }
     }
 }

@@ -3,8 +3,11 @@ using UIT.iDeal.Domain.Model.Base;
 
 namespace UIT.iDeal.Domain.Model.ReferenceData
 {
-    public class Module : ReferenceData
+    public class Module : ReferenceData 
     {
+        internal ICollection<User> internalUsers { get; private set; }
+
+       
         #region Application Roles
         
         internal virtual ICollection<ApplicationRole> internalApplicationRoles { get; set; }
@@ -17,6 +20,7 @@ namespace UIT.iDeal.Domain.Model.ReferenceData
         public Module()
         {
             internalApplicationRoles = new HashSet<ApplicationRole>();
+            internalUsers = new List<User>();
         }
 
         internal static Module Create(string code, string description)

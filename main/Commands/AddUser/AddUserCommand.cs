@@ -12,5 +12,6 @@ namespace UIT.iDeal.Commands.AddUser
         public string Email { get; set; }
         public List<Guid> ApplicationRoleIds { get; set; }
         public List<Guid> BusinessUnitIds { get; set; }
+        public List<Guid> ModuleIds { get; set; }
     }
 }

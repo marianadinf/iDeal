@@ -25,13 +25,17 @@ namespace UIT.iDeal.ViewModel.Users
 
         public List<Guid> BusinessUnitIds { get; set; }
         public SelectList BusinessUnits { get; set; }
-        
+
+        public List<Guid> ModuleIds { get; set; }
+        public SelectList Modules { get; set; }
+
         public void CreateMappings(IConfiguration configuration)
         {
             configuration
                 .CreateMap<User, AddUserForm>()
                 .IgnoreSelectListAndMapIdsFrom(s => s.ApplicationRoles)
-                .IgnoreSelectListAndMapIdsFrom(s => s.BusinessUnits);
+                .IgnoreSelectListAndMapIdsFrom(s => s.BusinessUnits)
+                .IgnoreSelectListAndMapIdsFrom(s=> s.Modules);
         }
     }
 }

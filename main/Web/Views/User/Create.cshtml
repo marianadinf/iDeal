@@ -26,13 +26,11 @@
    @Html.ValidationSummary(true)
     <fieldset id="@LocalSiteMap.Locators.PanelIds.AddUser.Fieldset">
         <legend>Create a new User</legend>
-        <div>
             @Html.EditorFor(x => x.Firstname)
             @Html.EditorFor(x => x.Lastname)
             @Html.EditorFor(x => x.Username)
             @Html.EditorFor(x => x.Email)
-        </div>
-        <hr/>
+        
         <div class="controls-row">
             <div class="pull-left">
                 @Html.LabelFor(m => m.ApplicationRoles)
@@ -90,7 +88,15 @@
                             isChecked = clickedCheckedbox.is(":checked");
 
                         if (isChecked) {
-
+                            $.ajax({
+                                url: "/User/GetModulePermissionsByApplicationRole",
+                                data:{applicationRoleId:clickedCheckedbox.val()},
+                                type: "POST",
+                                dataType: "application/JSON",
+                                success: function (data) {
+                                    
+                                }
+                            });
                         }
                     });
                 };

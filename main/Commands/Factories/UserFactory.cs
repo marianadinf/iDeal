@@ -11,7 +11,8 @@ namespace UIT.iDeal.Commands.Factories
     {
         public static User Create(AddUserCommand addUserCommand,
                                   IEnumerable<ApplicationRole> applicationRoles,
-                                  IEnumerable<BusinessUnit> businessUnits)
+                                  IEnumerable<BusinessUnit> businessUnits,
+            IEnumerable<Module> modules )
         {
 
             return Create(addUserCommand.Firstname,
@@ -19,7 +20,8 @@ namespace UIT.iDeal.Commands.Factories
                           addUserCommand.Username,
                           addUserCommand.Email,
                           applicationRoles,
-                          businessUnits);
+                          businessUnits,
+                          modules);
         }
 
         public static User Create(string firstname,
@@ -27,7 +29,8 @@ namespace UIT.iDeal.Commands.Factories
                                   string username,
                                   string email,
                                   IEnumerable<ApplicationRole> applicationRoles,
-                                  IEnumerable<BusinessUnit> businessUnits)
+                                  IEnumerable<BusinessUnit> businessUnits,
+            IEnumerable<Module> modules )
         {
             return
                 new UserBuilder()
@@ -36,7 +39,8 @@ namespace UIT.iDeal.Commands.Factories
                     .WithUserNames(username)
                     .WithEmails(email)
                     .WithApplicationRoles(applicationRoles.ToList())
-                    .WithBusinessUnits(businessUnits.ToList());
+                    .WithBusinessUnits(businessUnits.ToList())
+                    .WithModules(modules.ToList());
         }
     }
 }

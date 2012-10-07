@@ -30,11 +30,23 @@ namespace UIT.iDeal.Common.Builders.Entities
 
             return modules;
         }
-
         IEnumerable<string>[] _applicationCodeGroups = new[]
         {
             new[] {"ASSPWRUSR", "ADMIN"},
             new[] {"ASSMAN","ASSAN","ADMIN","ASSGUEST"},
+            new[] {"ASSMAN","ASSAN","ADMIN"},
+            new[] {"ASSPWRUSR","ADMIN"},
+            new[] {"INVPWUSR","ADMIN"},
+            new[] {"INVAN","INVASS","DEALLDR", "INVGUEST"},
+            new[] {"INVAN","INVASS","DEALLDR"},
+            new[] {"INVPWUSR","ADMIN"},
+            new[]{ "INVAN","INVASS","DEALLDR"},
+            new[] { "INVAN","INVASS","DEALLDR"},
+            new[] {"INVAN","INVASS","DEALLDR"},
+            new[] {"INVAN","INVASS","DEALLDR"},
+            new[] {"INVAN","INVASS","DEALLDR"},
+            new[] {"INVAN","INVASS","DEALLDR"},
+            new[] {"INVAN","INVASS","DEALLDR"}
         };
         public ModuleReferenceDataBuilder WithApplicationCodeGroups(params IEnumerable<string>[] applicationCodeGroups)
         {

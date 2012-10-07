@@ -14,7 +14,7 @@ namespace UIT.iDeal.Data.EntityFrameworkProvider.Configuration
         {
             Ignore(x => x.ApplicationRoles);
             Ignore(x => x.BusinessUnits);
-
+            Ignore(x => x.Modules);
             HasMany(x => x.internalApplicationRoles)
                 .WithMany(x => x.internalUsers)
                 .Map(x =>
@@ -32,6 +32,14 @@ namespace UIT.iDeal.Data.EntityFrameworkProvider.Configuration
                     x.MapLeftKey("UserId");
                     x.MapRightKey("BusinessId");
                 });
+            HasMany(x=>x.internalModules)
+                .WithMany(x => x.internalUsers)
+                .Map(x =>
+                         {
+                             x.ToTable("UserApplicationPermissions");
+                             x.MapLeftKey("UserId");
+                             x.MapRightKey("ModuleId");
+                         });
         }
     }
 }

@@ -14,14 +14,16 @@ namespace UIT.iDeal.Commands.AddUser
         readonly IUserRepository _repository;
         readonly IReferenceDataQuery<ApplicationRole> _applicationRoleReferenceDataQuery;
         readonly IReferenceDataQuery<BusinessUnit> _businessUnitReferenceDataQuery;
-
+        readonly IReferenceDataQuery<Module> _moduleReferenceDataQuery;
         public AddUserCommandHandler(IUserRepository repository,
                                      IReferenceDataQuery<ApplicationRole> applicationRoleReferenceDataQuery,
-                                     IReferenceDataQuery<BusinessUnit> businessUnitReferenceDataQuery)
+                                     IReferenceDataQuery<BusinessUnit> businessUnitReferenceDataQuery,
+                                        IReferenceDataQuery<Module> moduleReferenceDataQuery )
         {
             _repository = repository;
             _applicationRoleReferenceDataQuery = applicationRoleReferenceDataQuery;
             _businessUnitReferenceDataQuery = businessUnitReferenceDataQuery;
+            _moduleReferenceDataQuery = moduleReferenceDataQuery;
         }
 
         public AddUserCommand Command { get; set; }
@@ -42,7 +44,9 @@ namespace UIT.iDeal.Commands.AddUser
             var selectedBusinessUnits =
                 _businessUnitReferenceDataQuery.GetAll(x =>  Command.BusinessUnitIds.Contains(x.Id));
 
-            _repository.Save(UserFactory.Create(Command, selectedApplicationRoles, selectedBusinessUnits));
+            var selectedModules = _moduleReferenceDataQuery.GetAll(x => Command.ModuleIds.Contains(x.Id));
+            
+            _repository.Save(UserFactory.Create(Command, selectedApplicationRoles, selectedBusinessUnits, selectedModules));
         }
     }
 }

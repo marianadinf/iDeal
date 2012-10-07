@@ -35,6 +35,16 @@ namespace UIT.iDeal.Domain.Model
 
         #endregion
 
+        #region Modules
+
+        internal ICollection<Module> internalModules { get; private set; }
+        public virtual IEnumerable<Module> Modules {get { return internalModules; }}
+        public virtual void AddModules(IEnumerable<Module> modules )
+        {
+            internalModules.AddRange(modules);
+        }
+        #endregion
+
         #region Contructors
 
         internal static User Create(string firstname,
@@ -56,6 +66,7 @@ namespace UIT.iDeal.Domain.Model
         {
             internalApplicationRoles = new HashSet<ApplicationRole>();
             internalBusinessUnits = new HashSet<BusinessUnit>();
+            internalModules = new HashSet<Module>();
         }
        
         #endregion
