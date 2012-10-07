@@ -4,7 +4,7 @@
 @using UIT.iDeal.Web.Controllers
 @using UIT.iDeal.Common.Extensions.Web
 @using MvcContrib
-@model UIT.iDeal.ViewModel.Users.AddUserForm
+@model AddUserForm
 
 @{
     ViewBag.Title = LocalSiteMap.PageText.PageTitles.Users.Create;
@@ -33,19 +33,14 @@
         
         <div class="controls-row">
             <div class="pull-left">
-                @Html.LabelFor(m => m.ApplicationRoles)
                 @Html.MultiSelectWithCheckboxes(m => m.ApplicationRoles, m => m.ApplicationRoleIds)
-                <br/>
             </div>
-        
             <div class="pull-left">
-                @Html.LabelFor(m => m.BusinessUnits)
                 @Html.MultiSelectWithCheckboxes(m => m.BusinessUnits, m => m.BusinessUnitIds)
-                <br/>
             </div>
         </div>
         <hr/>
-        <div>
+        
             @{ var modulePermission = new ApplicationPermissionViewModel(); }
             
             <table id="@LocalSiteMap.Locators.Grids.ApplicationPermissions">
@@ -53,14 +48,12 @@
                     <tr>
                         @(modulePermission.HeaderColumnFor(x => x.ApplicationRoles))
                         @(modulePermission.HeaderColumnFor(x => x.Description))
-                        @(modulePermission.HeaderColumnFor(x => x.isAuthorised,false))
+                        @(modulePermission.HeaderColumnFor(x => x.IsAuthorised,false))
                     </tr>
                 </thead>
-                <tbody>
-                    
-                </tbody>
+                <tbody></tbody>
             </table>
-        </div>
+        
          <hr/>
         <div>
             <input type="submit" class="btn btn-primary" id="@LocalSiteMap.Locators.ActionElementIds.AddUser.AddUserButton" value="Create" />
@@ -78,60 +71,63 @@
             $(".multiselect").multiselect();
 
             var applicationPermissions,
-                setUpApplicationPermissionsCheckBoxes = function () {
+                isAuthorisedForRolesIn = function (permission) {
 
-                    if (!applicationPermissions || applicationPermissions.length == 0) return;
-                    var checkBoxes = $("#@(Html.NameFor(x => x.ApplicationRoles))").find("input:checkbox");
-                    checkBoxes.click(function () {
+                    var selectedApplicationIds =
+                            $("#@(Html.IdFor(x => x.ApplicationRoles)) :checkbox:checked")
+                                .map(function () { return $(this).val(); }),
+                        applicationIdsForModule =
+                            permission.ApplicationRoles
+                                .map(function (applicationRole) { return applicationRole.Id; });
 
-                        var clickedCheckedbox = $(this),
-                            isChecked = clickedCheckedbox.is(":checked");
+                    return $(selectedApplicationIds).containValues(applicationIdsForModule);
+                },
+                applyPermissionsForSelectedRoles = function () {
 
-                        if (isChecked) {
-                            $.ajax({
-                                url: "/User/GetModulePermissionsByApplicationRole",
-                                data:{applicationRoleId:clickedCheckedbox.val()},
-                                type: "POST",
-                                dataType: "application/JSON",
-                                success: function (data) {
-                                    
-                                }
-                            });
-                        }
+                    $.each(applicationPermissions, function (index, permission) {
+                        $("#@LocalSiteMap.Locators.Grids.ApplicationPermissions tbody tr:eq(" + index + ") :checkbox")
+                            .prop("checked", isAuthorisedForRolesIn(permission));
                     });
                 };
 
 
+            $("#@(Html.NameFor(x => x.ApplicationRoles))")
+                .find("input:checkbox")
+                .click(applyPermissionsForSelectedRoles);
+
             var concatApplicationRoles = function (applicationRolesForModule) {
-                var applicationCodes = "", applicationDescription = "";
+
+                var applicationCodes = "", applicationDescriptions = "";
+
                 $.each(applicationRolesForModule, function (index, applicationRole) {
                     applicationCodes += applicationRole.Code;
-                    applicationDescription += applicationRole.Description;
+                    applicationDescriptions += applicationRole.Description;
 
                     if (index < applicationRolesForModule.length - 2) {
                         applicationCodes += ", ";
-                        applicationDescription += ", ";
+                        applicationDescriptions += ", ";
                     } else if (index < applicationRolesForModule.length - 1) {
                         applicationCodes += " and ";
-                        applicationDescription += " and ";
+                        applicationDescriptions += " and ";
                     }
                 });
 
                 return {
                     Codes: applicationCodes,
-                    Descriptions: applicationDescription
+                    Descriptions: applicationDescriptions
                 };
             };
 
             var rowTemplate =
-                    $("#@LocalSiteMap.Locators.Grids.ApplicationPermissions thead tr").outerHtml().replace(/th\b/g, "td");
+                    $("#@LocalSiteMap.Locators.Grids.ApplicationPermissions thead tr").clone().outerHtml().replace(/th\b/g, "td");
 
             $.ajax({
                 url: "@(Url.Action<UserController>(x => x.GetAllModulePermissions()))",
                 type: "POST",
                 success: function (data) {
                     applicationPermissions = data;
-                    $.each(applicationPermissions, function (index, applicationPermission) {
+                    
+                    $.each(applicationPermissions, function (index, permission) {
                         var newRow =
                             $(rowTemplate)
                                 .find("td[data-property-name]")
@@ -139,14 +135,17 @@
 
                                     var cell = $(this);
                                     var propertyName = cell.attr("data-property-name"),
-                                        content = applicationPermission[propertyName];
+                                        content = permission[propertyName];
 
                                     if ($.isArray(content)) {
                                         role = concatApplicationRoles(content);
                                         content = role.Descriptions;
                                         $(cell).parent().attr("title", "Respectives code: " + role.Codes);
                                     } else if (typeof content == "boolean") {
-                                        content = "<input type='checkbox' disabled/>";
+
+                                        content = "<input type='checkbox' disabled";
+                                        if (isAuthorisedForRolesIn(permission)) content += " checked";
+                                        content += "/>";
                                     }
 
                                     cell.html(content);
@@ -156,8 +155,8 @@
                         $("#@LocalSiteMap.Locators.Grids.ApplicationPermissions tbody").append(newRow);
 
                     });
+                    
 
-                    setUpApplicationPermissionsCheckBoxes();
                 }
             });
         });

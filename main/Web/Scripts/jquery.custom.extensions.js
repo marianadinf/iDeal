@@ -42,6 +42,32 @@ String.prototype.camelCase = function () {
   s.replace(/( )([a-z])/g, function (t, a, b) { return b.toUpperCase(); });
 };
 
+
+$.fn.containValues = function (arrayOfValues) {
+
+    return $(this).intersect(arrayOfValues).length !== 0;
+
+};
+
+
+
+$.fn.intersect = function (arrayOfValues) {
+
+    var superSet = this.get();
+    var intersection = [];
+
+    if ($.isArray(superSet) && $.isArray(arrayOfValues)) {
+        $.each(arrayOfValues, function(index, value) {
+            if ($.inArray(value, superSet) !== -1) {
+                intersection.push(value);
+            }
+        });
+    }
+
+    return intersection;
+
+};
+
 $.fn.outerHtml = function () {
 
     if (!this || !this[0]) return "";

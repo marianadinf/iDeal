@@ -404,3 +404,28 @@ div#title {
     #CreateUserFieldset div.controls-row {
         clear: both;
     }
+        #ApplicationPermissionList {
+            
+        }
+            #ApplicationPermissionList th {
+                background-color: lightGrey; 	
+            }
+            
+            #ApplicationPermissionList th, #ApplicationPermissionList td {
+                padding: 11px;
+                vertical-align: middle;
+                border: 1px solid silver;
+                
+            }
+            
+            #ApplicationPermissionList :nth-child(2) {
+                border-right: none !important;
+            }            
+           
+            #ApplicationPermissionList :last-child {
+                border-left: none !important;
+            }
+            
+            
+            
+            

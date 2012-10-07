@@ -61,45 +61,6 @@ namespace UIT.iDeal.Web.Controllers
         {
             var applicationPermissions = _moduleQuery.GetAll().ToList();
             return AutoMappedJsonResult<IEnumerable<ApplicationPermissionViewModel>>(applicationPermissions);
-            //temporary until changes made in domain
-            //var modulePermissions = new[]
-            //{
-            //    new ApplicationPermissionViewModel
-            //    {
-            //        Description = "Asset Module Lookup - Create/ Edit",
-            //        ApplyForApplicationRoles =
-            //            _applicationRoleReferenceDataQuery
-            //                .GetAllCached()
-            //                .Where(x => x.Code == "ADMIN" || x.Code == "ASSPWRUSR")
-            //                .MapViewModel<ApplicationRole, ApplicationRoleViewModel>()
-
-            //    },
-
-            //    new ApplicationPermissionViewModel
-            //    {
-            //        Description = "Asset - View",
-            //        ApplyForApplicationRoles =
-            //            _applicationRoleReferenceDataQuery
-            //                .GetAllCached()
-            //                .Where(x => new[]{"ASSMAN","ASSAN","ADMIN", "ASSGUEST"}.Contains(x.Code))
-            //                .MapViewModel<ApplicationRole, ApplicationRoleViewModel>()
-            //    },
-
-            //    new ApplicationPermissionViewModel
-            //    {
-            //        Description = "Asset - Create",
-            //        ApplyForApplicationRoles =
-            //            _applicationRoleReferenceDataQuery
-            //                .GetAllCached()
-            //                .Where(x => new[]{"ASSMAN,ASSAN,ADMIN"}.Contains(x.Code))
-            //                .MapViewModel<ApplicationRole, ApplicationRoleViewModel>()
-            //    },
-                
-            //};
-
-            //return Json(modulePermissions);
-
-            //throw new NotImplementedException();
         }
         [HttpPost]
         public AutoMappedJsonResult GetModulePermissionsByApplicationRole(string applicationRoleId)
