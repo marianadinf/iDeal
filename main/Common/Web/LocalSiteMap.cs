@@ -63,7 +63,9 @@ namespace UIT.iDeal.Common.Web
                 public static class AddUser
                 {
                     public static readonly string AddUserButton = "AddUserButton";
+                    public static readonly string BackToUserList = "BackToUserList";
                 }
+
             }
 
             public static class TextElementIds

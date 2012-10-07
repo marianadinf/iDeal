@@ -16,7 +16,7 @@ body {
 
 
 
-a:link {
+/*a:link {
     color: #034af3;
     text-decoration: underline;
 }
@@ -32,7 +32,7 @@ a:hover {
 
 a:active {
     color: #12eb87;
-}
+}*/
 
 p, ul {
     margin-bottom: 20px;
@@ -239,12 +239,33 @@ input[type="submit"] {
 }
 .multiselect-on {
     color:#ffffff;
-    background-color:#1d60ff;
+    background-color:#558bc4;
 }
 
 .left-panel {
     float: left;
 }
+
+/* Table 
+----------------------------------------------------------*/
+
+ /* Scrollable body */
+ tbody.scrollContent {
+            display: block;
+            height: 227px;
+            overflow: auto;
+            width: 100%;
+        }       
+        
+        /* fix header row */
+        thead.fixedHeader tr {
+            display: block;
+            position: relative;
+        }     
+        
+  tr:nth-child(odd) {
+      background-color: rgb(213, 213, 255);
+  }
 
 /* MISC  
 ----------------------------------------------------------*/
@@ -405,48 +426,49 @@ div#title {
         clear: both;
         padding-top: 20px;
     }
-        #ApplicationPermissionList {
-            
+    
+        #ApplicationPermissionList tr.isAuthorised {
+            background-color:rgb(209, 232, 163);            
+            font-style: italic;       
         }
-            #ApplicationPermissionList th {
-                background-color: lightGrey; 	
-            }
-            
-            #ApplicationPermissionList th, #ApplicationPermissionList td {
-                padding: 6px;
-                vertical-align: middle;
-                border: 1px solid silver;
-                
-            }
-            
-            #ApplicationPermissionList :nth-child(2) {
-                border-right: none !important;
-            }            
-           
-            #ApplicationPermissionList :last-child {
-                border-left: none !important;
-            }
-            
-            thead.fixedHeader tr {
-                display: block;
-                position: relative;
-            }
-            
-            #ApplicationPermissionList tr [data-property-name=ApplicationRoles] {
-                width: 550px;
-            }
+             
+                /* cells */
+                #ApplicationPermissionList tr [data-property-name=ApplicationRoles] {
+                    width: 450px;
+                }
                                    
-            #ApplicationPermissionList tr [data-property-name=Description] {
-                width: 400px;
-            }                  
+                #ApplicationPermissionList tr [data-property-name=Description] {
+                    width: 500px;
+                }
             
-            tbody.scrollContent {
-                display: block;
-                height: 227px;
-                overflow: auto;
-                width: 100%;
-            }
-
+                #ApplicationPermissionList   th {
+                    background-color: lightGrey; 	
+                }
+            
+                #ApplicationPermissionList th, #ApplicationPermissionList td {
+                    padding: 6px;
+                    vertical-align: middle;
+                    border: 1px solid silver;                
+                }
+            
+                #ApplicationPermissionList :nth-child(2) {
+                    border-right: none !important;
+                }            
+           
+                #ApplicationPermissionList :last-child {
+                    border-left: none !important;
+                }            
+            
+                #ApplicationPermissionList tbody tr
+            
+    #BackToUserList:link,#BackToUserList:visited  {
+        text-decoration: none !important;
+        font-size: 1.2em !important;
+        color: white;
+        
+    }  
+           
+           
             
             
             
