@@ -20,17 +20,13 @@ namespace UIT.iDeal.Data.EntityFrameworkProvider.Database.Initialisation
             GenerateAndSaveReferenceDataFor<Module>(context, new ModuleReferenceDataBuilder(applicationRoles));
         }
 
-        private IEnumerable<TReferenceData> GenerateAndSaveReferenceDataFor<TReferenceData>(DataContext context)
+        private IEnumerable<TReferenceData> GenerateAndSaveReferenceDataFor<TReferenceData>(DataContext context,
+                                                                                            List<TReferenceData> referenceDatas = null)
             where TReferenceData : ReferenceData, new()
         {
-            return new Repository<TReferenceData>(context).SaveList(new ReferenceDataBuilderFor<TReferenceData>());
+            return new Repository<TReferenceData>(context).SaveList(referenceDatas ?? new ReferenceDataBuilderFor<TReferenceData>());
         }
 
-        private void GenerateAndSaveReferenceDataFor<TReferenceData>(DataContext context, List<TReferenceData> referenceDatas)
-           
-            where TReferenceData : ReferenceData, new()
-        {
-            new Repository<TReferenceData>(context).SaveList(referenceDatas);
-        }
+        
     }
 }
