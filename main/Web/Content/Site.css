@@ -461,10 +461,12 @@ div#title {
             
                 #ApplicationPermissionList tbody tr
             
-    #BackToUserList:link,#BackToUserList:visited  {
-        text-decoration: none !important;
-        font-size: 1.2em !important;
-        color: white;
+    #BackToUserList:link,#BackToUserList:visited,
+    #BackToUserList.btn   {
+        text-decoration: none;
+        font-size: 1.2em;
+        color: white;        
+        padding: 5px 14px;
         
     }  
            

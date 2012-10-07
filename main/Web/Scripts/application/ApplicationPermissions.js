@@ -103,7 +103,6 @@ function ApplicationPermission(dependencies) {
     
     //Fires ajax call when called to the specifed url to get all
     //module and the application roles that are authorised to access them
-
     self.populateApplicationPermissionsFrom = function(allModulePermissionsUrl) {
         $.ajax({
             url: allModulePermissionsUrl,
