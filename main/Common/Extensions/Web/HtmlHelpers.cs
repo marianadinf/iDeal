@@ -1,8 +1,10 @@
 ﻿using System;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Collections.Generic;
 using System.Linq.Expressions;
+using System.Reflection;
 using System.Web.Mvc;
 using System.Web.Mvc.Html;
 
@@ -11,37 +13,63 @@ namespace UIT.iDeal.Common.Extensions.Web
     public static class HtmlHelpers
     {
 
+        public static TAttribute GetAttributeFor<TAttribute>(this PropertyInfo property, bool inherit = false)
+        {
+            return
+                property
+                    .GetCustomAttributes(typeof (TAttribute), inherit)
+                    .OfType<TAttribute>()
+                    .FirstOrDefault();
+        }
 
-
-        public static MvcHtmlString HeaderColumnFor<TModel, TProperty>(this TModel model, Expression<Func<TModel, TProperty>> propertySelector,
-                                                            bool populateColumn = true) 
+        public static MvcHtmlString HeaderColumnFor<TModel, TProperty>(this TModel model, Expression<Func<TModel, TProperty>> propertySelector) 
             where TModel : class
         {
             var property = propertySelector.GetPropertyFromLambda();
-            var columnName = string.Empty;
+
+            return new MvcHtmlString(string.Format("<th data-property-name=\"{0}\" {2}>{1}</th>",
+                                                   property.Name,
+                                                   property.GetDisplayedColumnName(),
+                                                   model.GetColumnSpanFor(property)));
+        }
+
+        static string GetDisplayedColumnName(this PropertyInfo property)
             
-            if (populateColumn)
+        {
+            var displayedColumnName = string.Empty;
+            var scaffoldColumnAttribute = property.GetAttributeFor<ScaffoldColumnAttribute>();
+
+            if (scaffoldColumnAttribute == null || !scaffoldColumnAttribute.Scaffold)
             {
-                columnName = property.Name.ToWords();
-                
-                var displayNameAttribute =
-                    property
-                        .GetCustomAttributes(typeof (DisplayNameAttribute), false)
-                        .OfType<DisplayNameAttribute>()
-                        .FirstOrDefault();
+                displayedColumnName = property.Name.ToWords();
+
+                var displayNameAttribute = property.GetAttributeFor<DisplayNameAttribute>();
 
                 if (displayNameAttribute != null)
                 {
-                    columnName = displayNameAttribute.DisplayName;
+                    displayedColumnName = displayNameAttribute.DisplayName;
                 }
             }
-
-            
-            
-            return new MvcHtmlString(string.Format("<th data-property-name=\"{0}\">{1}</th>",
-                                    property.Name,
-                                    columnName));
+            return displayedColumnName;
         }
+
+        static string GetColumnSpanFor<TModel>(this TModel model, PropertyInfo property)
+        {
+            
+            var modelProperties = typeof(TModel).GetProperties().ToList();
+            var isLastColumIsUsedForScaffolding = false;
+
+            if (modelProperties.IndexOf(property) == modelProperties.Count - 2)
+            {
+                var attribute = modelProperties.Last().GetAttributeFor<ScaffoldColumnAttribute>();
+                isLastColumIsUsedForScaffolding = attribute != null && attribute.Scaffold;
+                
+            }
+
+            return isLastColumIsUsedForScaffolding ? "colspan=\"2\"" : string.Empty;
+
+        }
+
         public static MvcHtmlString MultiSelectWithCheckboxes<TModel,TProperty>(this HtmlHelper<TModel> htmlHelper, 
                                                                        Expression<Func<TModel,SelectList>> readListExpressionSelector,
                                                                        Expression<Func<TModel, IEnumerable<TProperty>>> postListExpressionSelector)

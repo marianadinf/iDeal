@@ -403,6 +403,7 @@ div#title {
     
     #CreateUserFieldset div.controls-row {
         clear: both;
+        padding-top: 20px;
     }
         #ApplicationPermissionList {
             
@@ -412,7 +413,7 @@ div#title {
             }
             
             #ApplicationPermissionList th, #ApplicationPermissionList td {
-                padding: 11px;
+                padding: 6px;
                 vertical-align: middle;
                 border: 1px solid silver;
                 
@@ -425,6 +426,27 @@ div#title {
             #ApplicationPermissionList :last-child {
                 border-left: none !important;
             }
+            
+            thead.fixedHeader tr {
+                display: block;
+                position: relative;
+            }
+            
+            #ApplicationPermissionList tr [data-property-name=ApplicationRoles] {
+                width: 550px;
+            }
+                                   
+            #ApplicationPermissionList tr [data-property-name=Description] {
+                width: 400px;
+            }                  
+            
+            tbody.scrollContent {
+                display: block;
+                height: 227px;
+                overflow: auto;
+                width: 100%;
+            }
+
             
             
             

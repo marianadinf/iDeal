@@ -43,15 +43,15 @@
         
             @{ var modulePermission = new ApplicationPermissionViewModel(); }
             
-            <table id="@LocalSiteMap.Locators.Grids.ApplicationPermissions">
-                <thead>
+            <table id="@LocalSiteMap.Locators.Grids.ApplicationPermissions" class="scrollTable">
+                <thead class="fixedHeader">
                     <tr>
                         @(modulePermission.HeaderColumnFor(x => x.ApplicationRoles))
                         @(modulePermission.HeaderColumnFor(x => x.Description))
-                        @(modulePermission.HeaderColumnFor(x => x.IsAuthorised,false))
+                        @(modulePermission.HeaderColumnFor(x => x.IsAuthorised))
                     </tr>
                 </thead>
-                <tbody></tbody>
+                <tbody class="scrollContent"></tbody>
             </table>
         
          <hr/>
